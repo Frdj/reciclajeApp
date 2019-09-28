@@ -11,6 +11,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { InformationComponent } from './pages/information/information.component';
 import { RecycleComponent } from './pages/recycle/recycle.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { RetirarComponent } from './pages/retirar/retirar.component';
+import { OfrecerComponent } from './pages/ofrecer/ofrecer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import {MatDividerModule} from '@angular/material/divider';
     ProfileComponent,
     InformationComponent,
     RecycleComponent,
+    RetirarComponent,
+    OfrecerComponent,
   ],
   imports: [
     MatButtonModule,
