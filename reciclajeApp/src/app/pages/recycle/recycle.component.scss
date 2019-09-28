@@ -1,0 +1,30 @@
+.seccion div {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+
+.seccion div:hover {
+    transform: scale(1.07, 1.07)
+}
+
+#hola {
+    background-color: red;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.aparecer {
+    background-color: red
+}
+
+.seccion {
+    border: solid;
+    background-color: red;
+}
+
+#gola {
+    background-color: blue;
+}

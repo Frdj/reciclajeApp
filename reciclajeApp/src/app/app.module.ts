@@ -3,14 +3,31 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { InformationComponent } from './pages/information/information.component';
+import { RecycleComponent } from './pages/recycle/recycle.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NavbarComponent,
+    ProfileComponent,
+    InformationComponent,
+    RecycleComponent,
   ],
   imports: [
+    MatButtonModule,
+    MatDividerModule,
+    BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
