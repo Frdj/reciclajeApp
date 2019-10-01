@@ -1,0 +1,19 @@
+<div class="buscar col-4 ">
+    <div class=" col-4 d-inlineb center">
+        <i class="material-icons">
+                    near_me
+                    </i>
+        <span class="d-block">
+         {{solicitud.localidad}}
+        </span>
+        <span class="d-block">
+        {{solicitud.direccion}}
+        </span>
+    </div>
+    <div class="col-8 mt-2 d-inlineb">
+        <div class="col-6 col d-inlineb" *ngFor="let material of solicitud.materiales">
+            <label>{{material.tipo}}: {{material.cantidad}}</label>
+        </div>
+    </div>
+    <button mat-raised-button class="col-12" color="accent">Retirar</button>
+</div>

@@ -1,11 +1,4 @@
-<body class="aparecer">
-    <div class="buscar col-6" *ngFor="let entrega of listaRetirar">
-        <div class="col-4">
-            {{entrega.nombre}} {{entrega.localidad}}
+<div class="aparecer">
 
-        </div>
-        <div class="col-8">
-            <span></span>
-        </div>
-    </div>
-</body>
+    <app-solicitud class="center" [solicitud]="solicitud" *ngFor="let solicitud of listaRetirar"></app-solicitud>
+</div>

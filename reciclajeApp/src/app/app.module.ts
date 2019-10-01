@@ -13,6 +13,7 @@ import { RecycleComponent } from './pages/recycle/recycle.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { RetirarComponent } from './pages/retirar/retirar.component';
 import { OfrecerComponent } from './pages/ofrecer/ofrecer.component';
+import { SolicitudComponent } from './components/solicitud/solicitud.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { OfrecerComponent } from './pages/ofrecer/ofrecer.component';
     RecycleComponent,
     RetirarComponent,
     OfrecerComponent,
+    SolicitudComponent,
   ],
   imports: [
     MatButtonModule,
