@@ -35,7 +35,33 @@
     box-shadow: 5px 5px 8px 5px #98FF8B;
 }
 
+.shadow {
+    box-shadow: 2px 2px 3px 4px #6D6D6D;
+}
+
+.mt {
+    margin-top: 0px;
+}
+
+i {
+    float: left
+}
+
+.centrado {
+    text-align: center
+}
+
 .aparecer {}
+
+.alert {
+    margin-top: 30px;
+    background-color: #BCFF8A;
+    padding: 20px;
+}
+
+.radius {
+    border-radius: 5px;
+}
 
 .divisor {
     visibility: hidden;
