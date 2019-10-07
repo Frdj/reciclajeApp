@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./retirar.component.scss']
 })
 export class RetirarComponent implements OnInit {
+
 listaRetirar = [{
   nombre: 'Rodrigo Bueno', 
   direccion: 'Lima 1003',
@@ -176,9 +177,11 @@ listaRetirar = [{
 ]
 },]
   constructor() {
+    //ordena x localidad.
    this.listaRetirar = this.listaRetirar.sort((a,b) => (a.localidad > b.localidad) ? 1 : -1);
    }
 
+   
   ngOnInit() {
   }
 
