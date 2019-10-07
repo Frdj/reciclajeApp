@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fviotti\\Facultad\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\ReciclajeApi.csproj": {}
+    "C:\\Users\\jvonelm\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\ReciclajeApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fviotti\\Facultad\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\ReciclajeApi.csproj": {
+    "C:\\Users\\jvonelm\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\ReciclajeApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fviotti\\Facultad\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\ReciclajeApi.csproj",
+        "projectUniqueName": "C:\\Users\\jvonelm\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\ReciclajeApi.csproj",
         "projectName": "ReciclajeApi",
-        "projectPath": "C:\\Users\\fviotti\\Facultad\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\ReciclajeApi.csproj",
-        "packagesPath": "C:\\Users\\fviotti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fviotti\\Facultad\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\obj\\",
+        "projectPath": "C:\\Users\\jvonelm\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\ReciclajeApi.csproj",
+        "packagesPath": "C:\\Users\\jvonelm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jvonelm\\reciclajeApp\\ReciclajeApi\\ReciclajeApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\fviotti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jvonelm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +25,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\SVN\\coelsa\\Productos\\Paquetes Nuget": {},
+          "C:\\Users\\jvonelm\\Downloads": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,6 +43,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[1.60.1, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -57,13 +63,23 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.17, )"
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
