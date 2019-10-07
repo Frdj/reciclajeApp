@@ -3,8 +3,11 @@
         <input matInput (keyup)="filtrar(buscador.value)" #buscador placeholder="Buscar material..." value="Buscar material...">
     </mat-form-field>
 
+    <div class="alert alert-warning fadeIn" *ngIf="aux.length == 0">
+        <span>No se han encontrado resultados! Buscá    otro material</span>
+    </div>
 
-    <table class="table table-hover">
+    <table class=" table table-hover fadeIn " *ngIf="aux.length> 0">
         <thead>
             <tr>
                 <th>
@@ -29,11 +32,17 @@
                 <td>
                     {{tip.info}}
                 </td>
-                <td>
-                    {{tip.reciclable}}
+                <td *ngIf="tip.reciclable" class="text-success">
+                    X
                 </td>
-                <td>
-                    {{tip.noReciclable}}
+                <td *ngIf="!tip.reciclable">
+
+                </td>
+                <td *ngIf="!tip.reciclable" class="text-danger">
+                    X
+                </td>
+                <td *ngIf="tip.reciclable">
+
                 </td>
             </tr>
         </tbody>

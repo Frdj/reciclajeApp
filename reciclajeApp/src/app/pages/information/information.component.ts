@@ -8,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class InformationComponent implements OnInit {
 
 informacion = [
-  {info: 'aaaaa ', material: 'plastico', reciclable: true, noReciclable: false},
-  {info: 'bbbbb', material: 'Vidrio', reciclable: true, noReciclable: false},
-  {info: 'cccc', material: 'Carton', reciclable: true, noReciclable: false},
-  {info: 'ddd', material: 'Papel', reciclable: true, noReciclable: false},
-  {info: 'fff', material: 'Tela', reciclable: true, noReciclable: false},
-  {info: 'wwww', material: 'Goma', reciclable: true, noReciclable: false},
-  {info: 'adad', material: 'Metal', reciclable: true, noReciclable: false},
-  {info: 'aaaaat', material: 'Cuero', reciclable: true, noReciclable: false},
+  {info: 'aaaaa ', material: 'Plástico', reciclable: false},
+  {info: 'bbbbb', material: 'Vidrio', reciclable: true},
+  {info: 'cccc', material: 'Cartón', reciclable: true},
+  {info: 'ddd', material: 'Papel', reciclable: true},
+  {info: 'fff', material: 'Tela', reciclable: false},
+  {info: 'wwww', material: 'Goma', reciclable: true},
+  {info: 'adad', material: 'Metal', reciclable: true},
+  {info: 'aaaaat', material: 'Cuero', reciclable: false},
 ]
 aux = []
   constructor() {
@@ -30,7 +30,7 @@ aux = []
   if(valor === ''){
     this.aux = this.informacion.slice();
   }else{
-    this.aux = this.aux.filter(material => valor);
+    this.aux = this.aux.filter(tip => tip.material.toLocaleLowerCase().includes(valor.toLocaleLowerCase()));
   }
   }
 }
