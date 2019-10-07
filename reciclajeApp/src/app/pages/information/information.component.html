@@ -1,1 +1,41 @@
-<h1>Tips!</h1>
+<div class="container">
+    <mat-form-field class="example-full-width">
+        <input matInput (keyup)="filtrar(buscador.value)" #buscador placeholder="Buscar material..." value="Buscar material...">
+    </mat-form-field>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Material
+                </th>
+                <th>
+                    Info
+                </th>
+                <th>
+                    Reciclable
+                </th>
+                <th>
+                    No reciclable
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let tip of aux">
+            <tr>
+                <td>
+                    {{tip.material}}
+                </td>
+                <td>
+                    {{tip.info}}
+                </td>
+                <td>
+                    {{tip.reciclable}}
+                </td>
+                <td>
+                    {{tip.noReciclable}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
