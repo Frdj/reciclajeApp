@@ -44,7 +44,19 @@
 }
 
 i {
-    float: left
+    float: left;
+    animation-name: "vibrar";
+    animation-duration: 2s;
+    transition: 0.5s;
+}
+
+@keyframes vibrar {
+    from {
+        transform: rotate (200deg);
+    }
+    to {
+        transform: rotate (-200deg);
+    }
 }
 
 .centrado {
