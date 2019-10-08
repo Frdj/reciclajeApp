@@ -1,26 +1,19 @@
-<div class="navbar">
-    <!--<button class="navbar-btn border-right"><i class="material-icons">
-        info
-        </i>Conocé</button>
-    <button class="navbar-btn border-right"><i class="material-icons">
-        autorenew
-        </i>Reciclá</button>
-    <button class="navbar-btn"><i class="material-icons">
-        perm_identity
-        </i>Mi perfil</button>
-    -->
-    <button class="navbar-btn col-4" routerLink="information" mat-raised-button color="accent"><i class="material-icons">
-        info
-        </i>Conocé</button>
-    <button class="navbar-btn col-4" routerLink="recycle" mat-raised-button color="accent"><i class="material-icons">
-        autorenew
-        </i>Reciclá</button>
-    <button class="navbar-btn col-4" routerLink="profile" mat-raised-button color="accent"><i class="material-icons">
-        perm_identity
-        </i>Mi perfil</button>
-
-
-
-
-
-</div>
+<app-nuevo-pedido></app-nuevo-pedido>
+<mat-toolbar class="navbar" color="primary">
+    <div class="icono" routerLink="information">
+        <mat-icon aria-hidden="false">lightbulb</mat-icon>
+        <span>Tips</span>
+    </div>
+    <div class="icono">
+        <mat-icon aria-hidden="false">list</mat-icon>
+        <span>Posts</span>
+    </div>
+    <div class="icono" routerLink="recycle">
+        <mat-icon aria-hidden="false">home</mat-icon>
+        <span>Home</span>
+    </div>
+    <div class="icono" routerLink="profile">
+        <mat-icon aria-hidden="false">person</mat-icon>
+        <span>Perfil</span>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,10 @@
+td,
+th {
+    text-align: center;
+}
+
+@media only screen and (max-width: 510px) {
+    span {
+        font-size: 12px;
+    }
+}

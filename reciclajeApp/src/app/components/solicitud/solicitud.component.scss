@@ -21,9 +21,29 @@
         margin-right: auto;
     }
     
+    label {
+        font-size: 14px;
+    }
+    
     .material-icons {
         color: red;
         display: block;
+    }
+    
+    .confirmDialog {
+        border: none;
+        height: 20%;
+        animation-name: entrar;
+        animation-duration: 0.5s;
+    }
+    
+    @keyframes entrar {
+        from {
+            transform: scale(0, 0);
+        }
+        to {
+            transform: scale(1, 1);
+        }
     }
     
     @media only screen and (max-width: 910px) {
