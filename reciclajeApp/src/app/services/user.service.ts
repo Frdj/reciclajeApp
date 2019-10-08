@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { MescelaneasService } from './mescelaneas.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-URL = 'localhost/4054';
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private miscelaneas: MescelaneasService) {
   
    }
 
@@ -19,6 +19,6 @@ URL = 'localhost/4054';
       headers: headers,
       body: body,
   };
-     return this.http.get(`${this.URL}/api/perfil/getperfil`,).pipe(map(res => res));
+     return this.http.get(`${this.miscelaneas.getURL()}/api/perfil/getperfil`,).pipe(map(res => res));
    }
 }

@@ -1,5 +1,5 @@
-<div class="buscar col-lg-4 col-11 ">
-    <div class=" col-4 d-inlineb center">
+<div class="buscar col-lg-4 col-11 row  p-0">
+    <div class="col-4 ">
         <i class="material-icons">
             near_me
         </i>
@@ -10,10 +10,23 @@
             {{solicitud.direccion}}
         </span>
     </div>
-    <div class="col-8 mt-2 d-inlineb">
-        <div class="col-6 col d-inlineb" *ngFor="let material of solicitud.materiales">
+    <div class="col-8 mt-2 row">
+        <div class=" col-6" *ngFor="let material of solicitud.materiales">
             <label>{{material.tipo}}: {{material.cantidad}}</label>
         </div>
     </div>
-    <button mat-raised-button class="col-12" color="accent">Retirar</button>
+    <button mat-raised-button [disabled]="tomado" (click)="openConfirm()" class="btn-block p-0" color="primary">Retirar</button>
 </div>
+
+<dialog id="modal{{i}}" class="confirmDialog shadow col-11 col-lg-4">
+
+    <div class="">
+        <span>Confirmar retiro del pedido?</span>
+        <div class="row justify-content-end mt-5">
+            <button mat-raised-button (click)="confirmar()" class="col-3 mr-2" color="accent">Confirmar</button>
+            <button mat-raised-button (click)="cerrar()" class="col-3 p-0 mr-2" color="warn">Cancelar</button>
+
+        </div>
+    </div>
+
+</dialog>

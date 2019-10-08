@@ -21,6 +21,7 @@ import { RecycleComponent } from './pages/recycle/recycle.component';
 import { RetirarComponent } from './pages/retirar/retirar.component';
 import { OfrecerComponent } from './pages/ofrecer/ofrecer.component';
 import { SolicitudComponent } from './components/solicitud/solicitud.component';
+import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SolicitudComponent } from './components/solicitud/solicitud.component';
     RetirarComponent,
     OfrecerComponent,
     SolicitudComponent,
+    NuevoPedidoComponent,
   ],
   imports: [
     HttpClientModule,
