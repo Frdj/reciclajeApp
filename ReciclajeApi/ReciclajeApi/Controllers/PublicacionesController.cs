@@ -74,6 +74,32 @@ namespace ReciclajeApi.Controllers
             }
         }
 
+        [HttpGet("[action]/{email}")]
+        public async Task<IActionResult> GetPublicaciones(string email)
+        {
+            try
+            {
+                var query = "SELECT idUsuario FROM usuarios WHERE email = @email";
+                var parameter = new DynamicParameters();
+                parameter.Add("@email", email);
+
+                int idUsuario = (await _cnn.QueryAsync<int>(query, parameter)).SingleOrDefault();
+
+                query = "SELECT * FROM publicaciones WHERE idUsuarioP != @idUsuario AND idUsuarioR != @idUsuario";
+                var parameter2 = new DynamicParameters();
+                parameter2.Add("@idUsuario", idUsuario);
+
+                var publicaciones = (await _cnn.QueryAsync<Publicacion>(query, parameter2)).ToList();
+
+                return Ok(publicaciones);
+            }
+            catch (Exception e)
+            {
+                // TODO: Hacer algo en caso de error
+                return Ok(null);
+            }
+        }
+
         // =============================
         //              METODOS
         // =============================
