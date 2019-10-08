@@ -13,8 +13,8 @@ export class NuevoPedidoComponent implements OnInit {
   ngOnInit() {
   }
 
-  nuevoPedido(){
-    this.router.navigate('[ofrecer]')
-  }
+  // nuevoPedido(){
+  //   this.router.navigate('[ofrecer]');
+  // }
 
 }

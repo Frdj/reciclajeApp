@@ -8,11 +8,13 @@ import { Usuario } from 'src/app/models/Usuario';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-usuario: Usuario;
-mailPrueba = 'amantedelacomida53@aol.com';
+
+  usuario: Usuario;
+  mailPrueba = 'amantedelacomida53@aol.com';
+
   constructor(private _user: UserService) {
     this._user.getUserDate(this.mailPrueba).subscribe(user => this.usuario = user[0]);
-   }
+  }
 
   ngOnInit() {
   }

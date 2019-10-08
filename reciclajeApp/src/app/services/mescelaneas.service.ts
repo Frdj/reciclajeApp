@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class MescelaneasService {
 
-  private URL = 'localhost';
+  private URL = 'http://localhost:8080';
 
   constructor() { }
 
-  getURL(){
+  getURL() {
     return this.URL;
   }
 }
