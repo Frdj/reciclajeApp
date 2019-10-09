@@ -104,26 +104,23 @@ namespace ReciclajeApi.Controllers
         //              METODOS
         // =============================
 
-        public async Task<bool> enviarMail(string asunto, List<string> destinatarios, string mensaje)
+        public async Task<bool> enviarMail(string asunto, string destinatario, string mensaje)
         {
             try
             {
 
-                string user = "";
-                string password = "";
-                string server = "";
+                string user = "reciclajeapp.notificaciones@gmail.com";
+                string password = "Zurita.2015";
+                string server = "smtp.gmail.com";
 
                 using (var client = new MailKit.Net.Smtp.SmtpClient())
                 {
-                    await client.ConnectAsync(server, 25, SecureSocketOptions.None);
+                    await client.ConnectAsync(server, 587, SecureSocketOptions.Auto);
                     await client.AuthenticateAsync(user, password); // autentificacion
 
                     var message = new MimeMessage();
 
-                    foreach (var c in destinatarios)
-                    {
-                        message.To.Add(new MailboxAddress(c, c)); // Destinatarios
-                    }
+                    message.To.Add(new MailboxAddress(destinatario, destinatario)); // Destinatario
 
                     if (message.To.Count == 0) // Lista destinatario vacia
                     {
@@ -133,7 +130,7 @@ namespace ReciclajeApi.Controllers
                     message.From.Add(new MailboxAddress("Reciclaje App", user)); // Origen
                     message.Subject = asunto; // Asunto
 
-                    string body = ""; // Mensaje
+                    string body = mensaje; // Mensaje
                     message.Body = new TextPart("html") { Text = body }; // Agrego cuerpo del correo
 
                     var cancelSource = new CancellationTokenSource(10000);
