@@ -1,50 +1,49 @@
 .seccion {
-  height: 100%;
-  position: relative;
-  top: 50px;
-  text-align: center;
+    height: 100%;
+    position: relative;
+    top: 50px;
+    text-align: center;
 }
 
 .seccion div {
-  display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .seccion div:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .seccion div img {
-  transition: 0.5s;
-  border-radius: 5%;
+    transition: 0.5s;
+    border-radius: 5%;
 }
 
 .seccion div img:hover {
-  transform: scale(1.07, 1.07);
+    transform: scale(1.07, 1.07);
 }
 
 .card {
-  transition: 0.3s;
-  border: #98ff8b solid 1.2px;
-  border-radius: 10px;
-  padding: 10px;
+    transition: 0.3s;
+    border: #98ff8b solid 1.2px;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .card:hover {
-  box-shadow: 5px 5px 8px 5px #98ff8b;
+    box-shadow: 5px 5px 8px 5px #98ff8b;
 }
 
 .shadow {
-  box-shadow: 2px 2px 3px 4px #6d6d6d;
+    box-shadow: 2px 2px 3px 4px #6d6d6d;
 }
 
 .mt {
-  margin-top: 0px;
+    margin-top: 0px;
 }
 
 i {
-<<<<<<< HEAD
     float: left;
     animation-name: "vibrar";
     animation-duration: 2s;
@@ -58,57 +57,53 @@ i {
     to {
         transform: rotate (-200deg);
     }
-=======
-  float: left;
->>>>>>> 4dee2bf06459a6d2787d4077238671274d23bd65
 }
 
 .centrado {
-  text-align: center;
+    text-align: center;
 }
 
 // .aparecer {}
-
 .alert {
-  margin-top: 30px;
-  background-color: #bcff8a;
-  padding: 20px;
+    margin-top: 30px;
+    background-color: #bcff8a;
+    padding: 20px;
 }
 
 .radius {
-  border-radius: 5px;
+    border-radius: 5px;
 }
 
 .divisor {
-  visibility: hidden;
-  height: 500px;
-  width: 1px;
-  background-color: green;
-  opacity: 0.7;
-  margin-left: 5px;
-  margin-right: 5px;
+    visibility: hidden;
+    height: 500px;
+    width: 1px;
+    background-color: green;
+    opacity: 0.7;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 @media only screen and (max-width: 910px) {
-  img {
-    height: 250px;
-    width: 250px;
-  }
-  .divisor {
-    display: none;
-    height: 250px;
-  }
+    img {
+        height: 250px;
+        width: 250px;
+    }
+    .divisor {
+        display: none;
+        height: 250px;
+    }
 }
 
 @media only screen and (max-width: 606px) {
-  img {
-    height: 150px;
-    width: 150px;
-  }
-  .aparecer .seccion {
-    margin-bottom: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    img {
+        height: 150px;
+        width: 150px;
+    }
+    .aparecer .seccion {
+        margin-bottom: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
