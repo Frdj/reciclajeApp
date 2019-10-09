@@ -22,7 +22,7 @@ namespace ReciclajeApi.Controllers
             _cnn = cnn;
         }
 
-        [HttpGet("[action]/{email}")]
+        [HttpGet("[action]/{email}")] // Obtener las publicaciones creadas por el usuario
         public async Task<IActionResult> GetPublicacionesCreadas(string email)
         {
             try
@@ -48,7 +48,7 @@ namespace ReciclajeApi.Controllers
             }
         }
 
-        [HttpGet("[action]/{email}")]
+        [HttpGet("[action]/{email}")] // Obtener las publicaciones aceptadas por el usuario
         public async Task<IActionResult> GetPublicacionesAceptadas(string email)
         {
             try
@@ -74,7 +74,7 @@ namespace ReciclajeApi.Controllers
             }
         }
 
-        [HttpGet("[action]/{email}")]
+        [HttpGet("[action]/{email}")] // Obtener todas las publicaciones mientras sean distintas del mismo usuario
         public async Task<IActionResult> GetPublicaciones(string email)
         {
             try
@@ -85,7 +85,7 @@ namespace ReciclajeApi.Controllers
 
                 int idUsuario = (await _cnn.QueryAsync<int>(query, parameter)).SingleOrDefault();
 
-                query = "SELECT * FROM publicaciones WHERE idUsuarioP != @idUsuario AND idUsuarioR != @idUsuario";
+                query = "SELECT * FROM publicaciones WHERE idUsuarioP != @idUsuario AND idUsuarioR IS NULL";
                 var parameter2 = new DynamicParameters();
                 parameter2.Add("@idUsuario", idUsuario);
 
@@ -97,6 +97,29 @@ namespace ReciclajeApi.Controllers
             {
                 // TODO: Hacer algo en caso de error
                 return Ok(null);
+            }
+        }
+
+        [HttpPost("[action]")] // Acepta una oferta para retirar
+        public async Task<IActionResult> AceptarOferta(Publicacion_Usuario publicacion_Usuario)
+        {
+            try
+            {
+                var query = "UPDATE publicaciones SET idUsuarioR = @idUsuarioR WHERE idPublicacion = @idPublicacion";
+                var parameter = new DynamicParameters();
+                parameter.Add("@idUsuarioR", publicacion_Usuario.usuario.idUsuario);
+                parameter.Add("@idPublicacion", publicacion_Usuario.publicacion.idPublicacion);
+
+                await _cnn.QueryAsync(query, parameter); // TODO: Validar si se ejecuto correctamente
+                await enviarMail("ReciclajeAPP - Te aceptaron tu publicación", publicacion_Usuario.publicacion.usuarioP.email, "Estimado/a,<br>Aceptaron tu publicación");
+                // TODO: Mensaje de "Te aceptaron tu publicacióN"
+
+                return Ok(true);
+            }
+            catch (Exception e)
+            {
+                // TODO: Hacer algo en caso de error
+                return Ok(false);
             }
         }
 
@@ -143,6 +166,7 @@ namespace ReciclajeApi.Controllers
             }
             catch (Exception e)
             {
+                // TODO: Hacer algo en caso de error
                 return false;
             }
         }
