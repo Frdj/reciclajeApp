@@ -85,7 +85,7 @@ namespace ReciclajeApi.Controllers
 
                 int idUsuario = (await _cnn.QueryAsync<int>(query, parameter)).SingleOrDefault();
 
-                query = "SELECT * FROM publicaciones WHERE idUsuarioP != @idUsuario AND idUsuarioR != @idUsuario";
+                query = "SELECT * FROM publicaciones WHERE idUsuarioP != @idUsuario AND idUsuarioR IS NULL";
                 var parameter2 = new DynamicParameters();
                 parameter2.Add("@idUsuario", idUsuario);
 
@@ -111,6 +111,8 @@ namespace ReciclajeApi.Controllers
                 parameter.Add("@idPublicacion", publicacion_Usuario.publicacion.idPublicacion);
 
                 await _cnn.QueryAsync(query, parameter); // TODO: Validar si se ejecuto correctamente
+                await enviarMail("ReciclajeAPP - Te aceptaron tu publicación", publicacion_Usuario.publicacion.usuarioP.email, "Estimado/a,<br>Aceptaron tu publicación");
+                // TODO: Mensaje de "Te aceptaron tu publicacióN"
 
                 return Ok(true);
             }
