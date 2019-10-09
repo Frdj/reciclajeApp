@@ -17,7 +17,7 @@ namespace ReciclajeApi.Controllers
 
         // TODO: Registro y Login de usuario
 
-        [HttpGet("[action]/{email}")]
+        [HttpGet("[action]/{idUsuario}")]
         public async Task<IActionResult> GetPuntosByUsuario(string idUsuario)
         {
             try
