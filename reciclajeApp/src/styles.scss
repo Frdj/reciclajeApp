@@ -4,6 +4,7 @@ font-family: 'Muli', sans-serif;
 font-family: 'Rubik', sans-serif;
 */
 
+<<<<<<< HEAD
 html,
 body {
     font-family: 'Nunito', sans-serif;
@@ -11,30 +12,31 @@ body {
     background-color: #62B7A1;
 }
 
+=======
+// html,
+// body {
+//     height: 100%;
+// }
+>>>>>>> 4dee2bf06459a6d2787d4077238671274d23bd65
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 * {
     box-sizing: border-box;
 }
 
-.container {
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
 .aparecer {
     animation-name: fadeInAndSlice;
     animation-duration: 0.5s;
     position: relative;
-    transition: 0.5s
+    transition: 0.5s;
 }
 
 .fadeIn {
-    animation-name: "fadeIn";
-    animation-duration: 3s;
+    animation-name: 'fadeIn';
+    animation-duration: 1s;
 }
 
 .d-block {
@@ -65,7 +67,7 @@ body {
     }
     to {
         opacity: 1;
-        top: 0px
+        top: 0px;
     }
 }
 
@@ -74,49 +76,49 @@ body {
 }
 
 .col-1 {
-    width: 8.33%
+    width: 8.33%;
 }
 
 .col-2 {
-    width: 16.667%
+    width: 16.667%;
 }
 
 .col-3 {
-    width: 25%
+    width: 25%;
 }
 
 .col-4 {
-    width: 33.32%
+    width: 33.32%;
 }
 
 .col-5 {
-    width: 41.65%
+    width: 41.65%;
 }
 
 .col-6 {
-    width: 48%
+    width: 48%;
 }
 
 .col-7 {
-    width: 58.31%
+    width: 58.31%;
 }
 
 .col-8 {
-    width: 66.64%
+    width: 66.64%;
 }
 
 .col-9 {
-    width: 74.97%
+    width: 74.97%;
 }
 
 .col-10 {
-    width: 83.3%
+    width: 83.3%;
 }
 
 .col-11 {
-    width: 91.63%
+    width: 91.63%;
 }
 
 .col-12 {
-    width: 100%
+    width: 100%;
 }

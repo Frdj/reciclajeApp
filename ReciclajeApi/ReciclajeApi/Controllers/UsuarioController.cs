@@ -7,37 +7,36 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ReciclajeApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PerfilController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
         private readonly IDbConnection _cnn;
-
-        public PerfilController(IDbConnection cnn)
+        public UsuarioController(IDbConnection cnn)
         {
             _cnn = cnn;
         }
 
-        [HttpGet("[action]/{email}")]
-        public async Task<IActionResult> GetPerfil(string email)
+        // TODO: Registro y Login de usuario
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetPuntosByUsuario([FromBody] string idUsuario)
         {
             try
             {
-                var perfil = new Usuario();
+                int puntos = 0;
+
                 var query = "SELECT * FROM usuarios WHERE email = @email";
                 var parameter = new DynamicParameters();
-                parameter.Add("@email", email);
+                parameter.Add("@idUsuario", idUsuario);
 
-                perfil = (await _cnn.QueryAsync<Usuario>(query, parameter)).SingleOrDefault();
+                puntos = (await _cnn.QueryAsync<int>(query, parameter)).SingleOrDefault();
 
-                return Ok(perfil);
+                return Ok(puntos);
             }
             catch (Exception e)
             {
                 // TODO: Hacer algo en caso de error
-                return Ok(null);
+                return Ok(0);
             }
         }
-
     }
 }
