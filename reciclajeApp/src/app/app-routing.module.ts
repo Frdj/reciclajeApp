@@ -6,6 +6,7 @@ import { InformationComponent } from './pages/information/information.component'
 import { RecycleComponent } from './pages/recycle/recycle.component';
 import { OfrecerComponent } from './pages/ofrecer/ofrecer.component';
 import { RetirarComponent } from './pages/retirar/retirar.component';
+import { NewPublishComponent } from './pages/new-publish/new-publish.component';
 
 
 const routes: Routes = [
@@ -14,8 +15,9 @@ const routes: Routes = [
   { path: 'information', component: InformationComponent },
   { path: 'recycle', component: RecycleComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'ofrecer', component: OfrecerComponent },
+  { path: 'ofrecer', component: NewPublishComponent },
   { path: 'retirar', component: RetirarComponent },
+
   { path: '**', component: HomeComponent }
 ];
 
