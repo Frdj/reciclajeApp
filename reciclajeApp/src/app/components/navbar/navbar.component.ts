@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  currentUrl: string;
+
+  constructor(
+    public router: Router
+  ) {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationStart) {
+        this.currentUrl = event.url;
+      }
+    });
+
+  }
 
   ngOnInit() {
   }
