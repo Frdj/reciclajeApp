@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   currentUrl: string;
 
   constructor(
+    private misce: MescelaneasService,
     public router: Router
   ) {
     this.router.events.subscribe((event: any) => {
@@ -25,5 +26,5 @@ export class NavbarComponent implements OnInit {
 
   redirigir(path: string){
     this.misce.redireccionar(path);
-  }
+  } 
 }
