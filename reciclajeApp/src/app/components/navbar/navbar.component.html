@@ -1,6 +1,6 @@
-<app-nuevo-pedido></app-nuevo-pedido>
+<app-nuevo-pedido *ngIf="misce.showNewPub"></app-nuevo-pedido>
 <mat-toolbar class="navbar" color="primary">
-    <div class="icono" routerLink="information">
+    <div class="icono" (click)="redirigir('information')">
         <mat-icon aria-hidden="false">lightbulb</mat-icon>
         <span>Tips</span>
     </div>
@@ -8,11 +8,11 @@
         <mat-icon aria-hidden="false">list</mat-icon>
         <span>Posts</span>
     </div>
-    <div class="icono" routerLink="recycle">
+    <div class="icono" (click)="redirigir('recycle')">
         <mat-icon aria-hidden="false">home</mat-icon>
         <span>Home</span>
     </div>
-    <div class="icono" routerLink="profile">
+    <div class="icono" (click)="redirigir('profile')">
         <mat-icon aria-hidden="false">person</mat-icon>
         <span>Perfil</span>
     </div>

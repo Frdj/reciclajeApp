@@ -34,13 +34,17 @@
                         {{tip.info}}
                     </td>
                     <td *ngIf="tip.reciclable" class="text-success">
-                        X
+                        <i class="material-icons">
+                            check
+                            </i>
                     </td>
                     <td *ngIf="!tip.reciclable">
 
                     </td>
                     <td *ngIf="!tip.reciclable" class="text-danger">
-                        X
+                        <i class="material-icons">
+                            clear
+                            </i>
                     </td>
                     <td *ngIf="tip.reciclable">
 
