@@ -9,6 +9,7 @@ namespace ReciclajeApi{
         public string apellido {get; set;}
         public DateTime fechaNacimiento {get; set;}
         public string FotoDePerfil {get; set;}
+        public int telefono {get; set;}
 
     }
 }

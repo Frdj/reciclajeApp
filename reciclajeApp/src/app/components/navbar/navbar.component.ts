@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MescelaneasService } from '../../services/mescelaneas.service';
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  currentUrl: string;
 
-  constructor(private router: Router,private misce: MescelaneasService) { }
+  constructor(
+    public router: Router
+  ) {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationStart) {
+        this.currentUrl = event.url;
+      }
+    });
 
+  }
   ngOnInit() {
   }
 

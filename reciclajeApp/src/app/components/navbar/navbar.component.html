@@ -1,13 +1,14 @@
-<app-nuevo-pedido *ngIf="misce.showNewPub"></app-nuevo-pedido>
+<app-nuevo-pedido *ngIf="currentUrl !== '/recycle'"></app-nuevo-pedido>
 <mat-toolbar class="navbar" color="primary">
     <div class="icono" (click)="redirigir('information')">
         <mat-icon aria-hidden="false">lightbulb</mat-icon>
-        <span>Tips</span>
+        <span>Info</span>
     </div>
-    <div class="icono">
+    <!-- <div class="icono">
         <mat-icon aria-hidden="false">list</mat-icon>
         <span>Posts</span>
-    </div>
+<<<<<<< HEAD
+    </div>-->
     <div class="icono" (click)="redirigir('recycle')">
         <mat-icon aria-hidden="false">home</mat-icon>
         <span>Home</span>

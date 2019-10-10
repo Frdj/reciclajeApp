@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { InformationService } from '../../services/information.service';
 import { MescelaneasService } from '../../services/mescelaneas.service';
 
@@ -14,20 +14,19 @@ export class RecycleComponent implements OnInit {
     tip: string;
   constructor(private router: Router,private misce: MescelaneasService, private _informacion: InformationService) { 
     this.tip = this.getTip();
-   //this._informacion.getTip().subscribe(tip =>  this.tip = tip as string);
-   this.startIntervalo();
+    //this._informacion.getTip().subscribe(tip =>  this.tip = tip as string);
+    this.startIntervalo();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  startIntervalo(){
-    setInterval(() => 
-    this.getTip() //delete this line when API is ready  
-    //{this._informacion.getTip().subscribe(tip => this.tip = tip as string), console.log('renueva tip')}
-    ,15000);
+  startIntervalo() {
+    setInterval(() =>
+      this.getTip() //delete this line when API is ready  
+      //{this._informacion.getTip().subscribe(tip => this.tip = tip as string), console.log('renueva tip')}
+      , 15000);
   }
-  redirigir(page: string){
+    redirigir(page: string){
     this.misce.redireccionar(page);
       }
     getTip(){
