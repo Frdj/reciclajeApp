@@ -8,6 +8,7 @@ using Dapper;
 using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
+using ReciclajeApi.Business.ICoordinators;
 
 namespace ReciclajeApi.Controllers
 {
@@ -15,11 +16,13 @@ namespace ReciclajeApi.Controllers
     [ApiController]
     public class PublicacionesController : ControllerBase
     {
+        private readonly IPublicacionCoordinator publicacionCoordinator;
 
         private readonly IDbConnection _cnn;
-        public PublicacionesController(IDbConnection cnn)
+        public PublicacionesController(IDbConnection cnn, IPublicacionCoordinator publicacionCoordinator)
         {
             _cnn = cnn;
+            this.publicacionCoordinator = publicacionCoordinator;
         }
 
         [HttpGet("[action]/{email}")] // Obtener las publicaciones creadas por el usuario
@@ -37,7 +40,7 @@ namespace ReciclajeApi.Controllers
                 var parameter2 = new DynamicParameters();
                 parameter2.Add("@idUsuarioP", idUsuarioP);
 
-                var publicaciones = (await _cnn.QueryAsync<Publicacion>(query, parameter2)).ToList();
+                var publicaciones = _cnn.Query<Publicacion>(query, new { idUsuarioP = idUsuarioP }).ToList();
 
                 return Ok(publicaciones);
             }
@@ -79,19 +82,8 @@ namespace ReciclajeApi.Controllers
         {
             try
             {
-                var query = "SELECT idUsuario FROM usuarios WHERE email = @email";
-                var parameter = new DynamicParameters();
-                parameter.Add("@email", email);
 
-                int idUsuario = (await _cnn.QueryAsync<int>(query, parameter)).SingleOrDefault();
-
-                query = "SELECT * FROM publicaciones WHERE idUsuarioP != @idUsuario AND idUsuarioR IS NULL";
-                var parameter2 = new DynamicParameters();
-                parameter2.Add("@idUsuario", idUsuario);
-
-                var publicaciones = (await _cnn.QueryAsync<Publicacion>(query, parameter2)).ToList();
-
-                return Ok(publicaciones);
+                return Ok();
             }
             catch (Exception e)
             {
