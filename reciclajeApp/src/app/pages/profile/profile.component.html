@@ -5,12 +5,12 @@
 </div>
 
 <div class="nombre">
-    <h3>Santiago Mamani</h3>
+    <h3>{{ usuario.nombre }} {{ usuario.apellido }}</h3>
 </div>
 
 <form class="example-form">
     <mat-form-field class="example-full-width">
-        <input matInput readonly="true" placeholder="Email" value="jmamani@uade.edu.ar">
+        <input matInput readonly="true" placeholder="Email" [value]="usuario.email">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">

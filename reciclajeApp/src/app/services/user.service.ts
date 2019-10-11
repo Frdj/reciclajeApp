@@ -14,13 +14,7 @@ export class UserService {
 
   }
 
-  getUserDate(id: string) {
-    let body = JSON.stringify(id);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    var requestOptions = {
-      headers: headers,
-      body: body,
-    };
-    return this.http.get(`${this.miscelaneas.getURL()}/api/perfil/getperfil`).pipe(map(res => res));
+  getPerfil(email: string) {
+    return this.http.get(`${this.miscelaneas.getURL()}/api/perfil/getperfil/${email}`).pipe(map(res => res));
   }
 }

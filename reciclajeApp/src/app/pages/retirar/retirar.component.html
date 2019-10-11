@@ -5,7 +5,7 @@
         <mat-checkbox (change)="filtrar($event)">Plástico</mat-checkbox>
         <mat-checkbox (change)="filtrar($event)">Papel</mat-checkbox>
     </div>
-    <app-solicitud class="ret" [index]="i" [solicitud]="solicitud"
-        *ngFor="let solicitud of listaRetirar; let i = index"></app-solicitud>
+    <app-solicitud class="ret" [index]="i" [solicitud]="solicitud" *ngFor="let solicitud of aux; let i = index">
+    </app-solicitud>
 
 </div>

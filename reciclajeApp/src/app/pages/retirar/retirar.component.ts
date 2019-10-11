@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RetirarComponent implements OnInit {
 
+  aux = [];
+
   listaRetirar = [{
     nombre: 'Rodrigo Bueno',
     direccion: 'Lima 1003',
@@ -179,6 +181,7 @@ export class RetirarComponent implements OnInit {
   constructor() {
     //ordena x localidad.
     this.listaRetirar = this.listaRetirar.sort((a, b) => (a.localidad > b.localidad) ? 1 : -1);
+    this.aux = this.listaRetirar;
   }
 
 
@@ -187,13 +190,14 @@ export class RetirarComponent implements OnInit {
 
   filtrar(event) {
     console.log(event.source._checked);
+    const checked: boolean = event.source._checked;
     /*
     mat-checkbox-1 -> cartón
     mat-checkbox-2 -> papel
     mat-checkbox-3 -> vidrio
     mat-checkbox-4 -> plástico
     */
-    if (event.source._checked) {
+    if (checked) {
       switch (event.source.id) {
         case 'mat-checkbox-1':
           this.filtrarPorMaterial(0);
@@ -210,12 +214,37 @@ export class RetirarComponent implements OnInit {
         default:
           break;
       }
+    } else {
+      switch (event.source.id) {
+        case 'mat-checkbox-1':
+          this.agregarPorMaterial(0);
+          break;
+        case 'mat-checkbox-2':
+          this.agregarPorMaterial(1);
+          break;
+        case 'mat-checkbox-3':
+          this.agregarPorMaterial(2);
+          break;
+        case 'mat-checkbox-4':
+          this.agregarPorMaterial(3);
+          break;
+        default:
+          break;
+      }
     }
   }
 
   filtrarPorMaterial(material: number) {
-    this.listaRetirar = this.listaRetirar.filter((publicacion: any) => {
+    this.aux = this.listaRetirar.filter((publicacion: any) => {
       if (publicacion.materiales[material].cantidad > 0) {
+        return publicacion;
+      }
+    })
+  }
+
+  agregarPorMaterial(material: number) {
+    this.aux = this.listaRetirar.filter((publicacion: any) => {
+      if (publicacion.materiales[material].cantidad >= 0) {
         return publicacion;
       }
     })
