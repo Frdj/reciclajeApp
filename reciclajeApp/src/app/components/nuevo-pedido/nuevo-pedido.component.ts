@@ -17,4 +17,5 @@ redirigir(page: string){
   this.misce.redireccionar(page);
 }
 
+
 }
