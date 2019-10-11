@@ -1,14 +1,22 @@
-div {
-    text-align: center;
-    text-justify: center;
-    align-items: center;
-    justify-items: center;
-    justify-content: center;
-    margin-bottom: 100px;
+.ret {
+  text-align: center;
+  text-justify: center;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
 }
 
-.da {}
-
 .center {
-    display: inline
+  display: inline;
+}
+
+.filtrado {
+  width: 90%;
+  display: flex;
+  padding: 1rem;
+  justify-content: space-evenly;
+  margin: 1rem auto;
+  background-color: white;
+  box-shadow: 2px 3px 10px #404040;
 }

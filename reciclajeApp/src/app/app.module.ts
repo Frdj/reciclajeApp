@@ -10,7 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +40,7 @@ import { MatOptionModule } from '@angular/material/core';
     OfrecerComponent,
     SolicitudComponent,
     NuevoPedidoComponent,
-        NewPublishComponent,
+    NewPublishComponent,
   ],
   imports: [
 
@@ -55,7 +56,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatCardModule,
     MatInputModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
