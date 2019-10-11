@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Nueva publicación</h2>
+    <hr/>
+    <div *ngFor="let material of materiales; let i = index">
+        <mat-form-field class="example-full-width p-1">
+            <input type="text" placeholder="Seleccionar material..." aria-label="Number" matInput [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of tipoMateriales" [value]="materiales[i].tipo">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="example-full-width p-1">
+            <input type="number" matInput placeholder="Cantidad" [value]="materiales[i].cantidad">
+        </mat-form-field>
+
+    </div>
+    <div class="row justify-content-center">
+        <button type="button" class="btn btn-primary btn-block" (click)="AddElement()">Agregar nuevo reciduo <i class="material-icons">
+                cached
+                </i></button>
+    </div>
+
+</div>

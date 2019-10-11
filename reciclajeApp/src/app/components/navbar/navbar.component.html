@@ -1,18 +1,19 @@
 <app-nuevo-pedido *ngIf="currentUrl !== '/recycle'"></app-nuevo-pedido>
 <mat-toolbar class="navbar" color="primary">
-    <div class="icono" routerLink="information">
+    <div class="icono" (click)="redirigir('information')">
         <mat-icon aria-hidden="false">lightbulb</mat-icon>
         <span>Info</span>
     </div>
     <!-- <div class="icono">
         <mat-icon aria-hidden="false">list</mat-icon>
         <span>Posts</span>
-    </div> -->
-    <div class="icono" routerLink="recycle">
+<<<<<<< HEAD
+    </div>-->
+    <div class="icono" (click)="redirigir('recycle')">
         <mat-icon aria-hidden="false">home</mat-icon>
         <span>Home</span>
     </div>
-    <div class="icono" routerLink="profile">
+    <div class="icono" (click)="redirigir('profile')">
         <mat-icon aria-hidden="false">person</mat-icon>
         <span>Perfil</span>
     </div>

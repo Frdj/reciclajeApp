@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
+import { MescelaneasService } from '../../services/mescelaneas.service';
 
 @Component({
   selector: 'app-nuevo-pedido',
@@ -8,13 +9,12 @@ import { RouterLink, Router } from '@angular/router';
 })
 export class NuevoPedidoComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private misce: MescelaneasService) { }
 
   ngOnInit() {
   }
-
-  // nuevoPedido(){
-  //   this.router.navigate('[ofrecer]');
-  // }
+redirigir(page: string){
+  this.misce.redireccionar(page);
+}
 
 }

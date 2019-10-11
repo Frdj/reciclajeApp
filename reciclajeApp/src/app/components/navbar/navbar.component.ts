@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MescelaneasService } from '../../services/mescelaneas.service';
 import { Router, NavigationStart } from '@angular/router';
 
 @Component({
@@ -7,10 +8,10 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
   currentUrl: string;
 
   constructor(
+    private misce: MescelaneasService,
     public router: Router
   ) {
     this.router.events.subscribe((event: any) => {
@@ -20,8 +21,10 @@ export class NavbarComponent implements OnInit {
     });
 
   }
-
   ngOnInit() {
   }
 
+  redirigir(path: string){
+    this.misce.redireccionar(path);
+  } 
 }
