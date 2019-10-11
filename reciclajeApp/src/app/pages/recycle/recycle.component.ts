@@ -13,7 +13,7 @@ export class RecycleComponent implements OnInit {
     'Hay otras formas de ayudar al planeta, como por ejemplo, cerrando la canilla cuando te lavás los dientes. smile'];
     tip: string;
   constructor(private router: Router,private misce: MescelaneasService, private _informacion: InformationService) { 
-    this.tip = this.getTip();
+    this.getTip();
     //this._informacion.getTip().subscribe(tip =>  this.tip = tip as string);
     this.startIntervalo();
   }
@@ -30,10 +30,7 @@ export class RecycleComponent implements OnInit {
     this.misce.redireccionar(page);
       }
     getTip(){
-      let max = 2;
-      let min = 0;
-      let random = Math.floor(Math.random() * (+max - +min) + +min); 
-      return this.tips[random];
+    this._informacion.getTip().subscribe((tip: string) => this.tip = tip)
     }
 
 }

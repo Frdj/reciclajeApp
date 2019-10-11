@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MescelaneasService } from './mescelaneas.service';
 import { map } from 'rxjs/operators';
+import { Tip } from '../models/Tip';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class InformationService {
    }
 
    getTip(){
-     return this.http.get(`${this.miscelaneas.getURL()}/api/informacion/gettip`).pipe(map(res=>res))
+     return this.http.get(`${this.miscelaneas.getURL()}/api/tips/gettiprandom`).pipe(map((res: Tip)=>res.descripcion))
    }
   }
 
