@@ -10,9 +10,14 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
+using ReciclajeApi.Business.Coordinators;
+using ReciclajeApi.Business.ICoordinators;
+using ReciclajeApi.Persistance.Dao;
+using ReciclajeApi.Persistance.IDao;
 
 namespace ReciclajeApi
 {
@@ -31,6 +36,8 @@ namespace ReciclajeApi
             services.AddCors();
             services.AddTransient<IDbConnection>((serviceProvider) => new MySqlConnection(Configuration.GetConnectionString("database")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.TryAddSingleton<IPublicacionCoordinator, PublicacionCoordinator>();
+            services.TryAddSingleton<IPublicacionDao, PublicacionDao>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

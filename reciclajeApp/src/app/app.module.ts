@@ -27,6 +27,7 @@ import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.com
 
 import { NewPublishComponent } from './pages/new-publish/new-publish.component';
 import { MatOptionModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { MatOptionModule } from '@angular/material/core';
     HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     //Material
     MatOptionModule,
