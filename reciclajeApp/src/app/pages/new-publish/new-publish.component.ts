@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Material } from 'src/app/models/Material';
+import { InformationComponent } from '../information/information.component';
+import { InformationService } from '../../services/information.service';
 
 @Component({
   selector: 'app-new-publish',
@@ -9,18 +11,24 @@ import { Material } from 'src/app/models/Material';
 export class NewPublishComponent implements OnInit {
 
   tipoMateriales = [
-    'Plástico','Vidrio','Papel','Metal','Madera','Silicio','Pilas','Cartón'
-]
+    ]
 materiales: Material[] = [];
 
-  constructor() {
-    this.AddElement()
+  constructor(private _informacion: InformationService) {
+    this._informacion.getMateriales().subscribe(mats =>{ this.tipoMateriales = mats
+      this.AddElement();
+    })
   }
   
   AddElement(){
-    this.materiales.push(new Material('Plástico',1));
+    this.materiales.push(new Material(this.tipoMateriales[0],1));
     console.log(this.materiales)
    }
+
+   
+crearPublicacion(){
+  
+}
 
 
   ngOnInit() {
