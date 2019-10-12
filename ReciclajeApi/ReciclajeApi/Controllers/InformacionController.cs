@@ -20,13 +20,16 @@ namespace ReciclajeApi.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> GetMateriales()
+        public async Task<IActionResult> GetMateriales(string campos)
         {
             try
             {
-                var query = "SELECT descripcion FROM categoria_residuos";
+                var query = "SELECT @campos FROM categoria_residuos";
+                var parameter = new DynamicParameters();
+                parameter.Add("@campos", campos);
 
-                List<string> materiales = (await _cnn.QueryAsync<string>(query)).ToList();
+
+                List<Categoria_Residuo> materiales = (await _cnn.QueryAsync<Categoria_Residuo>(query, parameter)).ToList();
 
                 return Ok(materiales);
             }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InformationService } from '../../services/information.service';
 
 @Component({
   selector: 'app-information',
@@ -8,18 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class InformationComponent implements OnInit {
 
 informacion = [
-  {info: 'aaaaa ', material: 'Plástico', reciclable: false},
-  {info: 'bbbbb', material: 'Vidrio', reciclable: true},
-  {info: 'cccc', material: 'Cartón', reciclable: true},
-  {info: 'ddd', material: 'Papel', reciclable: true},
-  {info: 'fff', material: 'Tela', reciclable: false},
-  {info: 'wwww', material: 'Goma', reciclable: true},
-  {info: 'adad', material: 'Metal', reciclable: true},
-  {info: 'aaaaat', material: 'Cuero', reciclable: false},
+
 ]
 aux = []
-  constructor() {
-    this.aux = this.informacion.slice();
+  constructor(private _information: InformationService) {
+    this._information.getMateriales('*').subscribe((res: any[]) =>{console.log(res); this.informacion = res;     this.aux = this.informacion.slice();
+    })
    }
 
   ngOnInit() {

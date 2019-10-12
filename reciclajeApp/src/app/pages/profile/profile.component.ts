@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   usuario: Usuario = new Usuario();
 
   constructor(private _user: UserService) {
-    this._user.getPerfil('pepe@gmail.com').subscribe((usuario: Usuario) => this.usuario = usuario);
+    this._user.getPerfil('pepe@gmail.com').subscribe((usuario: Usuario) => {this.usuario = usuario; console.log(this.usuario)});
   }
 
   ngOnInit() {

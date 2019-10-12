@@ -15,7 +15,7 @@ export class NewPublishComponent implements OnInit {
 materiales: Material[] = [];
 
   constructor(private _informacion: InformationService) {
-    this._informacion.getMateriales().subscribe(mats =>{ this.tipoMateriales = mats
+    this._informacion.getMateriales('descripcion').subscribe((mats: any[]) =>{ mats.forEach(mat => {this.tipoMateriales.push(mat.descripcion)})
       this.AddElement();
     })
   }

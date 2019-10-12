@@ -31,7 +31,7 @@ namespace ReciclajeApi
                 return Ok(tips[num]);
             }
             catch (Exception e)
-            {
+                {
                 return null;
             }
         }

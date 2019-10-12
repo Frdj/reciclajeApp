@@ -19,8 +19,8 @@ export class InformationService {
      return this.http.get(`${this.miscelaneas.getURL()}/api/tips/gettiprandom`).pipe(map((res: Tip)=>res.descripcion))
    }
 
-   getMateriales(){
-     return this.http.get(`${this.miscelaneas.getURL()}/api/informacion/getMateriales`).pipe(map((res: string[])=>res))
+   getMateriales(campos: string){
+     return this.http.get(`${this.miscelaneas.getURL()}/api/informacion/getMateriales?campos=${campos}`).pipe(map((res)=>res))
     }
   }
 
