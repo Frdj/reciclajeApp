@@ -30,7 +30,7 @@ export class RecycleComponent implements OnInit {
     this.misce.redireccionar(page);
       }
     getTip(){
-    this._informacion.getTip().subscribe((tip: string) => this.tip = tip)
+    this._informacion.getTip().subscribe((tip: string) => this.tip = tip, error => this.misce.errorAlert(error))
     }
 
 }

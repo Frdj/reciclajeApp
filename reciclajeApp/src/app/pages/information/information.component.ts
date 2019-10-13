@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InformationService } from '../../services/information.service';
+import { MescelaneasService } from '../../services/mescelaneas.service';
 
 @Component({
   selector: 'app-information',
@@ -8,13 +9,15 @@ import { InformationService } from '../../services/information.service';
 })
 export class InformationComponent implements OnInit {
 
+loading = true;
 informacion = [
 
 ]
 aux = []
-  constructor(private _information: InformationService) {
-    this._information.getMateriales('*').subscribe((res: any[]) =>{console.log(res); this.informacion = res;     this.aux = this.informacion.slice();
-    })
+  constructor(private _information: InformationService, private misce: MescelaneasService) {
+    this._information.getMateriales('*').subscribe((res: any[]) =>{console.log(res); this.informacion = res; this.aux = this.informacion.slice();
+      this.loading = false;
+    }, error => {misce.errorAlert(error) ;  this.loading = !this.loading})
    }
 
   ngOnInit() {

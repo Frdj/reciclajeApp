@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.com
 import { NewPublishComponent } from './pages/new-publish/new-publish.component';
 import { MatOptionModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     SolicitudComponent,
     NuevoPedidoComponent,
     NewPublishComponent,
+    LoadingComponent,
   ],
   imports: [
 
@@ -51,6 +54,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     AppRoutingModule,
     //Material
+    MatProgressSpinnerModule,
     MatOptionModule,
     MatAutocompleteModule,
     MatButtonModule,

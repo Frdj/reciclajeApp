@@ -8,7 +8,7 @@
     <h3>{{ usuario.nombre }} {{ usuario.apellido }}</h3>
 </div>
 
-<form class="example-form">
+<form class="example-form" *ngIf="!loading">
     <mat-form-field class="example-full-width">
         <input matInput readonly="true" readonly="true" placeholder="Email" [value]="usuario.email">
     </mat-form-field>
@@ -29,4 +29,6 @@
         <mat-icon>logout</mat-icon>
         Logout
     </button>
+
 </form>
+<app-loading *ngIf="loading"></app-loading>

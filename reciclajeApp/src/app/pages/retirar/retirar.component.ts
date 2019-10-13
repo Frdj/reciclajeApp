@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { logging } from 'protractor';
 
 @Component({
   selector: 'app-retirar',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./retirar.component.scss']
 })
 export class RetirarComponent implements OnInit {
-
+loading = true;
   aux = [];
 
   listaRetirar = [{
@@ -182,6 +183,7 @@ export class RetirarComponent implements OnInit {
     //ordena x localidad.
     this.listaRetirar = this.listaRetirar.sort((a, b) => (a.localidad > b.localidad) ? 1 : -1);
     this.aux = this.listaRetirar;
+    this.loading = false;
   }
 
 
@@ -189,6 +191,7 @@ export class RetirarComponent implements OnInit {
   }
 
   filtrar(event) {
+    this.loading = true;
     console.log(event.source._checked);
     const checked: boolean = event.source._checked;
     /*
@@ -232,6 +235,7 @@ export class RetirarComponent implements OnInit {
           break;
       }
     }
+    this.loading = false
   }
 
   filtrarPorMaterial(material: number) {

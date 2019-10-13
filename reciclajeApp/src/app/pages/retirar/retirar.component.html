@@ -1,10 +1,13 @@
-<div class="aparecer">
-    <div class="filtrado">
-        <mat-checkbox (change)="filtrar($event)">Cartón</mat-checkbox>
-        <mat-checkbox (change)="filtrar($event)">Vidrio</mat-checkbox>
-        <mat-checkbox (change)="filtrar($event)">Plástico</mat-checkbox>
-        <mat-checkbox (change)="filtrar($event)">Papel</mat-checkbox>
+<form>
+    <div class="aparecer" *ngIf="!loading && !error">
+        <div class="filtrado">
+            <mat-checkbox (change)="filtrar($event)">Cartón</mat-checkbox>
+            <mat-checkbox (change)="filtrar($event)">Vidrio</mat-checkbox>
+            <mat-checkbox (change)="filtrar($event)">Plástico</mat-checkbox>
+            <mat-checkbox (change)="filtrar($event)">Papel</mat-checkbox>
+        </div>
+        <app-solicitud class="ret" [index]="i" [solicitud]="solicitud" *ngFor="let solicitud of aux; let i = index">
+        </app-solicitud>
     </div>
-    <app-solicitud class="ret" [index]="i" [solicitud]="solicitud" *ngFor="let solicitud of aux; let i = index">
-    </app-solicitud>
-</div>
+    <app-loading *ngIf="loading"></app-loading>
+</form>
