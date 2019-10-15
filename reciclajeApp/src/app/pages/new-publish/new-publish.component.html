@@ -3,7 +3,7 @@
         <div class="container aparecer">
             <h2>Nueva publicación</h2>
             <hr/>
-            <div *ngFor="let material of materiales; let i = index fadeIn">
+            <div *ngFor="let material of materiales; let i = index ">
                 <mat-form-field class="example-full-width p-1">
                     <input type="text" placeholder="Seleccionar material..." name="tipo{{i}}" [(ngModel)]="materiales[i].tipo" aria-label="Text" matInput [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete">

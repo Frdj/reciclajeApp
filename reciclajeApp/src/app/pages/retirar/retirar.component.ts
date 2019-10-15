@@ -8,6 +8,8 @@ import { logging } from 'protractor';
 })
 export class RetirarComponent implements OnInit {
   loading = true;
+  indexConfirm = -1;
+  modal: HTMLDialogElement;
   aux = [];
   cartonChecked = false;
   vidrioChecked = false;
@@ -15,6 +17,7 @@ export class RetirarComponent implements OnInit {
   papelChecked = false;
 
   publicaciones = [{
+    id: 9,
     nombre: 'Rodrigo Bueno',
     direccion: 'Lima 1003',
     localidad: 'Ciudad Autonoma de Buenos aires',
@@ -36,6 +39,7 @@ export class RetirarComponent implements OnInit {
     },
     ]
   }, {
+    id: 10,
     nombre: 'Rodrigo Bueno',
     direccion: 'Lima 1003',
     localidad: 'CABA',
@@ -57,6 +61,7 @@ export class RetirarComponent implements OnInit {
     },
     ]
   }, {
+    id: 8,
     nombre: 'Rodrigo Bueno',
     direccion: 'Lima 1003',
     localidad: 'CABA',
@@ -78,6 +83,7 @@ export class RetirarComponent implements OnInit {
     },
     ]
   }, {
+    id: 7,
     nombre: 'Rodrigo Bueno',
     direccion: 'Lima 1003',
     localidad: 'CABA',
@@ -99,6 +105,7 @@ export class RetirarComponent implements OnInit {
     },
     ]
   }, {
+    id: 6,
     nombre: 'Rodrigo Bueno',
     direccion: 'Lima 1003',
     localidad: 'CABA',
@@ -120,27 +127,7 @@ export class RetirarComponent implements OnInit {
     },
     ]
   }, {
-    nombre: 'Rodrigo Bueno',
-    direccion: 'Lima 1003',
-    localidad: 'CABA',
-    materiales: [{
-      tipo: 'Cartón',
-      cantidad: 0,
-    },
-    {
-      tipo: 'Vidrio',
-      cantidad: 3,
-    },
-    {
-      tipo: 'Plastico',
-      cantidad: 2,
-    },
-    {
-      tipo: 'Papel',
-      cantidad: 1,
-    },
-    ]
-  }, {
+    id: 5,
     nombre: 'Rodrigo Bueno',
     direccion: 'Lima 1003',
     localidad: 'CABA',
@@ -162,6 +149,29 @@ export class RetirarComponent implements OnInit {
     },
     ]
   }, {
+    id: 4,
+    nombre: 'Rodrigo Bueno',
+    direccion: 'Lima 1003',
+    localidad: 'CABA',
+    materiales: [{
+      tipo: 'Cartón',
+      cantidad: 0,
+    },
+    {
+      tipo: 'Vidrio',
+      cantidad: 3,
+    },
+    {
+      tipo: 'Plastico',
+      cantidad: 2,
+    },
+    {
+      tipo: 'Papel',
+      cantidad: 1,
+    },
+    ]
+  }, {
+    id: 3,
     nombre: 'Rodrigo Bueno',
     direccion: 'Lima 1003',
     localidad: 'CABA',
@@ -225,7 +235,7 @@ export class RetirarComponent implements OnInit {
     if (this.papelChecked) {
       this.filtrarPorMaterial(3);
     }
-    this.loading = false
+    this.loading = false;
   }
 
   filtrarPorMaterial(material: number) {
@@ -233,7 +243,33 @@ export class RetirarComponent implements OnInit {
       if (publicacion.materiales[material].cantidad > 0) {
         return publicacion;
       }
-    })
+    });
+  }
+
+  quitarPublicacionDisponible(id: number){
+
+  }
+
+
+  
+  openConfirm(index: number)
+  {
+    this.indexConfirm = index;
+    let nombre = 'modal';
+    this.modal = document.getElementById(nombre) as HTMLDialogElement;
+    this.modal.showModal();
+  }
+  cerrar(){
+    this.modal = document.getElementById('modal') as HTMLDialogElement;
+    this.modal.close();
+    this.indexConfirm = -1;
+  }
+  confirmar(){
+    this.modal.close();
+    this.publicaciones.splice(this.indexConfirm,1);
+    this.aux = this.publicaciones;
+    this.indexConfirm = -1;
+
   }
 
 }

@@ -15,17 +15,17 @@ export class RecycleComponent implements OnInit {
   constructor(private router: Router,private misce: MescelaneasService, private _informacion: InformationService) { 
     this.getTip();
     //this._informacion.getTip().subscribe(tip =>  this.tip = tip as string);
-    this.startIntervalo();
+    this.getTip();
   }
 
   ngOnInit() { }
 
-  startIntervalo() {
+  /*startIntervalo() {
     setInterval(() =>
       this.getTip() //delete this line when API is ready  
       //{this._informacion.getTip().subscribe(tip => this.tip = tip as string), console.log('renueva tip')}
       , 15000);
-  }
+  }*/
     redirigir(page: string){
     this.misce.redireccionar(page);
       }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-solicitud',
@@ -8,40 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SolicitudComponent implements OnInit {
 @Input('solicitud') solicitud: Solicitud;
 @Input('index') i: number;
-modal: HTMLDialogElement;
+@Output() emit: EventEmitter<number> = new EventEmitter<number>()
 tomado = false;
   constructor() {
   }
   
   ngOnInit() {
-    
-    let nombre = 'modal'+this.i;
-    console.log(nombre)
-    this.modal = document.getElementById(nombre) as HTMLDialogElement;
   }
 
-  
-openConfirm()
-{
-  
-  let nombre = 'modal'+this.i;
-  console.log(nombre);
-  this.modal = document.getElementById(nombre) as HTMLDialogElement;
-  this.modal.showModal();
-}
-cerrar(){
-  this.modal = document.getElementById('modal'+this.i) as HTMLDialogElement;
+  abrirConfirmacion(){
+    this.emit.emit(this.i);
+  }
 
-  this.modal.close();
-
-}
-confirmar(){
-  console.log('opeacion realizada');
-  this.tomado = true;
-  this.modal.close();
-
-
-}
 
 }
 

@@ -15,18 +15,5 @@
             <label>{{material.tipo}}: {{material.cantidad}}</label>
         </div>
     </div>
-    <button mat-raised-button [disabled]="tomado" (click)="openConfirm()" class="btn-block p-0" color="primary">Retirar</button>
+    <button mat-raised-button (click)="abrirConfirmacion()" class="btn-block p-0" color="primary">Retirar</button>
 </div>
-
-<dialog id="modal{{i}}" class="confirmDialog shadow col-11 col-lg-4">
-
-    <div class="">
-        <span>Confirmar retiro del pedido?</span>
-        <div class="row justify-content-end mt-5">
-            <button mat-raised-button (click)="confirmar()" class="col-3 mr-2" color="accent">Confirmar</button>
-            <button mat-raised-button (click)="cerrar()" class="col-3 p-0 mr-2" color="warn">Cancelar</button>
-
-        </div>
-    </div>
-
-</dialog>

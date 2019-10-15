@@ -6,8 +6,23 @@
             <mat-checkbox (change)="filtrar($event)">Plástico</mat-checkbox>
             <mat-checkbox (change)="filtrar($event)">Papel</mat-checkbox>
         </div>
-        <app-solicitud class="ret" [index]="i" [solicitud]="solicitud" *ngFor="let solicitud of aux; let i = index">
+        <app-solicitud class="ret" [index]="i" (emit)="openConfirm($event)" [solicitud]="solicitud" *ngFor="let solicitud of aux; let i = index">
         </app-solicitud>
     </div>
     <app-loading *ngIf="loading"></app-loading>
+
+
+
+    <dialog id="modal" class="confirmDialog shadow col-11 col-lg-4">
+
+        <div class="">
+            <span>Confirmar retiro del pedido?</span>
+            <div class="row justify-content-end mt-5">
+                <button mat-raised-button (click)="confirmar()" class="col-3 mr-2" color="accent">Confirmar</button>
+                <button mat-raised-button (click)="cerrar()" class="col-3 p-0 mr-2" color="warn">Cancelar</button>
+
+            </div>
+        </div>
+
+    </dialog>
 </form>
