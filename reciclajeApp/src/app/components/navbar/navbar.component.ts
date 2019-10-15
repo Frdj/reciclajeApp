@@ -9,6 +9,7 @@ import { Router, NavigationStart } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   currentUrl: string;
+  estaPermitida: boolean;
 
   constructor(
     private misce: MescelaneasService,
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationStart) {
         this.currentUrl = event.url;
+        this.estaPermitida = this.rutaPermitida();
       }
     });
 
@@ -24,7 +26,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  redirigir(path: string){
+  redirigir(path: string) {
     this.misce.redireccionar(path);
-  } 
+  }
+
+  rutaPermitida(): boolean {
+    return this.currentUrl.includes('/recycle') || this.currentUrl.includes('/retirar') || this.currentUrl.includes('/ofrecer');
+  }
 }

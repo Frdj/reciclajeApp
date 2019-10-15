@@ -1,4 +1,4 @@
-<app-nuevo-pedido *ngIf="currentUrl !== '/recycle'"></app-nuevo-pedido>
+<app-nuevo-pedido *ngIf="!estaPermitida"></app-nuevo-pedido>
 <mat-toolbar class="navbar" color="primary">
     <div class="icono" (click)="redirigir('information')">
         <mat-icon aria-hidden="false">lightbulb</mat-icon>

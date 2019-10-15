@@ -7,10 +7,14 @@ import { logging } from 'protractor';
   styleUrls: ['./retirar.component.scss']
 })
 export class RetirarComponent implements OnInit {
-loading = true;
+  loading = true;
   aux = [];
+  cartonChecked = false;
+  vidrioChecked = false;
+  plasticoChecked = false;
+  papelChecked = false;
 
-  listaRetirar = [{
+  publicaciones = [{
     nombre: 'Rodrigo Bueno',
     direccion: 'Lima 1003',
     localidad: 'Ciudad Autonoma de Buenos aires',
@@ -181,8 +185,8 @@ loading = true;
   },]
   constructor() {
     //ordena x localidad.
-    this.listaRetirar = this.listaRetirar.sort((a, b) => (a.localidad > b.localidad) ? 1 : -1);
-    this.aux = this.listaRetirar;
+    this.publicaciones = this.publicaciones.sort((a, b) => (a.localidad > b.localidad) ? 1 : -1);
+    this.aux = this.publicaciones;
     this.loading = false;
   }
 
@@ -192,63 +196,41 @@ loading = true;
 
   filtrar(event) {
     this.loading = true;
-    console.log(event.source._checked);
-    const checked: boolean = event.source._checked;
-    /*
-    mat-checkbox-1 -> cartón
-    mat-checkbox-2 -> papel
-    mat-checkbox-3 -> vidrio
-    mat-checkbox-4 -> plástico
-    */
-    if (checked) {
-      switch (event.source.id) {
-        case 'mat-checkbox-1':
-          this.filtrarPorMaterial(0);
-          break;
-        case 'mat-checkbox-2':
-          this.filtrarPorMaterial(1);
-          break;
-        case 'mat-checkbox-3':
-          this.filtrarPorMaterial(2);
-          break;
-        case 'mat-checkbox-4':
-          this.filtrarPorMaterial(3);
-          break;
-        default:
-          break;
-      }
-    } else {
-      switch (event.source.id) {
-        case 'mat-checkbox-1':
-          this.agregarPorMaterial(0);
-          break;
-        case 'mat-checkbox-2':
-          this.agregarPorMaterial(1);
-          break;
-        case 'mat-checkbox-3':
-          this.agregarPorMaterial(2);
-          break;
-        case 'mat-checkbox-4':
-          this.agregarPorMaterial(3);
-          break;
-        default:
-          break;
-      }
+    switch (event.source.id) {
+      case 'mat-checkbox-1':
+        this.cartonChecked = !this.cartonChecked;
+        break;
+      case 'mat-checkbox-2':
+        this.vidrioChecked = !this.vidrioChecked;
+        break;
+      case 'mat-checkbox-3':
+        this.plasticoChecked = !this.plasticoChecked;
+        break;
+      case 'mat-checkbox-4':
+        this.papelChecked = !this.papelChecked;
+        break;
+      default:
+        break;
+    }
+    this.aux = this.publicaciones;
+    if (this.cartonChecked) {
+      this.filtrarPorMaterial(0);
+    }
+    if (this.vidrioChecked) {
+      this.filtrarPorMaterial(1);
+    }
+    if (this.plasticoChecked) {
+      this.filtrarPorMaterial(2);
+    }
+    if (this.papelChecked) {
+      this.filtrarPorMaterial(3);
     }
     this.loading = false
   }
 
   filtrarPorMaterial(material: number) {
-    this.aux = this.listaRetirar.filter((publicacion: any) => {
+    this.aux = this.aux.filter((publicacion: any) => {
       if (publicacion.materiales[material].cantidad > 0) {
-        return publicacion;
-      }
-    })
-  }
-
-  agregarPorMaterial(material: number) {
-    this.aux = this.listaRetirar.filter((publicacion: any) => {
-      if (publicacion.materiales[material].cantidad >= 0) {
         return publicacion;
       }
     })

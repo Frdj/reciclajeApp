@@ -1,26 +1,26 @@
 .nuevoPedido {
-    position: fixed;
-    bottom: 80px;
-    right: 10px;
+  position: fixed;
+  bottom: 80px;
+  right: 10px;
 }
 
 .nuevoPedido:focus {
-    animation-name: click;
-    animation-duration: 0.5s;
+  animation-name: click;
+  animation-duration: 0.5s;
 }
 
 @keyframes click {
-    0% {
-        margin-bottom: 0px;
-    }
-    50% {
-        margin-bottom: 25px;
-    }
-    100% {
-        margin-bottom: 0px;
-    }
+  0% {
+    margin-bottom: 0px;
+  }
+  50% {
+    margin-bottom: 25px;
+  }
+  100% {
+    margin-bottom: 0px;
+  }
 }
 
-#plus-icon {
-    color: #fff;
+.material-icons {
+  color: #fff;
 }
