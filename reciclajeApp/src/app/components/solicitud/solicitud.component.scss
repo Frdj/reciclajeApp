@@ -1,51 +1,55 @@
-    .buscar {
-        border: solid 0.5px;
-        border-top: solid 5px #98FF8B;
-        margin-top: 35px;
-        margin-left: 30%;
-        border-radius: 5px;
-        box-shadow: 2px 3px 10px #404040;
-        background-color: white;
-    }
-    
-    .border {
-        border: solid 1px;
-    }
-    
-    button {
-        margin-top: 10px;
-    }
-    
-    center {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    label {
-        font-size: 14px;
-    }
-    
-    .localidad {
-        text-overflow: ellipsis;
-    }
-    
-    .material-icons {
-        color: red;
-        display: block;
-    }
-    
-    @keyframes entrar {
-        from {
-            transform: scale(0, 0);
-        }
-        to {
-            transform: scale(1, 1);
-        }
-    }
-    
-    @media only screen and (max-width: 910px) {
-        .buscar {
-            margin-left: 5%;
-            width: 90%;
-        }
-    }
+.buscar {
+  //   border: solid 0.5px;
+  //   border-top: solid 5px #98ff8b;
+  margin-top: 35px;
+  margin-left: 30%;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px #404040;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.border {
+  border: solid 1px;
+}
+
+button {
+  margin-top: 10px;
+  color: #fff !important;
+  font-size: 1.3rem;
+}
+
+center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label {
+  font-size: 1rem;
+}
+
+.localidad {
+  text-overflow: ellipsis;
+}
+
+.material-icons {
+  color: red;
+  display: block;
+  margin-top: 1rem;
+}
+
+@keyframes entrar {
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@media only screen and (max-width: 910px) {
+  .buscar {
+    margin-left: 5%;
+    width: 90%;
+  }
+}

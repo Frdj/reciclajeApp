@@ -1,38 +1,42 @@
 .ret {
-    text-align: center;
-    text-justify: center;
-    align-items: center;
-    justify-items: center;
-    justify-content: center;
-    margin-bottom: 100px;
+  text-align: center;
+  text-justify: center;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
 }
 
 .center {
-    display: inline;
+  display: inline;
 }
 
 .filtrado {
-    width: 90%;
-    display: flex;
-    padding: 1rem;
-    justify-content: space-evenly;
-    margin: 1rem auto;
-    background-color: white;
-    box-shadow: 2px 3px 10px #404040;
+  width: 90%;
+  display: flex;
+  padding: 1rem;
+  justify-content: space-evenly;
+  margin: 1rem auto;
+  background-color: white;
+  box-shadow: 2px 3px 10px #404040;
 }
 
 @keyframes entrar {
-    from {
-        transform: scale(0, 0);
-    }
-    to {
-        transform: scale(1, 1);
-    }
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+  }
 }
 
 .confirmDialog {
-    border: none;
-    height: 20%;
-    animation-name: entrar;
-    animation-duration: 0.5s;
+  border: none;
+  height: 20%;
+  animation-name: entrar;
+  animation-duration: 0.5s;
+}
+
+.mat-raised-button {
+  color: #fff;
 }

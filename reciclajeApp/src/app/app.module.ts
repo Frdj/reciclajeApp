@@ -30,6 +30,7 @@ import { NewPublishComponent } from './pages/new-publish/new-publish.component';
 import { MatOptionModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     NuevoPedidoComponent,
     NewPublishComponent,
     LoadingComponent,
+    SafeHtmlPipe,
   ],
   imports: [
 
