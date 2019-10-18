@@ -1,11 +1,11 @@
 ﻿using MailKit.Security;
 using MimeKit;
-using ReciclajeApi.Business.Services;
+using ReciclajeApi.Business.IServices;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ReciclajeApi.Business.IServices
+namespace ReciclajeApi.Business.Services
 {
     public class EmailService : IEmailService
     {

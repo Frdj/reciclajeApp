@@ -27,14 +27,12 @@ namespace ReciclajeApi.Controllers
             try
             {
                 var result = loginCoordinator.Login(login);
-                //var usuario = usuarioCoordinator.ObtenerUsuarioPorMail(email);
-                //var result = publicacionCoordinator.ObtenerPublicacionesPorUsuario(usuario.IdUsuario);
 
                 return StatusCode(int.Parse(HttpStatusCode.OK.ToString()), result);
             }
             catch (Exception)
             {
-                return StatusCode(int.Parse(HttpStatusCode.InternalServerError.ToString()));
+                return StatusCode(int.Parse(HttpStatusCode.Forbidden.ToString()));
             }
         }
     }

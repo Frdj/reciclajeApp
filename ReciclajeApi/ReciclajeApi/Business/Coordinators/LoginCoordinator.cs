@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ReciclajeApi.Business.ICoordinators;
+using ReciclajeApi.Business.IServices;
 using ReciclajeApi.Business.Models.ApiModels;
 using System;
 
@@ -11,9 +12,12 @@ namespace ReciclajeApi.Business.Coordinators
 
         private readonly IUsuarioCoordinator usuarioCoordinator;
 
+        private readonly ISecureService secureService;
+
         public LoginCoordinator(IMapper mapper, IUsuarioCoordinator usuarioCoordinator)
         {
             this.mapper = mapper;
+            this.usuarioCoordinator = usuarioCoordinator;
         }
 
         public int Login(LoginApiModel login)
@@ -30,7 +34,21 @@ namespace ReciclajeApi.Business.Coordinators
                 throw new Exception();
             }
 
-            return 0;
+            bool passwordValida = secureService.ValidarPassword(login.Password);
+
+            if (!passwordValida)
+            {
+                throw new Exception();
+            }
+
+            if (usuarioValidado && passwordValida)
+            {
+                var usuario = usuarioCoordinator.ObtenerUsuarioPorMail(login.Email);
+
+                return usuario.IdUsuario;
+            }
+
+            throw new Exception();
         }
     }
 }

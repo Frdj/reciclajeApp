@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ReciclajeApi.Business.Services
+namespace ReciclajeApi.Business.IServices
 {
     public interface IEmailService
     {

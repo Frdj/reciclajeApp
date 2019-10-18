@@ -42,6 +42,7 @@ namespace ReciclajeApi
             services.AddTransient<ILocalidadDao, LocalidadDao>();
             services.AddTransient<IProvinciaCoordinator, ProvinciaCoordinator>();
             services.AddTransient<IProvinciaDao, ProvinciaDao>();
+            services.AddTransient<ILoginCoordinator, LoginCoordinator>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
