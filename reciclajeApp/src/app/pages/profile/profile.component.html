@@ -1,6 +1,6 @@
 <div class="bloque">
     <div class="avatar">
-        <img src="https://icon-library.net/images/avatar-icon-png/avatar-icon-png-8.jpg">
+        <img [src]="'data:image/jpg;base64, ' + usuario.fotoDePerfil | safeHtml">
     </div>
 </div>
 
@@ -14,7 +14,7 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <input matInput readonly="true" placeholder="Dirección" value="Calle Falsa 123">
+        <input matInput readonly="true" placeholder="Dirección" value="Lima 775">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">

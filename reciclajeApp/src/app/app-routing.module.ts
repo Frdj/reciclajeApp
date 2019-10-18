@@ -10,15 +10,14 @@ import { NewPublishComponent } from './pages/new-publish/new-publish.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  // { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'information', component: InformationComponent },
   { path: 'recycle', component: RecycleComponent },
-  { path: 'home', component: HomeComponent },
+  // { path: 'home', component: HomeComponent },
   { path: 'ofrecer', component: NewPublishComponent },
   { path: 'retirar', component: RetirarComponent },
-
-  { path: '**', component: HomeComponent }
+  { path: '**', redirectTo: 'recycle', pathMatch: 'full' }
 ];
 
 @NgModule({
