@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AutoMapper;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
 using ReciclajeApi.Business.Coordinators;
 using ReciclajeApi.Business.ICoordinators;
@@ -30,17 +22,28 @@ namespace ReciclajeApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
             services.AddTransient<IDbConnection>((serviceProvider) => new MySqlConnection(Configuration.GetConnectionString("database")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.TryAddSingleton<IPublicacionCoordinator, PublicacionCoordinator>();
-            services.TryAddSingleton<IPublicacionDao, PublicacionDao>();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddTransient<IPublicacionCoordinator, PublicacionCoordinator>();
+            services.AddTransient<IPublicacionDao, PublicacionDao>();
+            services.AddTransient<IResiduoCoordinator, ResiduoCoordinator>();
+            services.AddTransient<IResiduoDao, ResiduoDao>();
+            services.AddTransient<IUsuarioCoordinator, UsuarioCoordinator>();
+            services.AddTransient<IUsuarioDao, UsuarioDao>();
+            services.AddTransient<IDireccionCoordinator, DireccionCoordinator>();
+            services.AddTransient<IDireccionDao, DireccionDao>();
+            services.AddTransient<IEstadoCoordinator, EstadoCoordinator>();
+            services.AddTransient<IEstadoDao, EstadoDao>();
+            services.AddTransient<ILocalidadCoordinator, LocalidadCoordinator>();
+            services.AddTransient<ILocalidadDao, LocalidadDao>();
+            services.AddTransient<IProvinciaCoordinator, ProvinciaCoordinator>();
+            services.AddTransient<IProvinciaDao, ProvinciaDao>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -49,14 +52,10 @@ namespace ReciclajeApi
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
-            app.UseCors(
-        options => options.WithOrigins("https://localhost:4200").AllowAnyMethod()
-    );
-
+            app.UseCors(options => options.WithOrigins("https://localhost:4200").AllowAnyMethod());
 
             app.UseHttpsRedirection();
             app.UseMvc();

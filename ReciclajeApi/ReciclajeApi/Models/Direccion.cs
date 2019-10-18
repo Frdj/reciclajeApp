@@ -1,4 +1,6 @@
-namespace ReciclajeApi{
+using ReciclajeApi.Business.Models.Domain;
+
+namespace ReciclajeApi.Models{
     public class Direccion{
         public int idUsuario {get; set;}
         public Usuario usuario {get; set;}

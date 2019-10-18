@@ -1,4 +1,4 @@
-namespace ReciclajeApi{
+namespace ReciclajeApi.Models {
     public class Localidad{
         public int idProvincia {get; set;}
         public Provincia provincia {get; set;}

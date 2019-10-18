@@ -1,6 +1,6 @@
 using System;
 
-namespace ReciclajeApi
+namespace ReciclajeApi.Models
 {
     public class Publicacion
     {

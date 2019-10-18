@@ -1,12 +1,16 @@
-﻿using System;
+﻿using ReciclajeApi.Business.Models.Domain;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ReciclajeApi.Persistance.IDao
 {
     public interface IPublicacionDao
     {
         IEnumerable<Publicacion> ObtenerPublicaciones();
+
+        IEnumerable<Publicacion> ObtenerPublicacionesPorUsuario(int idUsuario);
+
+        IEnumerable<Publicacion> ObtenerPublicacionesPorUsuarioReceptor(int idUsuario);
+
+        bool AceptarOferta(int idPublicacion, int idUsuario);
     }
 }

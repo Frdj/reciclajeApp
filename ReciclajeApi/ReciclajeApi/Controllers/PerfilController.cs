@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using ReciclajeApi.Business.Models.Domain;
 
 namespace ReciclajeApi.Controllers
 {

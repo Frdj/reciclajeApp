@@ -1,6 +1,6 @@
 using System;
 
-namespace ReciclajeApi{
+namespace ReciclajeApi.Models {
     public class Usuario{
         public int idUsuario {get; set;}
         public string email {get; set;}
