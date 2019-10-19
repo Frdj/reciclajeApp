@@ -31,6 +31,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    RouterModule,
     //Material
     MatProgressSpinnerModule,
     MatOptionModule,

@@ -12,25 +12,19 @@ export class RecycleComponent implements OnInit {
   tips = ['Recordá que lo que separes tiene que estar limpio y seco a la hora de reciclarlo. warning',
     'Hay otras formas de ayudar al planeta, como por ejemplo, cerrando la canilla cuando te lavás los dientes. smile'];
     tip: string;
+    showTip = false;
   constructor(private router: Router,private misce: MescelaneasService, private _informacion: InformationService) { 
     this.getTip();
-    //this._informacion.getTip().subscribe(tip =>  this.tip = tip as string);
-    this.getTip();
+
   }
 
   ngOnInit() { }
-
-  /*startIntervalo() {
-    setInterval(() =>
-      this.getTip() //delete this line when API is ready  
-      //{this._informacion.getTip().subscribe(tip => this.tip = tip as string), console.log('renueva tip')}
-      , 15000);
-  }*/
     redirigir(page: string){
     this.misce.redireccionar(page);
       }
     getTip(){
-    this._informacion.getTip().subscribe((tip: string) => this.tip = tip, error => this.misce.errorAlert(error))
+      this.showTip = false;
+    this._informacion.getTip().subscribe((tip: string) => {this.tip = tip; this.showTip = true;}, error => this.misce.errorAlert(error))
     }
 
 }

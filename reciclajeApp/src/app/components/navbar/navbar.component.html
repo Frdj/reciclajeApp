@@ -1,19 +1,20 @@
 <app-nuevo-pedido *ngIf="!estaPermitida"></app-nuevo-pedido>
-<mat-toolbar class="navbar" color="primary">
-    <div class="icono" (click)="redirigir('information')">
+<mat-toolbar class="navbar" >
+    <div class="icono" [routerLink]="['/information']" routerLinkActive="active-link">
         <mat-icon aria-hidden="false">lightbulb</mat-icon>
         <span>Info</span>
+    </div>
+    <div class="icono" [routerLink]="['/recycle']" routerLinkActive="active-link">
+        <mat-icon aria-hidden="false">home</mat-icon>
+        <span>Home</span>
     </div>
     <!-- <div class="icono">
         <mat-icon aria-hidden="false">list</mat-icon>
         <span>Posts</span>
 <<<<<<< HEAD
     </div>-->
-    <div class="icono" (click)="redirigir('recycle')">
-        <mat-icon aria-hidden="false">home</mat-icon>
-        <span>Home</span>
-    </div>
-    <div class="icono" (click)="redirigir('profile')">
+
+    <div class="icono"  [routerLink]="['/profile']" routerLinkActive="active-link" >
         <mat-icon aria-hidden="false">person</mat-icon>
         <span>Perfil</span>
     </div>

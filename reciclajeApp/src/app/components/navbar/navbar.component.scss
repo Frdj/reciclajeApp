@@ -4,16 +4,21 @@ mat-toolbar {
   height: 4rem;
   position: fixed;
   bottom: 0px;
+  border-top:5px #bcff8a solid;
 }
 
 span {
   font-size: 1.2rem;
+  
 }
 
 .icono {
-  color: #fff;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.active-link{
+  color: #bcff8a;
 }

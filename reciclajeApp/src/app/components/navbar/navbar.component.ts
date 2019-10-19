@@ -26,9 +26,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  redirigir(path: string) {
-    this.misce.redireccionar(path);
-  }
+ 
 
   rutaPermitida(): boolean {
     return this.currentUrl.includes('/recycle') || this.currentUrl.includes('/retirar') || this.currentUrl.includes('/ofrecer');

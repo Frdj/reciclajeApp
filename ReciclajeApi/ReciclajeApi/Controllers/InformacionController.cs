@@ -29,7 +29,7 @@ namespace ReciclajeApi.Controllers
                 parameter.Add("@campos", campos);
 
 
-                List<Categoria_Residuo> materiales = (await _cnn.QueryAsync<Categoria_Residuo>(query, parameter)).ToList();
+                List<Tipo_Residuo> materiales = (await _cnn.QueryAsync<Tipo_Residuo>(query, parameter)).ToList();
 
                 return Ok(materiales);
             }
