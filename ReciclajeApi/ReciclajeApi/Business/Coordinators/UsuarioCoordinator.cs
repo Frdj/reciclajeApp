@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.Models.ApiModels;
+using ReciclajeApi.Business.Models.Domain;
 using ReciclajeApi.Persistance.IDao;
 using System;
 
@@ -59,6 +60,11 @@ namespace ReciclajeApi.Business.Coordinators
             }
 
             return usuarioDao.ValidarUsuario(email);
+        }
+
+        public int SignUpUsuario(SignUp signUp)
+        {
+            return usuarioDao.SignUpUsuario(signUp);
         }
     }
 }

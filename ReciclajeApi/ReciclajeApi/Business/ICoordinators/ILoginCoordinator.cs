@@ -6,5 +6,7 @@ namespace ReciclajeApi.Business.ICoordinators
     public interface ILoginCoordinator
     {
         int Login(LoginApiModel login);
+
+        int SignUp(SignUpApiModel signUp);
     }
 }

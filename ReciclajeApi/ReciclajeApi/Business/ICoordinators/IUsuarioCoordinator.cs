@@ -1,4 +1,5 @@
 ﻿using ReciclajeApi.Business.Models.ApiModels;
+using ReciclajeApi.Business.Models.Domain;
 
 namespace ReciclajeApi.Business.ICoordinators
 {
@@ -9,5 +10,7 @@ namespace ReciclajeApi.Business.ICoordinators
         UsuarioApiModel ObtenerUsuarioPorMail(string email);
 
         bool ValidarUsuario(string email);
+
+        int SignUpUsuario(SignUp signUp);
     }
 }

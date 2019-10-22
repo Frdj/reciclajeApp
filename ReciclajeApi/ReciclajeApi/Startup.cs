@@ -10,6 +10,8 @@ using ReciclajeApi.Business.Coordinators;
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Persistance.Dao;
 using ReciclajeApi.Persistance.IDao;
+using ReciclajeApi.Business.IServices;
+using ReciclajeApi.Business.Services;
 
 namespace ReciclajeApi
 {
@@ -43,6 +45,9 @@ namespace ReciclajeApi
             services.AddTransient<IProvinciaCoordinator, ProvinciaCoordinator>();
             services.AddTransient<IProvinciaDao, ProvinciaDao>();
             services.AddTransient<ILoginCoordinator, LoginCoordinator>();
+            services.AddTransient<ISecureService, SecureService>();
+            services.AddTransient<ISecureDao, SecureDao>();
+            services.AddTransient<IEmailService, EmailService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

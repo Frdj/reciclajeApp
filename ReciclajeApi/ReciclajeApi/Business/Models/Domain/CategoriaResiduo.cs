@@ -10,6 +10,6 @@
 
         public bool Reciclable { get; set; }
 
-        public string Imagen { get; set; }
+        public byte[] Imagen { get; set; }
     }
 }

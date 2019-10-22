@@ -36,5 +36,13 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.QueryFirstOrDefault<bool>(query, new { Email = email });
         }
+
+        public int SignUpUsuario(SignUp signUp)
+        {
+            string query = @"INSERT INTO usuarios(email, password, nombre, apellido, fechaNacimiento, fotoDePerfil, telefono)
+                            VALUES(@Email, @Password, @Nombre, @Apellido, @FechaNacimiento, @FotoDePerfil, @Telefono); select last_insert_id()";
+
+            return _cnn.QueryFirst<int>(query, new { Email = signUp.Email, Password = signUp.Password, Nombre = signUp.Nombre, Apellido = signUp.Apellido, FechaNacimiento = signUp.FechaNacimiento, FotoDePerfil = signUp.FotoDePerfil, Telefono = signUp.Telefono });
+        }
     }
 }

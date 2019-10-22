@@ -20,7 +20,6 @@ namespace ReciclajeApi.Persistance.Dao
         public IEnumerable<Publicacion> ObtenerPublicaciones()
         {
             var query = "SELECT * FROM publicaciones";
-            var a = _cnn.Query<Estado>("Select * from estados").ToList();
 
             return _cnn.Query<Publicacion>(query).ToList();
         }

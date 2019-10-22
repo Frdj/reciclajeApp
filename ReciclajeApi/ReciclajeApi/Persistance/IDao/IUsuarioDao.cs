@@ -9,5 +9,7 @@ namespace ReciclajeApi.Persistance.IDao
         Usuario ObtenerUsuarioPorMail(string email);
 
         bool ValidarUsuario(string email);
+
+        int SignUpUsuario(SignUp signUp);
     }
 }

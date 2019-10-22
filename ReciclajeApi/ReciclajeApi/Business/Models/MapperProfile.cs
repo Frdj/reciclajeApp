@@ -20,6 +20,7 @@ namespace ReciclajeApi.Business.Models
             CreateMap<Estado, EstadoApiModel>();
             CreateMap<Localidad, LocalidadApiModel>();
             CreateMap<Provincia, ProvinciaApiModel>();
+            CreateMap<SignUpApiModel, SignUp>();
         }
     }
 }

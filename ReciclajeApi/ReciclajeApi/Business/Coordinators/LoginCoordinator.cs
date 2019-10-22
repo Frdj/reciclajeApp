@@ -2,6 +2,7 @@
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.IServices;
 using ReciclajeApi.Business.Models.ApiModels;
+using ReciclajeApi.Business.Models.Domain;
 using System;
 
 namespace ReciclajeApi.Business.Coordinators
@@ -14,10 +15,11 @@ namespace ReciclajeApi.Business.Coordinators
 
         private readonly ISecureService secureService;
 
-        public LoginCoordinator(IMapper mapper, IUsuarioCoordinator usuarioCoordinator)
+        public LoginCoordinator(IMapper mapper, IUsuarioCoordinator usuarioCoordinator, ISecureService secureService)
         {
             this.mapper = mapper;
             this.usuarioCoordinator = usuarioCoordinator;
+            this.secureService = secureService;
         }
 
         public int Login(LoginApiModel login)
@@ -34,7 +36,9 @@ namespace ReciclajeApi.Business.Coordinators
                 throw new Exception();
             }
 
-            bool passwordValida = secureService.ValidarPassword(login.Password);
+            UsuarioApiModel usuario = usuarioCoordinator.ObtenerUsuarioPorMail(login.Email);
+
+            bool passwordValida = secureService.ValidarPassword(login.Password, usuario.IdUsuario);
 
             if (!passwordValida)
             {
@@ -43,12 +47,38 @@ namespace ReciclajeApi.Business.Coordinators
 
             if (usuarioValidado && passwordValida)
             {
-                var usuario = usuarioCoordinator.ObtenerUsuarioPorMail(login.Email);
-
                 return usuario.IdUsuario;
             }
 
             throw new Exception();
+        }
+
+        public int SignUp(SignUpApiModel signUp)
+        {
+            ValidarSignUp(signUp);
+
+            var pass = secureService.CrearPassword(signUp.Password);
+
+            SignUp request = mapper.Map<SignUp>(signUp);
+            request.Password = pass;
+
+            return usuarioCoordinator.SignUpUsuario(request);
+        }
+
+        private void ValidarSignUp(SignUpApiModel signUp)
+        {
+            if (signUp == null)
+            {
+                throw new Exception();
+            }
+
+            var existeUsuario = usuarioCoordinator.ValidarUsuario(signUp.Email);
+
+            if (existeUsuario)
+            {
+                throw new Exception();
+            }
+            //TODO agregar más validaciones a los datos. Cualquier error lanza excepcion.
         }
     }
 }

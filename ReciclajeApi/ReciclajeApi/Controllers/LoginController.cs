@@ -8,7 +8,7 @@ using ReciclajeApi.Business.Models.ApiModels;
 
 namespace ReciclajeApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -28,11 +28,26 @@ namespace ReciclajeApi.Controllers
             {
                 var result = loginCoordinator.Login(login);
 
-                return StatusCode(int.Parse(HttpStatusCode.OK.ToString()), result);
+                return StatusCode(200, result);
             }
             catch (Exception)
             {
-                return StatusCode(int.Parse(HttpStatusCode.Forbidden.ToString()));
+                return StatusCode(403);
+            }
+        }
+
+        [HttpPost("signup")]
+        public ActionResult<int> SignUp([FromBody] SignUpApiModel signUp)
+        {
+            try
+            {
+                var result = loginCoordinator.SignUp(signUp);
+
+                return StatusCode(200, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(403);
             }
         }
     }

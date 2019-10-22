@@ -33,11 +33,11 @@ namespace ReciclajeApi.Controllers
                 var usuario = usuarioCoordinator.ObtenerUsuarioPorMail(email);
                 var result = publicacionCoordinator.ObtenerPublicacionesPorUsuario(usuario.IdUsuario);
 
-                return StatusCode(int.Parse(HttpStatusCode.OK.ToString()), result);
+                return StatusCode(200, result);
             }
             catch (Exception)
             {
-                return StatusCode(int.Parse(HttpStatusCode.InternalServerError.ToString()));
+                return StatusCode(500);
             }
         }
 
@@ -49,11 +49,11 @@ namespace ReciclajeApi.Controllers
                 var usuario = usuarioCoordinator.ObtenerUsuarioPorMail(email);
                 var result = publicacionCoordinator.ObtenerPublicacionesPorUsuarioReceptor(usuario.IdUsuario);
 
-                return StatusCode(int.Parse(HttpStatusCode.OK.ToString()), result);
+                return StatusCode(200, result);
             }
             catch (Exception)
             {
-                return StatusCode(int.Parse(HttpStatusCode.InternalServerError.ToString()));
+                return StatusCode(500);
             }
         }
 
@@ -63,11 +63,11 @@ namespace ReciclajeApi.Controllers
             try
             {
                 var result = publicacionCoordinator.ObtenerPublicaciones();
-                return StatusCode(int.Parse(HttpStatusCode.OK.ToString()), result);
+                return StatusCode(200, result);
             }
             catch (Exception ex)
             {
-                return StatusCode(int.Parse(HttpStatusCode.InternalServerError.ToString()));
+                return StatusCode(500);
             }
         }
 
@@ -77,11 +77,11 @@ namespace ReciclajeApi.Controllers
             try
             {
                 var result = publicacionCoordinator.AceptarOferta(idPublicacion, idUsuario);
-                return StatusCode(int.Parse(HttpStatusCode.OK.ToString()), result);
+                return StatusCode(200, result);
             }
             catch (Exception e)
             {
-                return StatusCode(int.Parse(HttpStatusCode.InternalServerError.ToString()));
+                return StatusCode(500);
             }
         }
     }
