@@ -61,7 +61,7 @@ namespace ReciclajeApi
                 app.UseHsts();
             }
 
-            app.UseCors(options => options.WithOrigins("https://localhost:4200").AllowAnyMethod());
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod());
 
             app.UseHttpsRedirection();
             app.UseMvc();
