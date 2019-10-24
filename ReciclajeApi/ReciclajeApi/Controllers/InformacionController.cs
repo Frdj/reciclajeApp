@@ -25,7 +25,7 @@ namespace ReciclajeApi.Controllers
         {
             try
             {
-                var query = @"SELECT cr.idCategoria, ts.descripcion as Material, cr.descripcion as Residuo, cr.reciclable as EsReciclable, cr.imagen as Imagen FROM categoria_residuos cr INNER JOIN tipo_residuos ts ON ts.idTipo = cr.idTipoResiduo";
+                var query = @"SELECT cr.idCantegoria, ts.descripcion as Material, cr.descripcion as Residuo, cr.reciclable as EsReciclable, cr.imagen as Imagen FROM categoria_residuos cr INNER JOIN tipo_residuos ts ON ts.idTipo = cr.idTipoResiduo";
 
                 List<MaterialesApi> materiales = (await _cnn.QueryAsync<MaterialesApi>(query)).ToList();
 
