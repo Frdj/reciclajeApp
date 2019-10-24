@@ -14,7 +14,7 @@ namespace ReciclajeApi.Business.Models.ApiModels
 
         public DateTime FechaNacimiento { get; set; }
 
-        public byte[] FotoDePerfil { get; set; }
+        public string FotoDePerfil { get; set; }
 
         public int Telefono { get; set; }
     }

@@ -62,6 +62,8 @@ namespace ReciclajeApi.Business.Coordinators
             SignUp request = mapper.Map<SignUp>(signUp);
             request.Password = pass;
 
+            request.FotoDePerfil = Convert.FromBase64String(signUp.FotoDePerfil);
+
             return usuarioCoordinator.SignUpUsuario(request);
         }
 
