@@ -4,12 +4,11 @@ mat-toolbar {
   height: 4rem;
   position: fixed;
   bottom: 0px;
-  border-top:5px #bcff8a solid;
+  border-top: 5px #bcff8a solid;
 }
 
 span {
   font-size: 1.2rem;
-  
 }
 
 .icono {
@@ -19,6 +18,10 @@ span {
   align-items: center;
 }
 
-.active-link{
+.active-link {
   color: #bcff8a;
+}
+
+#informate {
+  letter-spacing: -2px;
 }

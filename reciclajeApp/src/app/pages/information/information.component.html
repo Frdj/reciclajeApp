@@ -1,58 +1,67 @@
-<form class="example-form">
+<form>
     <div class="container fadeIn" *ngIf="!loading">
         <mat-form-field class="example-full-width">
             <input matInput (keyup)="filtrar(buscador.value)" #buscador placeholder="Buscar material...">
         </mat-form-field>
 
-        <div class="alert alert-warning fadeIn" *ngIf="aux.length == 0">
-            <span>No se han encontrado resultados! Buscá    otro material</span>
+        <div class="fila">
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
+            <div class="item">
+                <div class="caja">
+                </div>
+            </div>
         </div>
 
-        <table class=" table table-hover fadeIn " *ngIf="aux.length> 0">
-            <thead>
-                <tr>
-                    <th>
-                        Material
-                    </th>
-                    <th>
-                        Info
-                    </th>
-                    <th>
-                        Reciclable
-                    </th>
-                    <th>
-                        No reciclable
-                    </th>
-                </tr>
-            </thead>
-            <tbody *ngFor="let tip of aux">
-                <tr>
-                    <td>
-                        {{tip.descripcion}}
-                    </td>
-                    <td>
-                        {{tip.foto}}
-                    </td>
-                    <td *ngIf="tip.reciclable" class="text-success">
-                        <i class="material-icons">
-                            check
-                            </i>
-                    </td>
-                    <td *ngIf="!tip.reciclable">
 
-                    </td>
-                    <td *ngIf="!tip.reciclable" class="text-danger">
-                        <i class="material-icons">
-                            clear
-                            </i>
-                    </td>
-                    <td *ngIf="tip.reciclable">
-
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
-
     <app-loading *ngIf="loading"></app-loading>
 </form>

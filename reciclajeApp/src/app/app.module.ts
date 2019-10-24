@@ -32,6 +32,8 @@ import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { RouterModule } from '@angular/router';
     NewPublishComponent,
     LoadingComponent,
     SafeHtmlPipe,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
 

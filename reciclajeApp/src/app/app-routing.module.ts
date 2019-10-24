@@ -7,10 +7,14 @@ import { RecycleComponent } from './pages/recycle/recycle.component';
 import { OfrecerComponent } from './pages/ofrecer/ofrecer.component';
 import { RetirarComponent } from './pages/retirar/retirar.component';
 import { NewPublishComponent } from './pages/new-publish/new-publish.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 const routes: Routes = [
   // { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'information', component: InformationComponent },
   { path: 'recycle', component: RecycleComponent },
