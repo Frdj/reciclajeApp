@@ -12,7 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +28,7 @@ import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.com
 
 import { NewPublishComponent } from './pages/new-publish/new-publish.component';
 import { MatOptionModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { RouterModule } from '@angular/router';
@@ -61,6 +61,7 @@ import { SignupComponent } from './pages/signup/signup.component';
     FormsModule,
     AppRoutingModule,
     RouterModule,
+    ReactiveFormsModule,
     //Material
     MatProgressSpinnerModule,
     MatOptionModule,

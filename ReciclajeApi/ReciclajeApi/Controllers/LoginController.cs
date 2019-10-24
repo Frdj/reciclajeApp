@@ -21,7 +21,7 @@ namespace ReciclajeApi.Controllers
             this.loginCoordinator = loginCoordinator;
         }
 
-        [HttpGet("login")]
+        [HttpPost("login")]
         public ActionResult<int> Login([FromBody] LoginApiModel login)
         {
             try

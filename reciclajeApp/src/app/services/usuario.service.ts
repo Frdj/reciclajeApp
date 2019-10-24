@@ -5,24 +5,24 @@ import { Usuario } from '../models/Usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-//get y set usuario logueado, no relaciona con la bd.
+  // get y set usuario logueado, no relaciona con la bd.
 
-private email = 'pepe@gmail.com';
+  private email = 'pepe@gmail.com';
   constructor() { }
 
-  getUsuario(){
-    
+  getUsuario() {
+
     return JSON.parse(localStorage.getItem('user'));
   }
-  setUsuario(user: Usuario){
+  setUsuario(user: Usuario) {
     localStorage.setItem('usuario', JSON.stringify(user));
   }
 
-  getUserEmail(){
+  getUserEmail() {
     return this.email;
   }
 
-  setEmail(email: string){
+  setEmail(email: string) {
     this.email = email;
   }
 
