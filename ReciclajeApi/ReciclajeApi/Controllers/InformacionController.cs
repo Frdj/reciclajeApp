@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using ReciclajeApi.Models;
 
 namespace ReciclajeApi.Controllers
 {
@@ -20,16 +21,13 @@ namespace ReciclajeApi.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> GetMateriales(string campos)
+        public async Task<IActionResult> GetMateriales()
         {
             try
             {
-                var query = "SELECT @campos FROM categoria_residuos";
-                var parameter = new DynamicParameters();
-                parameter.Add("@campos", campos);
+                var query = @"SELECT cr.idCategoria, ts.descripcion as Material, cr.descripcion as Residuo, cr.reciclable as EsReciclable, cr.imagen as Imagen FROM categoria_residuos cr INNER JOIN tipo_residuos ts ON ts.idTipo = cr.idTipoResiduo";
 
-
-                List<Tipo_Residuo> materiales = (await _cnn.QueryAsync<Tipo_Residuo>(query, parameter)).ToList();
+                List<MaterialesApi> materiales = (await _cnn.QueryAsync<MaterialesApi>(query)).ToList();
 
                 return Ok(materiales);
             }
