@@ -11,5 +11,7 @@
         public bool Reciclable { get; set; }
 
         public byte[] Imagen { get; set; }
+
+        public string Detalle { get; set; }
     }
 }

@@ -26,7 +26,6 @@ namespace ReciclajeApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
             services.AddTransient<IDbConnection>((serviceProvider) => new MySqlConnection(Configuration.GetConnectionString("database")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAutoMapper(typeof(Startup));
@@ -52,6 +51,8 @@ namespace ReciclajeApi
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors
+           (builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -25,7 +25,7 @@ namespace ReciclajeApi.Persistance.Dao
 
         public CategoriaResiduo ObtenerCategoriaResiduo(int idCategoriaResiduo, int idTipoResiduo)
         {
-            string query = @"SELECT IdCategoria, IdTipoResiduo, Descripcion, Reciclable, Imagen
+            string query = @"SELECT IdCategoria, IdTipoResiduo, Descripcion, Reciclable, Imagen, Detalle
                             FROM categoria_residuos
                             WHERE IdCategoria = @IdCategoria 
                                 AND idTipoResiduo = @IdTipoResiduo";
