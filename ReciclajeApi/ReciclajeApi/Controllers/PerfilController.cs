@@ -4,39 +4,34 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.Models.Domain;
 
 namespace ReciclajeApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class PerfilController : ControllerBase
     {
-        private readonly IDbConnection _cnn;
+        private readonly IPerfilCoordinator perfilCoordinator;
 
-        public PerfilController(IDbConnection cnn)
+        public PerfilController(IPerfilCoordinator perfilCoordinator)
         {
-            _cnn = cnn;
+            this.perfilCoordinator = perfilCoordinator;
         }
 
-        [HttpGet("[action]/{email}")]
-        public async Task<IActionResult> GetPerfil(string email)
+        [HttpGet("perfil/{IdUsuario}")]
+        public ActionResult<PerfilApiModel> ObtenerPerfil(int IdUsuario)
         {
             try
             {
-                var perfil = new Usuario();
-                var query = "SELECT * FROM usuarios WHERE email = @email";
-                var parameter = new DynamicParameters();
-                parameter.Add("@email", email);
+                var result = perfilCoordinator.ObtenerPerfil(IdUsuario);
 
-                perfil = (await _cnn.QueryAsync<Usuario>(query, parameter)).SingleOrDefault();
-
-                return Ok(perfil);
+                return StatusCode(200, result);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                // TODO: Hacer algo en caso de error
-                return Ok(null);
+                return StatusCode(403);
             }
         }
 
