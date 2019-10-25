@@ -43,6 +43,8 @@ namespace ReciclajeApi
             services.AddTransient<ILocalidadDao, LocalidadDao>();
             services.AddTransient<IProvinciaCoordinator, ProvinciaCoordinator>();
             services.AddTransient<IProvinciaDao, ProvinciaDao>();
+            services.AddTransient<IInformacionCoordinator, InformacionCoordinator>();
+            services.AddTransient<IInformacionDao, InformacionDao>();
             services.AddTransient<ILoginCoordinator, LoginCoordinator>();
             services.AddTransient<ISecureService, SecureService>();
             services.AddTransient<ISecureDao, SecureDao>();
