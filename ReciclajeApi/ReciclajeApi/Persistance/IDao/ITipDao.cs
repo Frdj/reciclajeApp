@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ReciclajeApi.Business.Models.Domain;
 
 namespace ReciclajeApi.Persistance.IDao
 {

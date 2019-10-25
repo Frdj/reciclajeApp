@@ -45,7 +45,7 @@ namespace ReciclajeApi.Business.Coordinators
             var random = new Random();
             int num = random.Next(result.Count);
 
-            return result[num].descripcion;
+            return result[num].Descripcion;
 
         }
     }
