@@ -11,20 +11,30 @@ import { Usuario } from '../models/Usuario';
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private miscelaneas: MescelaneasService) {
-
-  }
+  constructor(private http: HttpClient, private miscelaneas: MescelaneasService) { }
 
   login(usuario: Usuario) {
     const credenciales = {
       email: usuario.email,
       password: usuario.password
     };
-    return this.http.post(`${this.miscelaneas.getURL()}/api/login`, credenciales).pipe(map(id => id));
+    return this.http.post(`${this.miscelaneas.getURL()}/api/login`, credenciales)
+      .pipe(map((id: number) => {
+        localStorage.setItem('idUsuario', id.toString());
+        return id;
+      }));
   }
 
   signup(usuario: Usuario) {
     return this.http.post(`${this.miscelaneas.getURL()}/api/signup`, usuario).pipe(map(id => id));
+  }
+
+  logout() {
+    localStorage.removeItem('idUsuario');
+  }
+
+  estaLogueado(): boolean {
+    return localStorage.getItem('idUsuario') ? true : false;
   }
 
   getPerfil(email: string) {

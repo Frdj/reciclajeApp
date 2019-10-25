@@ -11,13 +11,14 @@ import { Material } from 'src/app/models/Material';
 export class InformationComponent implements OnInit {
 
 
-loading = true;
-informacion: any;
-aux = []
+  loading = true;
+  informacion: any;
+  aux = [];
 
-  constructor(private _information: InformationService, private misce: MescelaneasService) {
-    this._information.getMateriales('*').subscribe((res: any[]) => {
+  constructor(private information: InformationService, private misce: MescelaneasService) {
+    this.information.getMateriales().subscribe((res: any[]) => {
       console.log(res);
+      this.informacion = res;
       this.loading = false;
     }, error => this.loading = !this.loading);
   }
@@ -26,7 +27,7 @@ aux = []
   }
 
   filtrar(valor: string) {
-    console.log(valor)
+    console.log(valor);
     if (valor === '') {
       this.aux = this.informacion.slice();
     } else {

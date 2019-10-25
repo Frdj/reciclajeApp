@@ -1,59 +1,14 @@
 <form>
     <div class="fadeIn" *ngIf="!loading">
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="container">
             <input matInput (keyup)="filtrar(buscador.value)" #buscador placeholder="Buscar material...">
         </mat-form-field>
 
         <div class="fila">
             <div class="item" *ngFor="let item of informacion">
                 <img class="img-fluid" [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml">
-
             </div>
         </div>
-        <!--> <div class="fila">
-            <div class="item">
-                <div class="caja">
-                </div>
-            </div>
-            <div class="item">
-                <div class="caja">
-                </div>
-            </div>
-            <div class="item">
-                <div class="caja">
-                </div>
-            </div>
-        </div>
-        <div class="fila">
-            <div class="item">
-                <div class="caja">
-                </div>
-            </div>
-            <div class="item">
-                <div class="caja">
-                </div>
-            </div>
-            <div class="item">
-                <div class="caja">
-                </div>
-            </div>
-        </div>
-        <div class="fila">
-            <div class="item">
-                <div class="caja">
-                </div>
-            </div>
-            <div class="item">
-                <div class="caja">
-                </div>
-            </div>
-            <div class="item">
-                <div class="caja">
-                </div>
-            </div>
-        </div>
-
-        <-->
     </div>
     <app-loading *ngIf="loading"></app-loading>
 </form>

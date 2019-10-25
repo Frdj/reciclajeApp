@@ -1,40 +1,42 @@
 <div class="container">
-    <form class="login-form" [formGroup]="formulario" (ngSubmit)="login(formulario)">
-        <div class="row d-flex flex-column align-items-center">
-            <div class="">
-                <!-- <input type="email" class="form-control" [(ngModel)]="usuario.email" name="email"> -->
-                <mat-form-field class="largo">
-                    <input matInput placeholder="Email" type="email" formControlName="email">
-                    <mat-error *ngIf="formulario.controls['email'].errors?.required">
-                        El email es obligatorio
-                    </mat-error>
-                </mat-form-field>
+    <mat-card class="tarjeta">
+        <form [formGroup]="formulario" (ngSubmit)="login(formulario)">
+            <div class="row d-flex flex-column align-items-center">
+                <div class="">
+                    <!-- <input type="email" class="form-control" [(ngModel)]="usuario.email" name="email"> -->
+                    <mat-form-field class="largo">
+                        <input matInput placeholder="Email" type="email" formControlName="email">
+                        <mat-error *ngIf="formulario.controls['email'].errors?.required">
+                            El email es obligatorio
+                        </mat-error>
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row d-flex flex-column align-items-center">
-            <div class="">
-                <!-- <input type="password" class="form-control" [(ngModel)]="usuario.password" name="password"> -->
-                <mat-form-field class="largo">
-                    <input matInput placeholder="Password" type="password" formControlName="password">
-                    <mat-error *ngIf="formulario.controls['password'].errors?.required">
-                        El password es obligatorio
-                    </mat-error>
-                </mat-form-field>
+            <div class="row d-flex flex-column align-items-center">
+                <div class="">
+                    <!-- <input type="password" class="form-control" [(ngModel)]="usuario.password" name="password"> -->
+                    <mat-form-field class="largo">
+                        <input matInput placeholder="Password" type="password" formControlName="password">
+                        <mat-error *ngIf="formulario.controls['password'].errors?.required">
+                            El password es obligatorio
+                        </mat-error>
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-8">
-                <button class="btn btn-primary btn-block mt-4" type="submit">
-                    Login
-                </button>
+            <div class="row d-flex justify-content-center">
+                <div class="col-8">
+                    <button class="btn btn-primary btn-block mt-4" type="submit">
+                        Login
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="row d-flex justify-content-center mt-2">
-            <div class="col-8">
-                <button class="btn btn-outline-primary btn-block" [routerLink]="['/signup']">
-                    Registrarse
-                </button>
+            <div class="row d-flex justify-content-center mt-2">
+                <div class="col-8">
+                    <button class="btn btn-outline-primary btn-block" [routerLink]="['/signup']">
+                        Registrarse
+                    </button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </mat-card>
 </div>

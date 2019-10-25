@@ -13,14 +13,14 @@ export class InformationService {
 
   constructor(private http: HttpClient, private miscelaneas: MescelaneasService) {
 
-   }
-
-   getTip(){
-     return this.http.get(`${this.miscelaneas.getURL()}/api/tips/gettiprandom`).pipe(map((res: Tip)=>res.descripcion))
-   }
-
-   getMateriales(campos: string){
-     return this.http.get(`${this.miscelaneas.getURL()}/api/informacion/getMateriales?campos=${campos}`).pipe(map((res)=>res))
-    }
   }
+
+  getTip() {
+    return this.http.get(`${this.miscelaneas.getURL()}/api/tips/gettiprandom`).pipe(map((res: Tip) => res.descripcion));
+  }
+
+  getMateriales() {
+    return this.http.get(`${this.miscelaneas.getURL()}/api/materiales`).pipe(map((res) => res));
+  }
+}
 
