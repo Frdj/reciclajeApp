@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ReciclajeApi.Business.Models.ApiModels;
 using ReciclajeApi.Business.Models.Domain;
+using System;
 
 namespace ReciclajeApi.Business.Models
 {
@@ -20,7 +21,8 @@ namespace ReciclajeApi.Business.Models
             CreateMap<Estado, EstadoApiModel>();
             CreateMap<Localidad, LocalidadApiModel>();
             CreateMap<Provincia, ProvinciaApiModel>();
-            CreateMap<SignUpApiModel, SignUp>().ForMember(dest => dest.FotoDePerfil, opt => opt.Ignore());
+            CreateMap<SignUp, SignUpApiModel>().ForMember(dest => dest.FotoDePerfil, opt => opt.Ignore());
+            CreateMap<Material, MaterialApiModel>().ForMember(dest => dest.Imagen, opt => opt.MapFrom(x => Convert.ToBase64String(x.Imagen)));
         }
     }
 }
