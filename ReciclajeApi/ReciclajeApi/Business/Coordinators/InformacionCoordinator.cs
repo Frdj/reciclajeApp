@@ -10,11 +10,13 @@ namespace ReciclajeApi.Business.Coordinators
     public class InformacionCoordinator : IInformacionCoordinator
     {
         private readonly IInformacionDao informacionDao;
+        private readonly ITipDao tipDao;
         private readonly IMapper mapper;
 
-        public InformacionCoordinator(IInformacionDao informacionDao, IMapper mapper)
+        public InformacionCoordinator(IInformacionDao informacionDao, IMapper mapper, ITipDao tipDao)
         {
             this.informacionDao = informacionDao;
+            this.tipDao = tipDao;
             this.mapper = mapper;
         }
 
@@ -29,21 +31,22 @@ namespace ReciclajeApi.Business.Coordinators
 
             return mapper.Map<List<MaterialApiModel>>(result);
         }
-        //public EstadoApiModel ObtenerEstado(int idEstado)
-        //{
-        //    if (idEstado < 1)
-        //    {
-        //        throw new Exception();
-        //    }
 
-        //    var result = estadoDao.ObtenerEstado(idEstado);
+        public string ObtenerTip()
+        {
 
-        //    if (result == null)
-        //    {
-        //        throw new Exception();
-        //    }
+            var result = tipDao.ObtenerTip();
 
-        //    return mapper.Map<EstadoApiModel>(result);
-        //}
+            if (result == null)
+            {
+                throw new Exception();
+            }
+
+            var random = new Random();
+            int num = random.Next(result.Count);
+
+            return result[num].descripcion;
+
+        }
     }
 }

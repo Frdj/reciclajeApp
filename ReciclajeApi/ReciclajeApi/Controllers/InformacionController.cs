@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.Models.ApiModels;
-using ReciclajeApi.Models;
 
 namespace ReciclajeApi.Controllers
 {
@@ -24,6 +23,21 @@ namespace ReciclajeApi.Controllers
             try
             {
                 var result = informacionCoordinator.ObtenerMateriales();
+
+                return StatusCode(200, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(403);
+            }
+        }
+
+        [HttpGet("tip")]
+        public ActionResult<List<MaterialApiModel>> ObtenerTip()
+        {
+            try
+            {
+                var result = informacionCoordinator.ObtenerTip();
 
                 return StatusCode(200, result);
             }
