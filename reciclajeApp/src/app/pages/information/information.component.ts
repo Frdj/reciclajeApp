@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InformationService } from '../../services/information.service';
 import { MescelaneasService } from '../../services/mescelaneas.service';
+import { Material } from 'src/app/models/Material';
 
 @Component({
   selector: 'app-information',
@@ -10,9 +11,7 @@ import { MescelaneasService } from '../../services/mescelaneas.service';
 export class InformationComponent implements OnInit {
 
 loading = true;
-informacion = [
-
-]
+informacion: any;
 aux = []
   constructor(private _information: InformationService, private misce: MescelaneasService) {
     this._information.getMateriales('*').subscribe((res: any[]) =>{console.log(res); this.informacion = res; this.aux = this.informacion.slice();

@@ -1,13 +1,18 @@
-.caja {
+.item {
   border: 1px solid grey;
   height: 200px;
-  width: 100%;
+  width: 33%;
+  img {
+    height: 100%;
+    width: auto;
+  }
 }
 
 .fila {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  margin-right: -10px;
 }
 
-.item {
-  width: 33%;
-}
+
