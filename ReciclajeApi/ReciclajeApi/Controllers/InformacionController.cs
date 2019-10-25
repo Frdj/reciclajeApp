@@ -9,25 +9,34 @@ using ReciclajeApi.Models;
 
 namespace ReciclajeApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class InformacionController : ControllerBase
     {
-        private readonly IDbConnection _cnn;
+        private readonly IInformacionCoordinator informacionCoordinator;
 
-        public InformacionController(IDbConnection cnn)
+        public InformacionController(IInformacionCoordinator informacionCoordinator)
         {
-            _cnn = cnn;
+            this.informacionCoordinator = informacionCoordinator;
         }
 
-        [HttpGet("[action]")]
-        public async Task<IActionResult> GetMateriales()
+        [HttpGet("materiales")]
+        public ActionResult<List<MaterialApiModel>> ObtenerMateriales()
         {
             try
             {
-                var query = @"SELECT cr.idCantegoria, ts.descripcion as Material, cr.descripcion as Residuo, cr.reciclable as EsReciclable, cr.imagen as Imagen FROM categoria_residuos cr INNER JOIN tipo_residuos ts ON ts.idTipo = cr.idTipoResiduo";
+                var result = informacionCoordinator.ObtenerMateriales();
 
-                List<MaterialesApi> materiales = (await _cnn.QueryAsync<MaterialesApi>(query)).ToList();
+                return StatusCode(200, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(403);
+            }
+
+            try
+            {
+                
 
                 return Ok(materiales);
             }
