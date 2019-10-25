@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using ReciclajeApi.Business.ICoordinators;
+using ReciclajeApi.Business.Models.ApiModels;
 using ReciclajeApi.Models;
 
 namespace ReciclajeApi.Controllers
@@ -33,19 +31,6 @@ namespace ReciclajeApi.Controllers
             {
                 return StatusCode(403);
             }
-
-            try
-            {
-                
-
-                return Ok(materiales);
-            }
-            catch (Exception e)
-            {
-                return Ok(null);
-                // TODO: Hacer algo en caso de error
-            }
         }
-
     }
 }
