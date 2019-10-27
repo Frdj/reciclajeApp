@@ -25,6 +25,7 @@ export class InformationComponent implements OnInit {
     this.information.getMateriales().subscribe((res: Material[]) => {
       console.log(res);
       this.informacion = res;
+      this.aux = res;
       this.loading = false;
     }, error => this.loading = !this.loading);
   }
@@ -46,11 +47,12 @@ export class InformationComponent implements OnInit {
 
 
   filtrar(valor: string) {
-    console.log(valor);
-    if (valor === '') {
-      this.aux = this.informacion.slice();
+    if (valor.length === 0) {
+      this.aux = this.informacion;
     } else {
-      this.aux = this.aux.filter(tip => tip.material.toLocaleLowerCase().includes(valor.toLocaleLowerCase()));
+      this.aux = this.informacion.filter((material: Material) => {
+        return material.residuo.toLowerCase().includes(valor.toLowerCase());
+      });
     }
   }
 }
