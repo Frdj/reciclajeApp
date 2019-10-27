@@ -37,6 +37,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { MaterialDetailComponent } from './pages/information/material-detail/material-detail.component';
+import { ImagenPipe } from './pipes/imagen.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MaterialDetailComponent } from './pages/information/material-detail/mat
     SafeHtmlPipe,
     LoginComponent,
     SignupComponent,
-    MaterialDetailComponent
+    MaterialDetailComponent,
+    ImagenPipe
   ],
   imports: [
     HttpClientModule,
