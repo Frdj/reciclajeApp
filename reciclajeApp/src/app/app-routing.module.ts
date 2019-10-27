@@ -21,7 +21,7 @@ const routes: Routes = [
   // { path: 'home', component: HomeComponent },
   { path: 'ofrecer', component: NewPublishComponent },
   { path: 'retirar', component: RetirarComponent },
-  { path: '**', redirectTo: 'recycle', pathMatch: 'full' }
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

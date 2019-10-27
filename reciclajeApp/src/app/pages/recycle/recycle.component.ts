@@ -9,22 +9,28 @@ import { MescelaneasService } from '../../services/mescelaneas.service';
   styleUrls: ['./recycle.component.scss']
 })
 export class RecycleComponent implements OnInit {
-  tips = ['Recordá que lo que separes tiene que estar limpio y seco a la hora de reciclarlo. warning',
-    'Hay otras formas de ayudar al planeta, como por ejemplo, cerrando la canilla cuando te lavás los dientes. smile'];
-    tip: string;
-    showTip = false;
-  constructor(private router: Router,private misce: MescelaneasService, private _informacion: InformationService) { 
+
+  tip: string;
+  showTip = false;
+
+  constructor(private router: Router, private misce: MescelaneasService, private _informacion: InformationService) {
     this.getTip();
+  }
+
+  ngOnInit() {
 
   }
 
-  ngOnInit() { }
-    redirigir(page: string){
+  redirigir(page: string) {
     this.misce.redireccionar(page);
-      }
-    getTip(){
-      this.showTip = false;
-    this._informacion.getTip().subscribe((tip: string) => {this.tip = tip; this.showTip = true;}, error => this.misce.errorAlert(error))
-    }
+  }
 
+  getTip() {
+    this._informacion.getTip().subscribe(
+      (tip: string) => {
+        this.tip = tip;
+        this.showTip = true;
+      },
+      error => this.misce.errorAlert(error));
+  }
 }

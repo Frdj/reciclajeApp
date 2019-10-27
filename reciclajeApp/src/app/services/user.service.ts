@@ -37,7 +37,7 @@ export class UserService {
     return localStorage.getItem('idUsuario') ? true : false;
   }
 
-  getPerfil(email: string) {
-    return this.http.get(`${this.miscelaneas.getURL()}/api/perfil/getperfil/${email}`).pipe(map(res => res));
+  getPerfil(id: number) {
+    return this.http.get(`${this.miscelaneas.getURL()}/api/perfil/${id}`).pipe(map(res => res));
   }
 }

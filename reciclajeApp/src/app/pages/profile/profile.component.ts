@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
     private misce: MescelaneasService,
     private router: Router
   ) {
-    this.userService.getPerfil('francoarmani@uade.com')
+    this.userService.getPerfil(+localStorage.getItem('idUsuario'))
       .subscribe((usuario: Usuario) => {
         this.usuario = usuario;
         console.log(this.usuario);

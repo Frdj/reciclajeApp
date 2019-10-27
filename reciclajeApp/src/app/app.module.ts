@@ -14,6 +14,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatOptionModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,7 +36,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MaterialDetailComponent } from './pages/information/material-detail/material-detail.component';
 
 @NgModule({
   declarations: [
@@ -53,9 +55,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SafeHtmlPipe,
     LoginComponent,
     SignupComponent,
+    MaterialDetailComponent
   ],
   imports: [
-
     HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
@@ -63,7 +65,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    //Material
+    // Material
     MatProgressSpinnerModule,
     MatOptionModule,
     MatAutocompleteModule,
@@ -74,7 +76,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatToolbarModule,
     MatIconModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    MaterialDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
