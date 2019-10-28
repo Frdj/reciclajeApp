@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class SignupComponent implements OnInit {
 
   formulario: FormGroup;
+  loading: boolean;
 
   constructor(
     private userService: UserService,
@@ -30,15 +31,16 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = false;
   }
 
   signup(formulario) {
     if (this.formulario.invalid) {
       return;
     }
-    console.log(formulario.value);
+    this.loading = true;
     this.userService.signup(formulario.value).subscribe(idUsuario => {
-      console.log(idUsuario);
+      this.loading = false;
       this.snackBar.open('Usuario creado con éxito', 'Aceptar', { duration: 5000 });
       this.router.navigate(['/login']);
     });

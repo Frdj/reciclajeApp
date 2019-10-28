@@ -12,6 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   formulario: FormGroup;
+  loading: boolean;
 
   constructor(
     private userService: UserService,
@@ -25,19 +26,21 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = false;
   }
 
   login(formulario) {
-    console.log(formulario.value);
     if (this.formulario.invalid) {
       return;
     }
+    this.loading = true;
     this.userService.login(formulario.value)
       .subscribe((idUsuario: number) => {
-        console.log(idUsuario);
+        this.loading = false;
         this.router.navigate(['/recycle']);
       },
         (err: any) => {
+          this.loading = false;
           this.snackBar.open('Credenciales inválidas', 'Aceptar', { duration: 3000 });
         });
   }
