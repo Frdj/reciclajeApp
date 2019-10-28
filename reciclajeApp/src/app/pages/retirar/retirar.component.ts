@@ -246,30 +246,24 @@ export class RetirarComponent implements OnInit {
     });
   }
 
-  quitarPublicacionDisponible(id: number){
-
-  }
-
-
-  
-  openConfirm(index: number)
-  {
+  openConfirm(index: number) {
     this.indexConfirm = index;
     let nombre = 'modal';
     this.modal = document.getElementById(nombre) as HTMLDialogElement;
     this.modal.showModal();
   }
-  cerrar(){
+
+  cerrar() {
     this.modal = document.getElementById('modal') as HTMLDialogElement;
     this.modal.close();
     this.indexConfirm = -1;
   }
-  confirmar(){
+
+  confirmar() {
     this.modal.close();
-    this.publicaciones.splice(this.indexConfirm,1);
+    this.publicaciones.splice(this.indexConfirm, 1);
     this.aux = this.publicaciones;
     this.indexConfirm = -1;
 
   }
-
 }
