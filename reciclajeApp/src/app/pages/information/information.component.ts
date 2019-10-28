@@ -4,6 +4,8 @@ import { MescelaneasService } from '../../services/mescelaneas.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MaterialDetailComponent } from './material-detail/material-detail.component';
 import { Material } from 'src/app/models/Material';
+import { Button } from 'protractor';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-information',
@@ -11,7 +13,6 @@ import { Material } from 'src/app/models/Material';
   styleUrls: ['./information.component.scss']
 })
 export class InformationComponent implements OnInit {
-
 
   loading = true;
   informacion: Material[];
