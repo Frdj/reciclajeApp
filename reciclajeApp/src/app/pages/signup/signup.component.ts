@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/models/Usuario';
-import { UserService } from 'src/app/services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,9 @@ export class SignupComponent implements OnInit {
   formulario: FormGroup;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.formulario = new FormGroup({
       nombre: new FormControl('', Validators.required),
@@ -22,7 +25,7 @@ export class SignupComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       fotoDePerfil: new FormControl(''),
-      telefono: new FormControl(11),
+      telefono: new FormControl(911),
     });
   }
 
@@ -36,6 +39,8 @@ export class SignupComponent implements OnInit {
     console.log(formulario.value);
     this.userService.signup(formulario.value).subscribe(idUsuario => {
       console.log(idUsuario);
+      this.snackBar.open('Usuario creado con éxito', 'Aceptar', { duration: 5000 });
+      this.router.navigate(['/login']);
     });
   }
 
