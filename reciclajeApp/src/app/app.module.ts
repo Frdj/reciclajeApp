@@ -28,8 +28,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { MaterialDetailComponent } from './pages/information/material-detail/material-detail.component';
 import { SignupComponent } from './pages/signup/signup.component';
 // components
-import { AppComponent } from './app.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SolicitudComponent } from './components/solicitud/solicitud.component';
@@ -79,7 +80,8 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     MatIconModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule
   ],
   entryComponents: [
     MaterialDetailComponent
