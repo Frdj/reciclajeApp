@@ -19,11 +19,12 @@ export class NewPublishComponent implements OnInit {
   constructor(private _informacion: InformationService, private misce: MescelaneasService) {
     this._informacion.getMateriales().subscribe((mats: any[]) => {
       mats.forEach(mat => {
-        this.tipoMateriales.push(mat.descripcion);
+        console.log(mat)
+        this.tipoMateriales.push(mat.residuo);
         this.error = false;
         this.loading = false;
       });
-      // this.AddElement();
+       this.AddElement();
     }, error => {
       misce.errorAlert(error);
       this.error = true;
@@ -31,10 +32,10 @@ export class NewPublishComponent implements OnInit {
     });
   }
 
-  // AddElement() {
-  //   this.materiales.push(new Material(this.tipoMateriales[0], 1));
-  //   console.log(this.materiales);
-  // }
+   AddElement() {
+    this.materiales.push(new Material(this.tipoMateriales[0], 1));
+    console.log(this.materiales);
+   }
 
 
   crearPublicacion() {

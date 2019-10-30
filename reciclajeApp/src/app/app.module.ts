@@ -16,27 +16,27 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+//Pages
 import { HomeComponent } from './pages/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { InformationComponent } from './pages/information/information.component';
 import { RecycleComponent } from './pages/recycle/recycle.component';
 import { RetirarComponent } from './pages/retirar/retirar.component';
 import { OfrecerComponent } from './pages/ofrecer/ofrecer.component';
-import { SolicitudComponent } from './components/solicitud/solicitud.component';
-import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.component';
-
 import { NewPublishComponent } from './pages/new-publish/new-publish.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MaterialDetailComponent } from './pages/information/material-detail/material-detail.component';
+import { SignupComponent } from './pages/signup/signup.component';
+// components
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SolicitudComponent } from './components/solicitud/solicitud.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
-import { MaterialDetailComponent } from './pages/information/material-detail/material-detail.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 
 @NgModule({
