@@ -1,14 +1,14 @@
 <h1 mat-dialog-title>{{ data.residuo }}</h1>
 <hr>
 <div *ngIf="data.esReciclable==1" id="esRec">RECICLABLE</div>
-<div *ngIf="data.esReciclable==0" id="noEsRec">NO ES RECICLABLE</div>
+<div *ngIf="data.esReciclable==0" id="noEsRec">NO RECICLABLE</div>
 <br>
 <div mat-dialog-content id="texto">
     <p>{{ data.detalle }}</p>
 </div>
-<div mat-dialog-actions *ngIf="data.esReciclable==1" id="cierreVerde">
-    <button class='button' mat-button (click)="dialogRef.close()">Ya entendí!</button>
+<div mat-dialog-actions *ngIf="data.esReciclable==1">
+    <button class="btn btn-outline-success btn-block" (click)="dialogRef.close()">Ya entendí!</button>
 </div>
-<div mat-dialog-actions *ngIf="data.esReciclable==0" id="cierreRojo">
-    <button class='button' mat-button (click)="dialogRef.close()">Ya entendí!</button>
+<div mat-dialog-actions *ngIf="data.esReciclable==0">
+    <button class="btn btn-outline-danger btn-block" (click)="dialogRef.close()">Ya entendí!</button>
 </div>

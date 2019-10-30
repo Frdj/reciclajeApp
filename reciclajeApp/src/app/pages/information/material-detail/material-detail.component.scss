@@ -1,31 +1,28 @@
 #esRec{
     color: green;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 500;
     letter-spacing: 0.2mm;
+    margin: -10px auto;
 }
 
 #noEsRec{
     color: red;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 500;
     letter-spacing: 0.2mm;
+    margin: -10px auto;
 }
 
-#cierreVerde{
-    background-color:white;
-    margin: 0px 0px 10px 150px;
-    padding: auto;
-    font-weight: bold;
-    letter-spacing: 0.3mm;
-    color: green;
+button{
+    letter-spacing: 0.1mm;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
-#cierreRojo{
-    background-color:white;
-    margin: 0px 0px 10px 150px;
-    padding: auto;
-    font-weight: bold;
-    letter-spacing: 0.3mm;
-    color: red;
+h1{
+    margin: -10px auto;  
 }
 
 #texto{
