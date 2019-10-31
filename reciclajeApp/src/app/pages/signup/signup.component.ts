@@ -43,7 +43,10 @@ export class SignupComponent implements OnInit {
       this.loading = false;
       this.snackBar.open('Usuario creado con éxito', 'Aceptar', { duration: 5000 });
       this.router.navigate(['/login']);
-    });
+    },
+      err => {
+        this.snackBar.open(`${err.message}`, 'Aceptar', { duration: 3500 });
+      });
   }
 
 }
