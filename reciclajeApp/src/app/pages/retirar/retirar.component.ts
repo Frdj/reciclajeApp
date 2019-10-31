@@ -22,9 +22,9 @@ export class RetirarComponent implements OnInit {
 
   publicaciones = [{
     id: 9,
-    nombre: 'Rodrigo Bueno',
-    direccion: 'Lima 1003',
-    localidad: 'Ciudad Autonoma de Buenos aires',
+    nombre: 'Javier López',
+    direccion: 'Av. Belgrano 3482',
+    localidad: 'Avellaneda',
     materiales: [{
       tipo: 'Cartón',
       cantidad: 0,
@@ -295,9 +295,11 @@ export class RetirarComponent implements OnInit {
       width: '350px',
       data: publicacion
     });
-    dialogRef.afterClosed().subscribe(result => {
-      this.publicaciones.splice(this.indexConfirm, 1);
-      this.aux = this.publicaciones;
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.publicaciones.splice(this.indexConfirm, 1);
+        this.aux = this.publicaciones;
+      }
     });
   }
 

@@ -56,12 +56,12 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-8">
-                    <button class="btn btn-primary btn-block" type="submit" [disabled]="loading">
+                    <button class="btn btn-success btn-block" type="submit" [disabled]="loading">
                         <span *ngIf="!loading">Crear Cuenta</span>
                         <span *ngIf="loading">Cargando...</span>
                     </button>
                 </div>
-                <a class="mt-2" [routerLink]="['/login']">Ya tengo una cuenta</a>
+                <a class="mt-2 text-success" [routerLink]="['/login']">Ya tengo una cuenta</a>
             </div>
         </form>
     </mat-card>

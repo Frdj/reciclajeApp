@@ -21,21 +21,21 @@ body {
   box-sizing: border-box;
 }
 
-
-.logo{
+.logo {
+  margin: 1rem auto;
   width: 170px;
   height: 190px;
   position: relative;
-  animation-name: logo-entrada ;
+  animation-name: logo-entrada;
   animation-duration: 1.5s;
 }
 
-@keyframes logo-entrada{
-  from{
+@keyframes logo-entrada {
+  from {
     top: -500px;
   }
-  to{
-    top: 0px
+  to {
+    top: 0px;
   }
 }
 
