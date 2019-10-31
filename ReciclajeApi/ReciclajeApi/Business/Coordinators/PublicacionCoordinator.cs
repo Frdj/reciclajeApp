@@ -132,7 +132,7 @@ namespace ReciclajeApi.Business.Coordinators
 
             var usuario = usuarioCoordinator.ObtenerUsuario(idUsuario);
 
-            return emailService.EnviarMail("ReciclajeAPP - Te aceptaron tu publicación", usuario.Email, "Estimado/a,<br>Aceptaron tu publicación");
+            return emailService.EnviarMail("ReciclajeAPP - Te reservaron tu publicación", usuario.Email, "Estimado/a,<br>Reservaron tu publicación");
         }
 
         private List<PublicacionApiModel> CompletarPublicaciones(List<Publicacion> publicaciones)
