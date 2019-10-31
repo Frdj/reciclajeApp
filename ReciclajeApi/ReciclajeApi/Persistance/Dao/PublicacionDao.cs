@@ -44,5 +44,12 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.Execute(query, new { IdUsuarioR = idUsuario, Estado = 3, IdPublicacion = idPublicacion, FechaRetiro = DateTime.Now }) > 0;
         }
+
+        public bool ReservarOferta(int idPublicacion, int idUsuario)
+        {
+            var query = "UPDATE publicaciones SET IdUsuarioR = @IdUsuarioR, Estado = @Estado WHERE IdPublicacion = @IdPublicacion";
+
+            return _cnn.Execute(query, new { IdUsuarioR = idUsuario, Estado = 2, IdPublicacion = idPublicacion }) > 0;
+        }
     }
 }

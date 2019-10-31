@@ -12,5 +12,7 @@ namespace ReciclajeApi.Persistance.IDao
         IEnumerable<Publicacion> ObtenerPublicacionesPorUsuarioReceptor(int idUsuario);
 
         bool AceptarOferta(int idPublicacion, int idUsuario);
+
+        bool ReservarOferta(int idPublicacion, int idUsuario);
     }
 }

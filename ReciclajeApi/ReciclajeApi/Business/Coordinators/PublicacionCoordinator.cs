@@ -114,6 +114,27 @@ namespace ReciclajeApi.Business.Coordinators
             return emailService.EnviarMail("ReciclajeAPP - Te aceptaron tu publicación", usuario.Email, "Estimado/a,<br>Aceptaron tu publicación");
         }
 
+        public Task<bool> ReservarOferta(int idPublicacion, int idUsuario)
+        {
+            if (idPublicacion < 1 || idUsuario < 1)
+            {
+                throw new Exception();
+            }
+
+            bool result = false;
+
+            result = publicacionDao.ReservarOferta(idPublicacion, idUsuario);
+
+            if (!result)
+            {
+                throw new Exception();
+            }
+
+            var usuario = usuarioCoordinator.ObtenerUsuario(idUsuario);
+
+            return emailService.EnviarMail("ReciclajeAPP - Te aceptaron tu publicación", usuario.Email, "Estimado/a,<br>Aceptaron tu publicación");
+        }
+
         private List<PublicacionApiModel> CompletarPublicaciones(List<Publicacion> publicaciones)
         {
             List<PublicacionApiModel> publis = new List<PublicacionApiModel>();

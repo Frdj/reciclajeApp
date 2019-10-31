@@ -13,5 +13,7 @@ namespace ReciclajeApi.Business.ICoordinators
         List<PublicacionApiModel> ObtenerPublicacionesPorUsuarioReceptor(int idUsuario);
 
         Task<bool> AceptarOferta(int idPublicacion, int idUsuario);
+
+        Task<bool> ReservarOferta(int idPublicacion, int idUsuario);
     }
 }
