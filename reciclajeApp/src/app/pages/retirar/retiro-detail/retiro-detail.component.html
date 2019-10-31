@@ -1,0 +1,19 @@
+<p class="d-flex align-items-center">
+    <mat-icon>person_icon</mat-icon><span class="ml-2">{{ data.nombre }}</span>
+</p>
+<p class="d-flex align-items-center">
+    <mat-icon>location_on</mat-icon><span class="ml-2">{{ data.direccion }}-{{ data.localidad }}</span>
+</p>
+<p class="d-flex align-items-center">
+    <mat-icon>today</mat-icon><span class="ml-2">L M Mi J V</span>
+</p>
+<p class="d-flex align-items-center">
+    <mat-icon>access_time</mat-icon><span class="ml-2">9 a 14</span>
+</p>
+<ul *ngFor="let i of data.materiales">
+    <li>{{ i.tipo }}: {{ i.cantidad }}</li>
+</ul>
+<div class="row justify-content-end mt-1">
+    <button class="btn btn-outline-danger mr-2" (click)="dialogRef.close()">Cancelar</button>
+    <button class="btn btn-success" (click)="dialogRef.close()">Retirar</button>
+</div>

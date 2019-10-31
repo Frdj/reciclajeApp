@@ -39,6 +39,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { RouterModule } from '@angular/router';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { RetiroDetailComponent } from './pages/retirar/retiro-detail/retiro-detail.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     LoginComponent,
     SignupComponent,
     MaterialDetailComponent,
-    ImagenPipe
+    ImagenPipe,
+    RetiroDetailComponent
   ],
   imports: [
     HttpClientModule,
@@ -84,7 +86,8 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     MatDatepickerModule
   ],
   entryComponents: [
-    MaterialDetailComponent
+    MaterialDetailComponent,
+    RetiroDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'recycle', component: RecycleComponent, canActivate: [AuthGuard] },
   { path: 'ofrecer', component: NewPublishComponent, canActivate: [AuthGuard] },
   { path: 'retirar', component: RetirarComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: 'login', pathMatch: 'full' }
+  { path: '**', redirectTo: 'recycle', pathMatch: 'full' }
 ];
 
 @NgModule({
