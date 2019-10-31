@@ -24,7 +24,7 @@ export class NewPublishComponent implements OnInit {
         this.error = false;
         this.loading = false;
       });
-       this.AddElement();
+       //this.AddElement();
     }, error => {
       misce.errorAlert(error);
       this.error = true;
@@ -32,10 +32,10 @@ export class NewPublishComponent implements OnInit {
     });
   }
 
-   AddElement() {
-    this.materiales.push(new Material(this.tipoMateriales[0], 1));
-    console.log(this.materiales);
-   }
+//   AddElement() {
+//    this.materiales.push(new Material(this.tipoMateriales[0], 1));
+//    console.log(this.materiales);
+//   }
 
 
   crearPublicacion() {
