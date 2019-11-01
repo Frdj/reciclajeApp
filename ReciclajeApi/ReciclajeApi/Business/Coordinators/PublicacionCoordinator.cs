@@ -114,6 +114,64 @@ namespace ReciclajeApi.Business.Coordinators
             return emailService.EnviarMail("ReciclajeAPP - Te aceptaron tu publicación", usuario.Email, "Estimado/a,<br>Aceptaron tu publicación");
         }
 
+        public Task<bool> ReservarOferta(int idPublicacion, int idUsuario)
+        {
+            if (idPublicacion < 1 || idUsuario < 1)
+            {
+                throw new Exception();
+            }
+
+            bool result = false;
+
+            result = publicacionDao.ReservarOferta(idPublicacion, idUsuario);
+
+            if (!result)
+            {
+                throw new Exception();
+            }
+
+            var usuario = usuarioCoordinator.ObtenerUsuario(idUsuario);
+
+            return emailService.EnviarMail("ReciclajeAPP - Te reservaron tu publicación", usuario.Email, "Estimado/a,<br>Reservaron tu publicación");
+        }
+
+        public bool CrearPublicacion(PublicacionApiModel publicacionApiModel)
+        {
+            if (publicacionApiModel != null)
+            {
+                throw new Exception();
+            }
+
+            var publicacion = mapper.Map<Publicacion>(publicacionApiModel);
+
+            ValidarPublicacion(publicacion);
+
+            return publicacionDao.CrearPublicacion(publicacion);
+        }
+
+        private void ValidarPublicacion(Publicacion publicacion)
+        {
+            if (publicacion.Cantidad <= 0 || string.IsNullOrWhiteSpace(publicacion.DiasDisponibles)
+                || string.IsNullOrWhiteSpace(publicacion.HorarioDisponible) || string.IsNullOrWhiteSpace(publicacion.Medida) || publicacion.NuDireccion <= 0)
+            {
+                throw new Exception();
+            }
+
+            if (residuoCoordinator.ExisteCategoriaResiduo(publicacion.IdCategoriaResiduo))
+            {
+                throw new Exception();
+            }
+            if (residuoCoordinator.ExisteTipoResiduo(publicacion.IdTipoResiduo))
+            {
+                throw new Exception();
+            }
+
+            if (usuarioCoordinator.ExisteUsuario(publicacion.IdUsuarioP))
+            {
+                throw new Exception();
+            }
+        }
+
         private List<PublicacionApiModel> CompletarPublicaciones(List<Publicacion> publicaciones)
         {
             List<PublicacionApiModel> publis = new List<PublicacionApiModel>();

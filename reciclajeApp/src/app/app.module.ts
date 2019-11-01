@@ -14,27 +14,32 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatOptionModule } from '@angular/material/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+//Pages
 import { HomeComponent } from './pages/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { InformationComponent } from './pages/information/information.component';
 import { RecycleComponent } from './pages/recycle/recycle.component';
 import { RetirarComponent } from './pages/retirar/retirar.component';
 import { OfrecerComponent } from './pages/ofrecer/ofrecer.component';
-import { SolicitudComponent } from './components/solicitud/solicitud.component';
-import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.component';
-
 import { NewPublishComponent } from './pages/new-publish/new-publish.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MaterialDetailComponent } from './pages/information/material-detail/material-detail.component';
+import { SignupComponent } from './pages/signup/signup.component';
+// components
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NuevoPedidoComponent } from './components/nuevo-pedido/nuevo-pedido.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SolicitudComponent } from './components/solicitud/solicitud.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ImagenPipe } from './pipes/imagen.pipe';
+import { RetiroDetailComponent } from './pages/retirar/retiro-detail/retiro-detail.component';
 
 @NgModule({
   declarations: [
@@ -53,9 +58,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SafeHtmlPipe,
     LoginComponent,
     SignupComponent,
+    MaterialDetailComponent,
+    ImagenPipe,
+    RetiroDetailComponent
   ],
   imports: [
-
     HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
@@ -63,7 +70,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    //Material
+    // Material
     MatProgressSpinnerModule,
     MatOptionModule,
     MatAutocompleteModule,
@@ -74,7 +81,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatToolbarModule,
     MatIconModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatDatepickerModule
+  ],
+  entryComponents: [
+    MaterialDetailComponent,
+    RetiroDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

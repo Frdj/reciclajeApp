@@ -1,6 +1,6 @@
 <div class="bloque">
     <div class="avatar">
-        <img [src]="'data:image/jpg;base64, ' + usuario.fotoDePerfil | safeHtml">
+        <img [src]="usuario | imagen | safeHtml">
     </div>
 </div>
 

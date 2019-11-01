@@ -14,15 +14,15 @@ export class MescelaneasService {
     return this.URL;
   }
 
-  errorAlert(error: any){
+  errorAlert(error: any) {
     alert('Hubo un error en la conexión, no se pudieron cargar los datos');
   }
-  redireccionar(path:string){
+  redireccionar(path: string) {
     this.router.navigate([path]);
-    if(path === 'ofrecer'){
+    if (path === 'ofrecer') {
       console.log('no mostrar')
       this.showNewPub = false;
-    }else{
+    } else {
       this.showNewPub = true;
     }
   }

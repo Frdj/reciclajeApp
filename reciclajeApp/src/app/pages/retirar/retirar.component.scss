@@ -6,7 +6,7 @@
   justify-content: center;
   margin-bottom: 100px;
 }
-form{
+form {
   margin-bottom: 70px;
 }
 
@@ -17,11 +17,16 @@ form{
 .filtrado {
   width: 90%;
   display: flex;
+  flex-wrap: wrap;
   padding: 1rem;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   margin: 1rem auto;
   background-color: white;
   box-shadow: 2px 3px 10px #404040;
+}
+
+.mat-checkbox {
+  width: 33%;
 }
 
 @keyframes entrar {
@@ -35,7 +40,7 @@ form{
 
 .confirmDialog {
   border: none;
-  height: 20%;
+  height: 43%;
   animation-name: entrar;
   animation-duration: 0.5s;
 }

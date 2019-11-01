@@ -6,24 +6,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./solicitud.component.scss']
 })
 export class SolicitudComponent implements OnInit {
-@Input('solicitud') solicitud: Solicitud;
-@Input('index') i: number;
-@Output() emit: EventEmitter<number> = new EventEmitter<number>()
-tomado = false;
+  @Input('solicitud') solicitud: Solicitud;
+  @Input('index') i: number;
+  @Output() publicacion: EventEmitter<any> = new EventEmitter<any>();
+  tomado = false;
   constructor() {
   }
-  
+
   ngOnInit() {
   }
 
-  abrirConfirmacion(){
-    this.emit.emit(this.i);
+  abrirConfirmacion() {
+    this.publicacion.emit(this.solicitud);
   }
-
-
 }
 
-class Solicitud{
+class Solicitud {
   nombre: string;
   direccion: string;
   localidad: string;
@@ -31,8 +29,8 @@ class Solicitud{
     tipo: string;
     cantidad: number;
   }
-]
-constructor(){
+  ]
+  constructor() {
 
-}
+  }
 }

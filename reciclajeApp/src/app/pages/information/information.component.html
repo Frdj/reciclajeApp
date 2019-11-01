@@ -5,8 +5,9 @@
         </mat-form-field>
 
         <div class="fila">
-            <div class="item" *ngFor="let item of informacion">
-                <img class="img-fluid" [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml">
+            <div class="item" *ngFor="let item of aux">
+                <img class="img-fluid" [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml"
+                    (click)="openModal(item)">
             </div>
         </div>
     </div>

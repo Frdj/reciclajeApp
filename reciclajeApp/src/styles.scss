@@ -21,6 +21,24 @@ body {
   box-sizing: border-box;
 }
 
+.logo {
+  margin: 1rem auto;
+  width: 170px;
+  height: 190px;
+  position: relative;
+  animation-name: logo-entrada;
+  animation-duration: 1.5s;
+}
+
+@keyframes logo-entrada {
+  from {
+    top: -500px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
 .aparecer {
   animation-name: fadeInAndSlice;
   animation-duration: 0.5s;

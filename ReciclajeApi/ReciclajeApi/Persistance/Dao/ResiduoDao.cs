@@ -32,5 +32,19 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.QueryFirstOrDefault<CategoriaResiduo>(query, new { IdTipoResiduo = idTipoResiduo, IdCategoria = idCategoriaResiduo });
         }
+
+        public bool ExisteCategoriaResiduo(int idCategoriaResiduo)
+        {
+            string query = @"SELECT 1 FROM categoria_residuos WHERE IdCategoria = @IdCategoria";
+
+            return _cnn.QueryFirstOrDefault<bool>(query, new { IdCategoria = idCategoriaResiduo });
+        }
+
+        public bool ExisteTipoResiduo(int idTipoResiduo)
+        {
+            string query = @"SELECT 1 FROM tipo_residuos WHERE IdTipo = @IdTipo";
+
+            return _cnn.QueryFirstOrDefault<bool>(query, new { IdTipo = idTipoResiduo });
+        }
     }
 }

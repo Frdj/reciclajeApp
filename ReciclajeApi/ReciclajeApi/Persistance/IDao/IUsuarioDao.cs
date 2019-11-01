@@ -11,5 +11,7 @@ namespace ReciclajeApi.Persistance.IDao
         bool ValidarUsuario(string email);
 
         int SignUpUsuario(SignUp signUp);
+
+        bool ExisteUsuario(int idUsuario);
     }
 }

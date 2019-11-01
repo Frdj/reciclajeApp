@@ -6,5 +6,9 @@ namespace ReciclajeApi.Persistance.IDao
         TipoResiduo ObtenerTipoResiduo(int idTipoResiduo);
 
         CategoriaResiduo ObtenerCategoriaResiduo(int idCategoriaResiduo, int idTipoResiduo);
+
+        bool ExisteCategoriaResiduo(int idCategoriaResiduo);
+
+        bool ExisteTipoResiduo(int idTipoResiduo);
     }
 }

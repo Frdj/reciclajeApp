@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { logging } from 'protractor';
+import { MatDialog } from '@angular/material/dialog';
+import { Material } from 'src/app/models/Material';
+import { MaterialDetailComponent } from '../information/material-detail/material-detail.component';
+import { RetiroDetailComponent } from './retiro-detail/retiro-detail.component';
 
 @Component({
   selector: 'app-retirar',
@@ -15,12 +18,13 @@ export class RetirarComponent implements OnInit {
   vidrioChecked = false;
   plasticoChecked = false;
   papelChecked = false;
+  metalChecked = false;
 
   publicaciones = [{
     id: 9,
-    nombre: 'Rodrigo Bueno',
-    direccion: 'Lima 1003',
-    localidad: 'Ciudad Autonoma de Buenos aires',
+    nombre: 'Javier López',
+    direccion: 'Av. Belgrano 3482',
+    localidad: 'Avellaneda',
     materiales: [{
       tipo: 'Cartón',
       cantidad: 0,
@@ -37,6 +41,10 @@ export class RetirarComponent implements OnInit {
       tipo: 'Papel',
       cantidad: 0,
     },
+    {
+      tipo: 'Metal',
+      cantidad: 4,
+    }
     ]
   }, {
     id: 10,
@@ -59,6 +67,10 @@ export class RetirarComponent implements OnInit {
       tipo: 'Papel',
       cantidad: 1,
     },
+    {
+      tipo: 'Metal',
+      cantidad: 2,
+    }
     ]
   }, {
     id: 8,
@@ -81,6 +93,10 @@ export class RetirarComponent implements OnInit {
       tipo: 'Papel',
       cantidad: 1,
     },
+    {
+      tipo: 'Metal',
+      cantidad: 0,
+    }
     ]
   }, {
     id: 7,
@@ -103,6 +119,10 @@ export class RetirarComponent implements OnInit {
       tipo: 'Papel',
       cantidad: 1,
     },
+    {
+      tipo: 'Metal',
+      cantidad: 2,
+    }
     ]
   }, {
     id: 6,
@@ -125,6 +145,10 @@ export class RetirarComponent implements OnInit {
       tipo: 'Papel',
       cantidad: 1,
     },
+    {
+      tipo: 'Metal',
+      cantidad: 3,
+    }
     ]
   }, {
     id: 5,
@@ -147,6 +171,10 @@ export class RetirarComponent implements OnInit {
       tipo: 'Papel',
       cantidad: 1,
     },
+    {
+      tipo: 'Metal',
+      cantidad: 0,
+    }
     ]
   }, {
     id: 4,
@@ -169,6 +197,10 @@ export class RetirarComponent implements OnInit {
       tipo: 'Papel',
       cantidad: 1,
     },
+    {
+      tipo: 'Metal',
+      cantidad: 2,
+    }
     ]
   }, {
     id: 3,
@@ -191,11 +223,16 @@ export class RetirarComponent implements OnInit {
       tipo: 'Papel',
       cantidad: 0,
     },
+    {
+      tipo: 'Metal',
+      cantidad: 0,
+    }
     ]
   },]
-  constructor() {
-    //ordena x localidad.
-    this.publicaciones = this.publicaciones.sort((a, b) => (a.localidad > b.localidad) ? 1 : -1);
+  constructor(
+    private dialog: MatDialog
+  ) {
+    // this.publicaciones = this.publicaciones.sort((a, b) => (a.localidad > b.localidad) ? 1 : -1);
     this.aux = this.publicaciones;
     this.loading = false;
   }
@@ -219,6 +256,9 @@ export class RetirarComponent implements OnInit {
       case 'mat-checkbox-4':
         this.papelChecked = !this.papelChecked;
         break;
+      case 'mat-checkbox-5':
+        this.metalChecked = !this.metalChecked;
+        break;
       default:
         break;
     }
@@ -235,6 +275,9 @@ export class RetirarComponent implements OnInit {
     if (this.papelChecked) {
       this.filtrarPorMaterial(3);
     }
+    if (this.metalChecked) {
+      this.filtrarPorMaterial(4);
+    }
     this.loading = false;
   }
 
@@ -246,30 +289,37 @@ export class RetirarComponent implements OnInit {
     });
   }
 
-  quitarPublicacionDisponible(id: number){
-
+  openModal(publicacion, index: number): void {
+    this.indexConfirm = index;
+    const dialogRef = this.dialog.open(RetiroDetailComponent, {
+      width: '350px',
+      data: publicacion
+    });
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.publicaciones.splice(this.indexConfirm, 1);
+        this.aux = this.publicaciones;
+      }
+    });
   }
 
-
-  
-  openConfirm(index: number)
-  {
+  openConfirm(index: number) {
     this.indexConfirm = index;
     let nombre = 'modal';
     this.modal = document.getElementById(nombre) as HTMLDialogElement;
     this.modal.showModal();
   }
-  cerrar(){
+
+  cerrar() {
     this.modal = document.getElementById('modal') as HTMLDialogElement;
     this.modal.close();
     this.indexConfirm = -1;
   }
-  confirmar(){
+
+  confirmar() {
     this.modal.close();
-    this.publicaciones.splice(this.indexConfirm,1);
+    this.publicaciones.splice(this.indexConfirm, 1);
     this.aux = this.publicaciones;
     this.indexConfirm = -1;
-
   }
-
 }

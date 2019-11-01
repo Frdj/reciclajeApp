@@ -44,5 +44,25 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.Execute(query, new { IdUsuarioR = idUsuario, Estado = 3, IdPublicacion = idPublicacion, FechaRetiro = DateTime.Now }) > 0;
         }
+
+        public bool ReservarOferta(int idPublicacion, int idUsuario)
+        {
+            var query = "UPDATE publicaciones SET IdUsuarioR = @IdUsuarioR, Estado = @Estado WHERE IdPublicacion = @IdPublicacion";
+
+            return _cnn.Execute(query, new { IdUsuarioR = idUsuario, Estado = 2, IdPublicacion = idPublicacion }) > 0;
+        }
+
+        public bool CrearPublicacion(Publicacion publicacion)
+        {
+            var query = @"INSERT INTO publicaciones 
+                        VALUES (IdUsuarioP = @IdUsuarioP, NuDireccion = @NuDireccion, IdTipoResiduo = @IdTipoResiduo, 
+                            IdCategoriaResiduo = @IdCategoriaResiduo, Cantidad = @Cantidad, Medida = @Medida, FechaPublicacion = @FechaPublicacion,
+                            Estado = @Estado, DiasDisponibles = @DiasDisponibles, HorarioDisponible = @HorarioDisponible, IdUsuarioR = @IdUsuarioR, FechaRetiro = @FechaRetiro)";
+
+            return _cnn.Execute(query, new { IdUsuarioP = publicacion.IdUsuarioP, NuDireccion = publicacion.NuDireccion, IdTipoResiduo = publicacion.IdTipoResiduo,
+                                            IdCategoriaResiduo = publicacion.IdCategoriaResiduo, Cantidad = publicacion.Cantidad, Medida = publicacion.Medida,
+                                            FechaPublicacion = publicacion.FechaPublicacion, Estado = publicacion.Estado, DiasDisponibles = publicacion.DiasDisponibles,
+                                            HorarioDisponible = publicacion.HorarioDisponible, IdUsuarioR = "null", FechaRetiro = "null" }) > 0;
+        }
     }
 }

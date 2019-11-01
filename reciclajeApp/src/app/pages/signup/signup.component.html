@@ -1,65 +1,68 @@
 <div class="container">
-    <form class="signup-form" [formGroup]="formulario" (ngSubmit)="signup(formulario)">
-        <div class="row d-flex flex-column align-items-center">
-            <div class="form-group col-8">
-                <mat-form-field>
-                    <input matInput placeholder=" Nombre" type="text" formControlName="nombre">
-                    <mat-error *ngIf="formulario.controls['nombre'].errors?.required">
-                        El nombre es obligatorio
-                    </mat-error>
-                </mat-form-field>
+    <mat-card>
+        <form class="signup-form" [formGroup]="formulario" (ngSubmit)="signup(formulario)">
+            <div class="row d-flex flex-column align-items-center">
+                <div class="form-group col-8">
+                    <mat-form-field>
+                        <input matInput placeholder=" Nombre" type="text" formControlName="nombre">
+                        <mat-error *ngIf="formulario.controls['nombre'].errors?.required">
+                            El nombre es obligatorio
+                        </mat-error>
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row d-flex flex-column align-items-center">
-            <div class="form-group col-8">
-                <mat-form-field>
-                    <input matInput placeholder="Apellido" type="text" formControlName="apellido">
-                    <mat-error *ngIf="formulario.controls['apellido'].errors?.required">
-                        El apellido es obligatorio
-                    </mat-error>
-                </mat-form-field>
+            <div class="row d-flex flex-column align-items-center">
+                <div class="form-group col-8">
+                    <mat-form-field>
+                        <input matInput placeholder="Apellido" type="text" formControlName="apellido">
+                        <mat-error *ngIf="formulario.controls['apellido'].errors?.required">
+                            El apellido es obligatorio
+                        </mat-error>
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row d-flex flex-column align-items-center">
-            <div class="form-group col-8">
-                <mat-form-field>
-                    <input matInput placeholder="Fecha de Nacimiento" type="date" formControlName="fechaNacimiento">
-                    <mat-error *ngIf="formulario.controls['fechaNacimiento'].errors?.required">
-                        La fecha es obligatoria
-                    </mat-error>
-                </mat-form-field>
+            <div class="row d-flex flex-column align-items-center">
+                <div class="form-group col-8">
+                    <mat-form-field>
+                        <input matInput placeholder="Fecha de Nacimiento" type="date" formControlName="fechaNacimiento">
+                        <mat-error *ngIf="formulario.controls['fechaNacimiento'].errors?.required">
+                            La fecha es obligatoria
+                        </mat-error>
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row d-flex flex-column align-items-center">
-            <div class="form-group col-8">
-                <mat-form-field>
-                    <input matInput type="email" formControlName="email" placeholder="Email">
-                    <mat-error *ngIf="formulario.controls['email'].errors?.required">
-                        El email es obligatorio
-                    </mat-error>
-                </mat-form-field>
+            <div class="row d-flex flex-column align-items-center">
+                <div class="form-group col-8">
+                    <mat-form-field>
+                        <input matInput type="email" formControlName="email" placeholder="Email">
+                        <mat-error *ngIf="formulario.controls['email'].errors?.required">
+                            El email es obligatorio
+                        </mat-error>
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row d-flex flex-column align-items-center">
-            <div class="form-group col-8">
-                <mat-form-field>
-                    <input matInput type="password" formControlName="password" placeholder="Password">
-                    <mat-error *ngIf="formulario.controls['password'].errors?.required">
-                        El password es obligatorio
-                    </mat-error>
-                    <mat-error *ngIf="formulario.controls['password'].errors?.minlength">
-                        Por lo mínimo 6 caracteres
-                    </mat-error>
-                </mat-form-field>
+            <div class="row d-flex flex-column align-items-center">
+                <div class="form-group col-8">
+                    <mat-form-field>
+                        <input matInput type="password" formControlName="password" placeholder="Password">
+                        <mat-error *ngIf="formulario.controls['password'].errors?.required">
+                            El password es obligatorio
+                        </mat-error>
+                        <mat-error *ngIf="formulario.controls['password'].errors?.minlength">
+                            Por lo mínimo 6 caracteres
+                        </mat-error>
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-8">
-                <button class="btn btn-primary btn-block" type="submit">
-                    Crear Cuenta
-                </button>
+            <div class="row d-flex justify-content-center">
+                <div class="col-8">
+                    <button class="btn btn-success btn-block" type="submit" [disabled]="loading">
+                        <span *ngIf="!loading">Crear Cuenta</span>
+                        <span *ngIf="loading">Cargando...</span>
+                    </button>
+                </div>
+                <a class="mt-2 text-success" [routerLink]="['/login']">Ya tengo una cuenta</a>
             </div>
-            <a class="mt-2" [routerLink]="['/login']">Ya tengo una cuenta</a>
-        </div>
-    </form>
+        </form>
+    </mat-card>
 </div>
