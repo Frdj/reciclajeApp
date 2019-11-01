@@ -7,5 +7,9 @@ namespace ReciclajeApi.Business.ICoordinators
         TipoResiduoApiModel ObtenerTipoResiduo(int idTipoResiduo);
 
         CategoriaResiduoApiModel ObtenerCategoriaResiduo(int idCategoriaResiduo, int idTipoResiduo);
+
+        bool ExisteCategoriaResiduo(int idCategoriaResiduo);
+
+        bool ExisteTipoResiduo(int idTipoResiduo);
     }
 }

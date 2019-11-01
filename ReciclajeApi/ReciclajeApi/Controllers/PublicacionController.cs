@@ -85,6 +85,20 @@ namespace ReciclajeApi.Controllers
             }
         }
 
+        [HttpPost("publicaciones")]
+        public ActionResult<bool> CrearPublicacion(PublicacionApiModel publicacionApiModel)
+        {
+            try
+            {
+                var result = publicacionCoordinator.CrearPublicacion(publicacionApiModel);
+                return StatusCode(200, result);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
+        }
+
         [HttpPost("publicaciones/retirar")]
         public ActionResult<bool> AceptarOferta(int idPublicacion, int idUsuario)
         {

@@ -44,5 +44,12 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.QueryFirst<int>(query, new { Email = signUp.Email, Password = signUp.Password, Nombre = signUp.Nombre, Apellido = signUp.Apellido, FechaNacimiento = signUp.FechaNacimiento, FotoDePerfil = signUp.FotoDePerfil, Telefono = signUp.Telefono });
         }
+
+        public bool ExisteUsuario(int idUsuario)
+        {
+            string query = @"SELECT 1 FROM usuarios WHERE IdUsuario = @IdUsuario";
+
+            return _cnn.QueryFirstOrDefault<bool>(query, new { IdUsuario = idUsuario });
+        }
     }
 }

@@ -6,6 +6,8 @@ namespace ReciclajeApi.Business.ICoordinators
 {
     public interface IPublicacionCoordinator
     {
+        bool CrearPublicacion(PublicacionApiModel publicacionApiModel);
+
         List<PublicacionApiModel> ObtenerPublicaciones();
 
         List<PublicacionApiModel> ObtenerPublicacionesPorUsuario(int idUsuario);

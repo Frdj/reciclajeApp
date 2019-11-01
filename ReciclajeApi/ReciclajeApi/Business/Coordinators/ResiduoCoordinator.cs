@@ -53,5 +53,25 @@ namespace ReciclajeApi.Business.Coordinators
 
             return cat;
         }
+
+        public bool ExisteCategoriaResiduo(int idCategoriaResiduo)
+        {
+            if (idCategoriaResiduo < 1)
+            {
+                throw new Exception();
+            }
+
+            return residuoDao.ExisteCategoriaResiduo(idCategoriaResiduo);
+        }
+
+        public bool ExisteTipoResiduo(int idTipoResiduo)
+        {
+            if (idTipoResiduo < 1)
+            {
+                throw new Exception();
+            }
+
+            return residuoDao.ExisteTipoResiduo(idTipoResiduo);
+        }
     }
 }

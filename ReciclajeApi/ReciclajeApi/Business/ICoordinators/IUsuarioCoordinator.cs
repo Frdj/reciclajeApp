@@ -12,5 +12,7 @@ namespace ReciclajeApi.Business.ICoordinators
         bool ValidarUsuario(string email);
 
         int SignUpUsuario(SignUp signUp);
+
+        bool ExisteUsuario(int idUsuario);
     }
 }

@@ -10,6 +10,7 @@ namespace ReciclajeApi.Business.Models
         public MapperProfile()
         {
             CreateMap<Publicacion, PublicacionApiModel>();
+            CreateMap<PublicacionApiModel, Publicacion>();
             CreateMap<TipoResiduo, TipoResiduoApiModel>().ForMember(dest => dest.IdTipoResiduo, opt => opt.MapFrom(x => x.IdTipo));
             CreateMap<CategoriaResiduo, CategoriaResiduoApiModel>();
             CreateMap<Usuario, UsuarioApiModel>();

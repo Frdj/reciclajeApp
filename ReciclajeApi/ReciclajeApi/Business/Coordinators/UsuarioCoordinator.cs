@@ -66,5 +66,10 @@ namespace ReciclajeApi.Business.Coordinators
         {
             return usuarioDao.SignUpUsuario(signUp);
         }
+
+        public bool ExisteUsuario(int idUsuario)
+        {
+            return usuarioDao.ExisteUsuario(idUsuario);
+        }
     }
 }

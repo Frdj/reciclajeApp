@@ -14,5 +14,7 @@ namespace ReciclajeApi.Persistance.IDao
         bool AceptarOferta(int idPublicacion, int idUsuario);
 
         bool ReservarOferta(int idPublicacion, int idUsuario);
+
+        bool CrearPublicacion(Publicacion publicacion);
     }
 }
