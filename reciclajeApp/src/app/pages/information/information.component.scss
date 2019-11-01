@@ -1,11 +1,26 @@
 .item {
   border: 1px solid grey;
-  height: 140px;
+  // height: 140px;
   width: 33%;
   img {
     height: 100%;
-    width: auto;
+    width: 100%;
   }
+}
+
+.mat-card {
+  padding: 3px;
+}
+
+.mat-card-image:first-child {
+  /* margin-top: -16px; */
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.mat-card-image {
+  width: calc(100% + 32px);
+  margin: 0 auto !important;
 }
 
 .fila {

@@ -85,7 +85,7 @@ import { environment } from '../environments/environment';
     MatSnackBarModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatChipsModule
+    MatChipsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [

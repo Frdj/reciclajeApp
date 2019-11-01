@@ -14,8 +14,14 @@
 
         <div class="fila">
             <div class="item" *ngFor="let item of aux">
-                <img class="img-fluid" [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml"
-                    (click)="openModal(item)">
+                <mat-card (click)="openModal(item)">
+                    <img mat-card-image class=" img-fluid" [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml">
+                    <mat-card-content>
+                        <p class="text-center">{{ item.residuo }}</p>
+                        <p *ngIf="item.esReciclable" class="text-success text-center">RECICLABLE</p>
+                        <p *ngIf="!item.esReciclable" class="text-danger text-center">NO RECICLABLE</p>
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </div>
