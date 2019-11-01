@@ -16,6 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 //Pages
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -83,7 +84,8 @@ import { RetiroDetailComponent } from './pages/retirar/retiro-detail/retiro-deta
     MatCheckboxModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatChipsModule
   ],
   entryComponents: [
     MaterialDetailComponent,

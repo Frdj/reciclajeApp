@@ -47,7 +47,7 @@ export class InformationComponent implements OnInit {
   }
 
 
-  filtrar(valor: string) {
+  buscar(valor: string) {
     if (valor.length === 0) {
       this.aux = this.informacion;
     } else {
@@ -55,5 +55,9 @@ export class InformationComponent implements OnInit {
         return material.residuo.toLowerCase().includes(valor.toLowerCase());
       });
     }
+  }
+
+  filtrar(event) {
+    console.log(event.target.textContent);
   }
 }
