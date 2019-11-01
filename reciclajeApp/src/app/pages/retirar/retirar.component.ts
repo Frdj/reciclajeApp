@@ -14,6 +14,7 @@ export class RetirarComponent implements OnInit {
   indexConfirm = -1;
   modal: HTMLDialogElement;
   aux = [];
+  error = false;
   cartonChecked = false;
   vidrioChecked = false;
   plasticoChecked = false;

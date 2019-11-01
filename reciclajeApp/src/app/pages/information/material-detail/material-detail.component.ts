@@ -12,7 +12,13 @@ export class MaterialDetailComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<MaterialDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Material
-  ) { }
+  ) {
+    if(data.esReciclable as any == 1){
+      data.esReciclable == true;
+    }else if(data.esReciclable as any == 0){
+      data.esReciclable == false;
+    }
+   }
 
   ngOnInit() {
   }

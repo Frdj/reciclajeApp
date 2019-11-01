@@ -18,7 +18,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 //Pages
-import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { InformationComponent } from './pages/information/information.component';
 import { RecycleComponent } from './pages/recycle/recycle.component';
@@ -41,11 +40,12 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { RouterModule } from '@angular/router';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { RetiroDetailComponent } from './pages/retirar/retiro-detail/retiro-detail.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NavbarComponent,
     ProfileComponent,
     InformationComponent,
@@ -86,6 +86,7 @@ import { RetiroDetailComponent } from './pages/retirar/retiro-detail/retiro-deta
     MatDialogModule,
     MatDatepickerModule,
     MatChipsModule
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     MaterialDetailComponent,
