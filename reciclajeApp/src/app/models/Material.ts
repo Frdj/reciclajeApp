@@ -1,4 +1,4 @@
-export class Material{
+    export class Material{
     detalle: string;
     esReciclable: boolean;
     imagen: string;
