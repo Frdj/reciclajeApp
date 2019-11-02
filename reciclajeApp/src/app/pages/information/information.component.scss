@@ -1,7 +1,11 @@
 .item {
   border: 1px solid grey;
   // height: 140px;
+  transition: 0.5s;
   width: 33%;
+.item:hover{
+  transform: scale(1.5,1.5);
+}
   img {
     height: 100%;
     width: 100%;
@@ -33,6 +37,15 @@ mat-form-field {
   margin-top: 10px;
 }
 
+.card{
+  transition: 0.5s;
+}
+
+.card:active{
+  transform: scale(1.2,1.2);
+  z-index: 100;
+}
+
 mat-chip-list {
   display: flex;
   flex-direction: row;
@@ -45,3 +58,6 @@ mat-chip-list {
   background-color: #00c853;
   color: white;
 }
+
+
+

@@ -17,6 +17,7 @@ export class MescelaneasService {
   errorAlert(error: any) {
     alert('Hubo un error en la conexión, no se pudieron cargar los datos');
   }
+  
   redireccionar(path: string) {
     this.router.navigate([path]);
     if (path === 'ofrecer') {

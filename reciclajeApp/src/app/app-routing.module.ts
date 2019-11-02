@@ -8,6 +8,7 @@ import { NewPublishComponent } from './pages/new-publish/new-publish.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { DataPublishComponent } from './pages/new-publish/data-publish/data-publish.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,10 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'information', component: InformationComponent, canActivate: [AuthGuard] },
   { path: 'recycle', component: RecycleComponent, canActivate: [AuthGuard] },
-  { path: 'ofrecer', component: NewPublishComponent, canActivate: [AuthGuard] },
+  { path: 'ofrecer', component: NewPublishComponent, canActivate: [AuthGuard]},
+  {
+    path: 'dataPublish', component: DataPublishComponent, canActivate: [AuthGuard]
+  },
   { path: 'retirar', component: RetirarComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'recycle', pathMatch: 'full' }
 ];

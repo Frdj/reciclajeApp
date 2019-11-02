@@ -1,0 +1,74 @@
+<form>
+    <div class="container fadeIn" *ngIf="!loading">
+<mat-vertical-stepper [linear]="false" class="bgLess" #stepper>
+        <mat-step [stepControl]="secondFormGroup">
+            <form >
+              <ng-template matStepLabel>¿Agregamos unas fotos?</ng-template>
+              <mat-form-field>
+                <input matInput placeholder="Foto"  required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Me olvidé de algo</button>
+                <button mat-flat-button matStepperNext>Listo!</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+                <form >
+                  <ng-template matStepLabel>¿En que lugar entregás?</ng-template>
+                  <mat-form-field class="example-full-width p-1">
+                          <input type="text" placeholder="Av. Corrientes 4512" name="adress" [(ngModel)]="address" aria-label="Text" matInput [matAutocomplete]="auto">
+                          <mat-autocomplete #auto="matAutocomplete">
+                              <mat-option *ngFor="let address of addresess" [value]="option">
+                                  {{address}}
+                              </mat-option>
+                          </mat-autocomplete>
+                      </mat-form-field>
+                  <div>
+                    <button mat-button matStepperPrevious>¡Me faltó una foto!</button>
+                    <button mat-flat-button matStepperNext>Listo!</button>
+                  </div>
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="secondFormGroup">
+                    <form >
+                      <ng-template matStepLabel>¿Qué días podes realizar la entrega?</ng-template>
+                        <mat-checkbox (change)="agregaDia(dia.dia)" class="mr-2" *ngFor="let dia of semana" [value]="dia.dia">{{dia.nombre}}</mat-checkbox>
+                      <div>
+                        <button mat-button matStepperPrevious>¡Quiero cambiar la dirección!</button>
+                        <button mat-flat-button matStepperNext>Listo!</button>
+                      </div>
+                    </form>
+                  </mat-step>
+              <mat-step [stepControl]="secondFormGroup">
+                    <form >
+                      <ng-template matStepLabel>¿En que horario estás disponible?</ng-template>
+                      <mat-form-field class="example-full-width p-1 md">
+                            <input type="time" placeholder="10:30" name="dsd"  (ngModel)="dsd" aria-label="Text" matInput [matAutocomplete]="auto">
+                          </mat-form-field>
+                          <mat-form-field class="example-full-width p-1 md">
+                              <input type="time" placeholder="18:45" name="hst"  (ngModel)="hst" aria-label="Text" matInput [matAutocomplete]="auto">
+                              </mat-form-field>
+                      <div>
+                        <button mat-button matStepperPrevious>¡Quiero cambiar los días!</button>
+                        <button mat-flat-button matStepperNext>Listo!</button>
+                      </div>
+                    </form>
+                  </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Por ultimo... Como se deberían retirar los residuos?</ng-template>
+          <mat-radio-group aria-label="Select an option" (ngModel)="retiro" name="retiroGroup" [ngModel]="1">
+                <mat-radio-button [value]="retiro.id" *ngFor="let retiro of retiros">{{retiro.value}}</mat-radio-button>
+              </mat-radio-group>
+          <div>
+                <button mat-button matStepperPrevious>Volver</button>
+                <button mat-flat-button color="accent" (click)="finalizar()">Terminé</button>
+                
+
+            
+          </div>
+        </mat-step>
+</mat-vertical-stepper>
+</div>
+<app-loading *ngIf="loading"></app-loading>
+</form>

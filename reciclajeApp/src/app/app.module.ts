@@ -17,6 +17,8 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
+import {MatStepperModule} from '@angular/material/stepper'
+import {MatRadioModule} from '@angular/material/radio';
 //Pages
 import { ProfileComponent } from './pages/profile/profile.component';
 import { InformationComponent } from './pages/information/information.component';
@@ -42,6 +44,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
 import { RetiroDetailComponent } from './pages/retirar/retiro-detail/retiro-detail.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DataPublishComponent } from './pages/new-publish/data-publish/data-publish.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,8 @@ import { environment } from '../environments/environment';
     SignupComponent,
     MaterialDetailComponent,
     ImagenPipe,
-    RetiroDetailComponent
+    RetiroDetailComponent,
+    DataPublishComponent
   ],
   imports: [
     HttpClientModule,
@@ -72,6 +76,8 @@ import { environment } from '../environments/environment';
     RouterModule,
     ReactiveFormsModule,
     // Material
+    MatRadioModule,
+    MatStepperModule,
     MatProgressSpinnerModule,
     MatOptionModule,
     MatAutocompleteModule,
