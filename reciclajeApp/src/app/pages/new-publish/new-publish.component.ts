@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InformationService } from '../../services/information.service';
 import { MescelaneasService } from '../../services/mescelaneas.service';
-import { Material } from '../../models/Material';
 
 @Component({
   selector: 'app-new-publish',
@@ -13,7 +11,7 @@ export class NewPublishComponent implements OnInit {
   constructor(private misce: MescelaneasService) {
   }
 
-  continuar(){
+  continuar() {
     this.misce.redireccionar('dataPublish');
   }
 

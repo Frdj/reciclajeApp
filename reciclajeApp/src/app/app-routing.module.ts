@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'information', component: InformationComponent, canActivate: [AuthGuard] },
   { path: 'recycle', component: RecycleComponent, canActivate: [AuthGuard] },
-  { path: 'ofrecer', component: NewPublishComponent, canActivate: [AuthGuard]},
+  { path: 'ofrecer', component: NewPublishComponent, canActivate: [AuthGuard] },
   {
     path: 'dataPublish', component: DataPublishComponent, canActivate: [AuthGuard]
   },

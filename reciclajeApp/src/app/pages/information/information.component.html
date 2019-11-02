@@ -5,7 +5,7 @@
         </mat-form-field>
 
         <mat-chip-list>
-            <mat-chip color="primary" selected (click)="filtrar()">Plástico</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar($event)">Plástico</mat-chip>
             <mat-chip color="primary" selected (click)="filtrar($event)">Vidrio</mat-chip>
             <mat-chip color="primary" selected (click)="filtrar($event)">Papel</mat-chip>
             <mat-chip color="primary" selected (click)="filtrar($event)">Cartón</mat-chip>
@@ -15,9 +15,7 @@
         <!-- Para pantalla 'Informate' -->
         <div *ngIf="!publicar" class="fila">
             <div class="item" *ngFor="let item of aux">
-
-                <mat-card class="card" () (dblclick)="openModal(item)">
-                    <img mat-card-image class=" img-fluid" [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml">
+                <mat-card class="card" (click)="openModal(item)">
                     <mat-card-content>
                         <p class="text-center">{{ item.residuo }}</p>
                         <img mat-card-image class=" img-fluid"
@@ -30,29 +28,35 @@
         </div>
 
         <!-- Para pantalla de publicar -->
-        <div *ngIf="publicar" class="fila">
-            <div class="item" *ngFor="let item of aux">
-                <mat-card (click)="openModal(item)">
-                    <mat-card-content>
-                        <p class="text-center">
-                            <span [matBadge]="item.cantidad" matBadgeOverlap="false">
-                                {{ item.residuo }}
-                            </span>
-                        </p>
-                        <img mat-card-image class=" img-fluid"
-                            [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml" />
+        <div *ngIf="publicar">
+            <div class="fila">
+                <div class="item" *ngFor="let item of aux">
+                    <mat-card (click)="openModal(item)">
+                        <mat-card-content>
+                            <p class="text-center">
+                                <span [matBadge]="item.cantidad" matBadgeOverlap="false">
+                                    {{ item.residuo }}
+                                </span>
+                            </p>
+                            <img mat-card-image class=" img-fluid"
+                                [src]="'data:image/jpg;base64, ' + item.imagen | safeHtml" />
 
-                        <!-- Botones -->
-                        <div class="d-flex justify-content-center">
-                            <button mat-mini-fab color="warn" (click)="cambiarCantidad(-1, item)">
-                                <mat-icon>remove</mat-icon>
-                            </button>
-                            <button mat-mini-fab (click)="cambiarCantidad(1, item)">
-                                <mat-icon>add</mat-icon>
-                            </button>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
+                            <!-- Botones -->
+                            <div class="d-flex justify-content-center">
+                                <button mat-mini-fab (click)="cambiarCantidad(-1, item)">
+                                    <mat-icon>remove</mat-icon>
+                                </button>
+                                <button mat-mini-fab (click)="cambiarCantidad(1, item)">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="row px-2 mt-2">
+                <button (click)="continuar()" [disabled]="!habilitarContinuar"
+                    class="btn btn-success btn-block">Continuar</button>
             </div>
         </div>
     </div>
