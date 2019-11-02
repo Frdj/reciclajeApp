@@ -10,7 +10,11 @@ import { Material } from '../../models/Material';
 })
 export class NewPublishComponent implements OnInit {
 
-  constructor() {
+  constructor(private misce: MescelaneasService) {
+  }
+
+  continuar(){
+    this.misce.redireccionar('dataPublish');
   }
 
   ngOnInit() { }

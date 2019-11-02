@@ -17,15 +17,11 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
-<<<<<<< HEAD
 import {MatStepperModule} from '@angular/material/stepper'
 import {MatRadioModule} from '@angular/material/radio';
-//Pages
-=======
 import { MatBadgeModule } from '@angular/material/badge';
+//Pages
 
-// Pages
->>>>>>> 5a80b76b172e9204e4e1f39851853320cc50dc26
 import { ProfileComponent } from './pages/profile/profile.component';
 import { InformationComponent } from './pages/information/information.component';
 import { RecycleComponent } from './pages/recycle/recycle.component';

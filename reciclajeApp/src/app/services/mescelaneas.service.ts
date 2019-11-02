@@ -20,7 +20,7 @@ export class MescelaneasService {
   
   redireccionar(path: string) {
     this.router.navigate([path]);
-    if (path === 'ofrecer') {
+    if (path.includes('ofrecer') || path.includes('dataPublish')) {
       console.log('no mostrar')
       this.showNewPub = false;
     } else {

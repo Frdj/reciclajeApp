@@ -8,7 +8,7 @@
                 <input matInput placeholder="Foto"  required>
               </mat-form-field>
               <div>
-                <button mat-button matStepperPrevious>Me olvidé de algo</button>
+                <button mat-button matStepperPrevious (click)="backTo('newPublish')">Me olvidé de algo</button>
                 <button mat-flat-button matStepperNext>Listo!</button>
               </div>
             </form>
@@ -43,21 +43,34 @@
               <mat-step [stepControl]="secondFormGroup">
                     <form >
                       <ng-template matStepLabel>¿En que horario estás disponible?</ng-template>
+                      <div *ngFor="let horario of franjas; let i = index" class="fadeIn">
                       <mat-form-field class="example-full-width p-1 md">
-                            <input type="time" placeholder="10:30" name="dsd"  (ngModel)="dsd" aria-label="Text" matInput [matAutocomplete]="auto">
+                            <input type="time" placeholder="Desde las..." name="dsd"  [(ngModel)]="horario.dsd" aria-label="Text" matInput >
                           </mat-form-field>
                           <mat-form-field class="example-full-width p-1 md">
-                              <input type="time" placeholder="18:45" name="hst"  (ngModel)="hst" aria-label="Text" matInput [matAutocomplete]="auto">
+                              <input type="time" placeholder="Hasta las..." name="hst"  [(ngModel)]="horario.hst" aria-label="Text" matInput >
                               </mat-form-field>
+                              <button mat-mini-fab (click)="removeFranja(i)" class=" fadeIn btn-sm" *ngIf="franjas.length > 1">
+                                <i class="material-icons m-a-sm color-danger">
+                                clear
+                            </i>
+                          </button>
+                            </div>
                       <div>
                         <button mat-button matStepperPrevious>¡Quiero cambiar los días!</button>
                         <button mat-flat-button matStepperNext>Listo!</button>
+                        <button mat-mini-fab style="margin-left: 15px;" (click)="addFranja(i)" color="accent" class="btn-sm">
+                            <i class="material-icons m-a-sm">
+                            add
+                        </i>
+                      </button>
+
                       </div>
                     </form>
                   </mat-step>
         <mat-step>
           <ng-template matStepLabel>Por ultimo... Como se deberían retirar los residuos?</ng-template>
-          <mat-radio-group aria-label="Select an option" (ngModel)="retiro" name="retiroGroup" [ngModel]="1">
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="retiro" name="retiroGroup">
                 <mat-radio-button [value]="retiro.id" *ngFor="let retiro of retiros">{{retiro.value}}</mat-radio-button>
               </mat-radio-group>
           <div>
