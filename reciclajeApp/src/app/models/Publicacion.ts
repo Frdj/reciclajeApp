@@ -10,9 +10,8 @@ export class Publicacion {
     direccion: Direccion;
     tipoResiduo: TipoResiduo; // no va
     categoriaResiduo: Material;
-    cantidad: number; // va en material
     medida: string;
-    idDetalle: number; // modos de entrega (caminando, en auto, etc) 
+    idDetalle: number; // modos de entrega (caminando, en auto, etc)
     fechaPublicacion: Date;
     estado: Estado;
     diasDisponibles: string;

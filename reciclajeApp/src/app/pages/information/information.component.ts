@@ -1,11 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { InformationService } from '../../services/information.service';
-import { MescelaneasService } from '../../services/mescelaneas.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { InformationService } from '../../services/information.service';
 import { MaterialDetailComponent } from './material-detail/material-detail.component';
 import { Material } from 'src/app/models/Material';
-import { Button } from 'protractor';
-import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-information',
@@ -14,36 +11,40 @@ import { MatButton } from '@angular/material/button';
 })
 export class InformationComponent implements OnInit {
 
+  @Input() publicar = false;
+
   loading = true;
   informacion: Material[];
   aux = [];
 
   constructor(
     private information: InformationService,
-    private misce: MescelaneasService,
     private dialog: MatDialog
   ) {
     this.information.getMateriales().subscribe((res: Material[]) => {
       console.log(res);
       this.informacion = res;
       this.aux = res;
+      if (this.publicar) {
+        this.aux = res.filter(material => material.esReciclable);
+      }
       this.loading = false;
     }, error => this.loading = !this.loading);
   }
 
   ngOnInit() {
+    console.log(this.publicar);
   }
 
   openModal(material: Material): void {
-    const dialogRef = this.dialog.open(MaterialDetailComponent, {
-      width: '350px',
-      data: material
-    });
+    if (!this.publicar) {
+      this.dialog.open(MaterialDetailComponent, {
+        width: '350px',
+        data: material
+      });
+    } else {
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
-    });
+    }
   }
 
 
@@ -59,5 +60,16 @@ export class InformationComponent implements OnInit {
 
   filtrar(event) {
     console.log(event.target.textContent);
+  }
+
+  cambiarCantidad(cantidad: number, material: Material) {
+    if (!material.cantidad) {
+      material.cantidad = 0;
+    }
+    if (material.cantidad < 0 && cantidad < 0) {
+      material.cantidad = 0;
+      return;
+    }
+    material.cantidad += cantidad;
   }
 }

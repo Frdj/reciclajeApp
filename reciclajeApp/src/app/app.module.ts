@@ -17,7 +17,9 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
-//Pages
+import { MatBadgeModule } from '@angular/material/badge';
+
+// Pages
 import { ProfileComponent } from './pages/profile/profile.component';
 import { InformationComponent } from './pages/information/information.component';
 import { RecycleComponent } from './pages/recycle/recycle.component';
@@ -86,6 +88,7 @@ import { environment } from '../environments/environment';
     MatDialogModule,
     MatDatepickerModule,
     MatChipsModule,
+    MatBadgeModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
