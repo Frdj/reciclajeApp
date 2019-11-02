@@ -10,9 +10,8 @@ export class Publicacion {
     direccion: number;// va un id de direccion, las direcciones ya van a estar cargadas previamente en la bd Direccion;
     tipoResiduo: TipoResiduo; // no va
     categoriaResiduo: Material;
-    cantidad: number; // va en material
     medida: string;
-    idDetalle: number; // modos de entrega (caminando, en auto, etc) 
+    idDetalle: number; // modos de entrega (caminando, en auto, etc)
     fechaPublicacion: Date;
     estado: Estado;
     diasDisponibles: number[];

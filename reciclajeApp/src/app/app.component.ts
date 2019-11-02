@@ -11,6 +11,5 @@ export class AppComponent {
   constructor(
     public usuarioService: UserService
   ) {
-    console.log(usuarioService.estaLogueado());
   }
 }

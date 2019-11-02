@@ -1,28 +1,14 @@
-<form>
-    <div *ngIf="!loading && !error">
-        <div class="container aparecer">
-            <h2>Nueva publicación</h2>
-            <hr/>
-            <div *ngFor="let material of materiales; let i = index ">
-                <mat-form-field class="example-full-width p-1">
-                    <input type="text" placeholder="Seleccionar material..." name="tipo{{i}}" [(ngModel)]="materiales[i].tipo" aria-label="Text" matInput [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let option of tipoMateriales" [value]="option">
-                            {{option}}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
-                <mat-form-field class="example-full-width p-1">
-                    <input type="number" matInput placeholder="Cantidad" name="cantidad{{i}}" [(ngModel)]="materiales[i].cantidad">
-                </mat-form-field>
+<div class="container">
+    <div class="d-flex flex-column">
+        <div class="mb-auto">
+            <h4 class="text-center mt-3">Seleccione sus residuos</h4>
+        </div>
 
-            </div>
-            <div class="row justify-content-center ">
-                <button type="button" class="btn btn-primary btn-block" (click)="AddElement()">Agregar nuevo residuo <i class="mover material-icons">
-            cached
-        </i></button>
-            </div>
+        <app-information [publicar]="true"></app-information>
+
+        <!-- Botones -->
+        <div class="row px-2 mt-2">
+            <button class="btn btn-success btn-block">Continuar</button>
         </div>
     </div>
-    <app-loading *ngIf="loading"></app-loading>
-</form>
+</div>
