@@ -1,9 +1,9 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.Models.ApiModels;
 using ReciclajeApi.Business.Models.Domain;
 using ReciclajeApi.Persistance.IDao;
-using System;
 
 namespace ReciclajeApi.Business.Coordinators
 {

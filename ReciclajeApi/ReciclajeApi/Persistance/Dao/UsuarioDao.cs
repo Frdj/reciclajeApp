@@ -1,7 +1,7 @@
-﻿using Dapper;
+﻿using System.Data;
+using Dapper;
 using ReciclajeApi.Business.Models.Domain;
 using ReciclajeApi.Persistance.IDao;
-using System.Data;
 
 namespace ReciclajeApi.Persistance.Dao
 {
@@ -42,7 +42,16 @@ namespace ReciclajeApi.Persistance.Dao
             string query = @"INSERT INTO usuarios(email, password, nombre, apellido, fechaNacimiento, fotoDePerfil, telefono)
                             VALUES(@Email, @Password, @Nombre, @Apellido, @FechaNacimiento, @FotoDePerfil, @Telefono); select last_insert_id()";
 
-            return _cnn.QueryFirst<int>(query, new { Email = signUp.Email, Password = signUp.Password, Nombre = signUp.Nombre, Apellido = signUp.Apellido, FechaNacimiento = signUp.FechaNacimiento, FotoDePerfil = signUp.FotoDePerfil, Telefono = signUp.Telefono });
+            return _cnn.QueryFirst<int>(query, new
+            {
+                Email = signUp.Email,
+                Password = signUp.Password,
+                Nombre = signUp.Nombre,
+                Apellido = signUp.Apellido,
+                FechaNacimiento = signUp.FechaNacimiento,
+                FotoDePerfil = signUp.FotoDePerfil,
+                Telefono = signUp.Telefono
+            });
         }
 
         public bool ExisteUsuario(int idUsuario)
@@ -57,7 +66,6 @@ namespace ReciclajeApi.Persistance.Dao
             var query = "SELECT IdUsuario, Email, Nombre, Apellido, FotoDePerfil, Telefono FROM usuarios WHERE IdUsuario = @IdUsuario";
 
             return _cnn.QueryFirstOrDefault<Perfil>(query, new { IdUsuario = @IdUsuario });
-
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using Dapper;
-using ReciclajeApi.Business.Models.Domain;
-using ReciclajeApi.Persistance.IDao;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using Dapper;
+using ReciclajeApi.Business.Models.Domain;
+using ReciclajeApi.Persistance.IDao;
 
 namespace ReciclajeApi.Persistance.Dao
 {

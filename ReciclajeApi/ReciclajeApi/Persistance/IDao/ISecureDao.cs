@@ -1,5 +1,4 @@
-﻿using System;
-namespace ReciclajeApi.Persistance.IDao
+﻿namespace ReciclajeApi.Persistance.IDao
 {
     public interface ISecureDao
     {

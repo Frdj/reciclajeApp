@@ -1,18 +1,16 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.IServices;
 using ReciclajeApi.Business.Models.ApiModels;
 using ReciclajeApi.Business.Models.Domain;
-using System;
 
 namespace ReciclajeApi.Business.Coordinators
 {
     public class LoginCoordinator : ILoginCoordinator
     {
         private readonly IMapper mapper;
-
         private readonly IUsuarioCoordinator usuarioCoordinator;
-
         private readonly ISecureService secureService;
 
         public LoginCoordinator(IMapper mapper, IUsuarioCoordinator usuarioCoordinator, ISecureService secureService)
@@ -80,7 +78,6 @@ namespace ReciclajeApi.Business.Coordinators
             {
                 throw new Exception();
             }
-            //TODO agregar más validaciones a los datos. Cualquier error lanza excepcion.
         }
     }
 }

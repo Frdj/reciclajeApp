@@ -1,10 +1,6 @@
-﻿using ReciclajeApi.Business.IServices;
+﻿using System.Text;
+using ReciclajeApi.Business.IServices;
 using ReciclajeApi.Persistance.IDao;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReciclajeApi.Business.Services
 {

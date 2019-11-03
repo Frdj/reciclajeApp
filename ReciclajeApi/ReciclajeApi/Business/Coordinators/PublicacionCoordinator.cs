@@ -1,14 +1,14 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.IServices;
 using ReciclajeApi.Business.Models.ApiModels;
 using ReciclajeApi.Business.Models.Domain;
 using ReciclajeApi.Business.Models.Exceptions;
 using ReciclajeApi.Persistance.IDao;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ReciclajeApi.Business.Coordinators
 {

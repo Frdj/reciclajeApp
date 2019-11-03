@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.Models.ApiModels;
@@ -15,6 +13,7 @@ namespace ReciclajeApi.Controllers
         private readonly ILoginCoordinator loginCoordinator;
 
         private readonly IDbConnection _cnn;
+
         public LoginController(IDbConnection cnn, ILoginCoordinator loginCoordinator)
         {
             _cnn = cnn;

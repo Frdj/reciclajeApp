@@ -1,5 +1,5 @@
-﻿using ReciclajeApi.Business.Models.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ReciclajeApi.Business.Models.Domain;
 
 namespace ReciclajeApi.Persistance.IDao
 {

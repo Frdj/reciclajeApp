@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using ReciclajeApi.Business.Models.ApiModels;
 using ReciclajeApi.Business.Models.Domain;
-using System;
 
 namespace ReciclajeApi.Business.Models
 {

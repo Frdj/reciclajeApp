@@ -30,6 +30,5 @@ namespace ReciclajeApi.Controllers
                 return StatusCode(403);
             }
         }
-
     }
 }

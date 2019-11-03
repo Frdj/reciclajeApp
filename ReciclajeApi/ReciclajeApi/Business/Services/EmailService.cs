@@ -1,9 +1,9 @@
-﻿using MailKit.Security;
-using MimeKit;
-using ReciclajeApi.Business.IServices;
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using MailKit.Security;
+using MimeKit;
+using ReciclajeApi.Business.IServices;
 
 namespace ReciclajeApi.Business.Services
 {
@@ -13,7 +13,6 @@ namespace ReciclajeApi.Business.Services
         {
             try
             {
-
                 string user = "reciclajeapp.notificaciones@gmail.com";
                 string password = "Zurita.2015";
                 string server = "smtp.gmail.com";

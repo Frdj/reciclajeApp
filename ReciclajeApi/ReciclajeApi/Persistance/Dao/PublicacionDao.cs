@@ -1,10 +1,10 @@
-﻿using Dapper;
-using ReciclajeApi.Business.Models.Domain;
-using ReciclajeApi.Persistance.IDao;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using Dapper;
+using ReciclajeApi.Business.Models.Domain;
+using ReciclajeApi.Persistance.IDao;
 
 namespace ReciclajeApi.Persistance.Dao
 {
@@ -59,10 +59,21 @@ namespace ReciclajeApi.Persistance.Dao
                             IdCategoriaResiduo = @IdCategoriaResiduo, Cantidad = @Cantidad, Medida = @Medida, FechaPublicacion = @FechaPublicacion,
                             Estado = @Estado, DiasDisponibles = @DiasDisponibles, HorarioDisponible = @HorarioDisponible, IdUsuarioR = @IdUsuarioR, FechaRetiro = @FechaRetiro)";
 
-            return _cnn.Execute(query, new { IdUsuarioP = publicacion.IdUsuarioP, NuDireccion = publicacion.NuDireccion, IdTipoResiduo = publicacion.IdTipoResiduo,
-                                            IdCategoriaResiduo = publicacion.IdCategoriaResiduo, Cantidad = publicacion.Cantidad, Medida = publicacion.Medida,
-                                            FechaPublicacion = publicacion.FechaPublicacion, Estado = publicacion.Estado, DiasDisponibles = publicacion.DiasDisponibles,
-                                            HorarioDisponible = publicacion.HorarioDisponible, IdUsuarioR = "null", FechaRetiro = "null" }) > 0;
+            return _cnn.Execute(query, new
+            {
+                IdUsuarioP = publicacion.IdUsuarioP,
+                NuDireccion = publicacion.NuDireccion,
+                IdTipoResiduo = publicacion.IdTipoResiduo,
+                IdCategoriaResiduo = publicacion.IdCategoriaResiduo,
+                Cantidad = publicacion.Cantidad,
+                Medida = publicacion.Medida,
+                FechaPublicacion = publicacion.FechaPublicacion,
+                Estado = publicacion.Estado,
+                DiasDisponibles = publicacion.DiasDisponibles,
+                HorarioDisponible = publicacion.HorarioDisponible,
+                IdUsuarioR = "null",
+                FechaRetiro = "null"
+            }) > 0;
         }
     }
 }

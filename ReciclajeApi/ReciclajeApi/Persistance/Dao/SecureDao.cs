@@ -1,6 +1,6 @@
-﻿using Dapper;
+﻿using System.Data;
+using Dapper;
 using ReciclajeApi.Persistance.IDao;
-using System.Data;
 
 namespace ReciclajeApi.Persistance.Dao
 {
