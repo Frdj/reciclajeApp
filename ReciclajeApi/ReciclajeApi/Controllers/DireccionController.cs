@@ -27,7 +27,7 @@ namespace ReciclajeApi.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(403);
+                return StatusCode(500);
             }
         }
     }
