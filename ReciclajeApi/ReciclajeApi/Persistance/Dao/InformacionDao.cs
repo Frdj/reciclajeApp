@@ -26,5 +26,12 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.Query<Material>(query).ToList();
         }
+
+        public List<Tip> ObtenerTip()
+        {
+            string query = @"SELECT * FROM tips";
+
+            return _cnn.Query<Tip>(query).ToList();
+        }
     }
 }

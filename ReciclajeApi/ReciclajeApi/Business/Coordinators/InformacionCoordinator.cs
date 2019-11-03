@@ -10,13 +10,11 @@ namespace ReciclajeApi.Business.Coordinators
     public class InformacionCoordinator : IInformacionCoordinator
     {
         private readonly IInformacionDao informacionDao;
-        private readonly ITipDao tipDao;
         private readonly IMapper mapper;
 
-        public InformacionCoordinator(IInformacionDao informacionDao, IMapper mapper, ITipDao tipDao)
+        public InformacionCoordinator(IInformacionDao informacionDao, IMapper mapper)
         {
             this.informacionDao = informacionDao;
-            this.tipDao = tipDao;
             this.mapper = mapper;
         }
 
@@ -35,7 +33,7 @@ namespace ReciclajeApi.Business.Coordinators
         public string ObtenerTip()
         {
 
-            var result = tipDao.ObtenerTip();
+            var result = informacionDao.ObtenerTip();
 
             if (result == null)
             {
