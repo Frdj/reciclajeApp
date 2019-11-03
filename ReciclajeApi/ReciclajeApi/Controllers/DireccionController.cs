@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using ReciclajeApi.Business.ICoordinators;
+using ReciclajeApi.Business.Models.ApiModels;
 using ReciclajeApi.Business.Models.Domain;
 
 namespace ReciclajeApi.Controllers
@@ -17,7 +18,7 @@ namespace ReciclajeApi.Controllers
         }
 
         [HttpGet("direcciones/{IdUsuario}")]
-        public ActionResult<PerfilApiModel> ObtenerDirecciones(int idUsuario)
+        public ActionResult<DireccionApiModel> ObtenerDirecciones(int idUsuario)
         {
             try
             {
