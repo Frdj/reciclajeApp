@@ -17,11 +17,11 @@ namespace ReciclajeApi.Controllers
         }
 
         [HttpGet("perfil/{IdUsuario}")]
-        public ActionResult<PerfilApiModel> ObtenerPerfil(int IdUsuario)
+        public ActionResult<PerfilApiModel> ObtenerPerfil(int idUsuario)
         {
             try
             {
-                var result = usuarioCoordinator.ObtenerPerfil(IdUsuario);
+                var result = usuarioCoordinator.ObtenerPerfil(idUsuario);
 
                 return StatusCode(200, result);
             }

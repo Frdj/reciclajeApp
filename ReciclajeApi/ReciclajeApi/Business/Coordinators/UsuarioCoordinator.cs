@@ -72,9 +72,9 @@ namespace ReciclajeApi.Business.Coordinators
             return usuarioDao.ExisteUsuario(idUsuario);
         }
 
-        public PerfilApiModel ObtenerPerfil(int IdUsuario)
+        public PerfilApiModel ObtenerPerfil(int idUsuario)
         {
-            var result = usuarioDao.ObtenerPerfil(IdUsuario);
+            var result = usuarioDao.ObtenerPerfil(idUsuario);
 
             if (result == null)
             {

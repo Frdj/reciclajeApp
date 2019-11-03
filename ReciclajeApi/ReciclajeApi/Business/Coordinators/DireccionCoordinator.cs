@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.Models.ApiModels;
@@ -45,6 +46,33 @@ namespace ReciclajeApi.Business.Coordinators
             direccion.Provincia = provinciaCoordinator.ObtenerProvincia(result.IdProvincia);
 
             return direccion;
+        }
+
+        public List<DireccionApiModel> ObtenerDirecciones(int idUsuario)
+        {
+            if (idUsuario < 1)
+            {
+                throw new Exception();
+            }
+
+            var result = direccionDao.ObtenerDirecciones(idUsuario);
+
+
+            if (result == null)
+            {
+                throw new Exception();
+            }
+
+            var direcciones = mapper.Map<List<DireccionApiModel>>(result);
+
+            for(int i = 0;i < direcciones.Count; i++)
+            {
+                direcciones[i].Usuario = usuarioCoordinator.ObtenerUsuario(idUsuario);
+                direcciones[i].Localidad = localidadCoordinator.ObtenerLocalidad(result[i].IdLocalidad, result[i].IdProvincia);
+                direcciones[i].Provincia = provinciaCoordinator.ObtenerProvincia(result[i].IdProvincia);
+            }
+
+            return direcciones;
         }
     }
 }
