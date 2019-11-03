@@ -9,6 +9,6 @@ namespace ReciclajeApi.Business.ICoordinators
 
         List<DireccionApiModel> ObtenerDirecciones(int idUsuario);
 
-        int CrearDireccion(DireccionRequest direccionRequest, int idUsuario);
+        bool CrearDireccion(DireccionRequest direccionRequest, int idUsuario);
     }
 }

@@ -33,7 +33,7 @@ namespace ReciclajeApi.Controllers
         }
 
         [HttpPost("direcciones/{IdUsuario}")]
-        public ActionResult<int> CrearDireccion([FromBody] DireccionRequest direccionRequest, int idUsuario)
+        public ActionResult<bool> CrearDireccion([FromBody] DireccionRequest direccionRequest, int idUsuario)
         {
             try
             {

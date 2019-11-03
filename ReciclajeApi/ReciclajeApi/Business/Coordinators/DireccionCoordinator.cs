@@ -76,7 +76,7 @@ namespace ReciclajeApi.Business.Coordinators
             return direcciones;
         }
 
-        public int CrearDireccion(DireccionRequest direccionRequest, int idUsuario)
+        public bool CrearDireccion(DireccionRequest direccionRequest, int idUsuario)
         {
             if (idUsuario < 1)
             {

@@ -9,6 +9,6 @@ namespace ReciclajeApi.Persistance.IDao
 
         List<Direccion> ObtenerDirecciones(int idUsuario);
 
-        int CrearDireccion(Direccion direccion);
+        bool CrearDireccion(Direccion direccion);
     }
 }
