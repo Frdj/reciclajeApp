@@ -7,13 +7,13 @@ namespace ReciclajeApi.Controllers
 {
     [Route("api")]
     [ApiController]
-    public class PerfilController : ControllerBase
+    public class UsuarioController : ControllerBase
     {
-        private readonly IPerfilCoordinator perfilCoordinator;
+        private readonly IUsuarioCoordinator usuarioCoordinator;
 
-        public PerfilController(IPerfilCoordinator perfilCoordinator)
+        public UsuarioController(IUsuarioCoordinator usuarioCoordinator)
         {
-            this.perfilCoordinator = perfilCoordinator;
+            this.usuarioCoordinator = usuarioCoordinator;
         }
 
         [HttpGet("perfil/{IdUsuario}")]
@@ -21,7 +21,7 @@ namespace ReciclajeApi.Controllers
         {
             try
             {
-                var result = perfilCoordinator.ObtenerPerfil(IdUsuario);
+                var result = usuarioCoordinator.ObtenerPerfil(IdUsuario);
 
                 return StatusCode(200, result);
             }

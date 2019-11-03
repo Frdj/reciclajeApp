@@ -14,5 +14,7 @@ namespace ReciclajeApi.Business.ICoordinators
         int SignUpUsuario(SignUp signUp);
 
         bool ExisteUsuario(int idUsuario);
+
+        PerfilApiModel ObtenerPerfil(int IdUsuario);
     }
 }

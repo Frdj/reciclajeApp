@@ -71,5 +71,17 @@ namespace ReciclajeApi.Business.Coordinators
         {
             return usuarioDao.ExisteUsuario(idUsuario);
         }
+
+        public PerfilApiModel ObtenerPerfil(int IdUsuario)
+        {
+            var result = usuarioDao.ObtenerPerfil(IdUsuario);
+
+            if (result == null)
+            {
+                throw new Exception();
+            }
+
+            return mapper.Map<PerfilApiModel>(result);
+        }
     }
 }

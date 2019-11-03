@@ -13,5 +13,7 @@ namespace ReciclajeApi.Persistance.IDao
         int SignUpUsuario(SignUp signUp);
 
         bool ExisteUsuario(int idUsuario);
+
+        Perfil ObtenerPerfil(int IdUsuario);
     }
 }

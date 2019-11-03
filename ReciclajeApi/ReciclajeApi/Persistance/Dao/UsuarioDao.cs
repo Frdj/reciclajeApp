@@ -51,5 +51,13 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.QueryFirstOrDefault<bool>(query, new { IdUsuario = idUsuario });
         }
+
+        public Perfil ObtenerPerfil(int IdUsuario)
+        {
+            var query = "SELECT IdUsuario, Email, Nombre, Apellido, FotoDePerfil, Telefono FROM usuarios WHERE IdUsuario = @IdUsuario";
+
+            return _cnn.QueryFirstOrDefault<Perfil>(query, new { IdUsuario = @IdUsuario });
+
+        }
     }
 }
