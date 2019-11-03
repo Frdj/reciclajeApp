@@ -38,5 +38,15 @@ namespace ReciclajeApi.Business.Coordinators
 
             return localidad;
         }
+
+        public bool ExisteLocalidad(int idLocalidad, int idProvincia)
+        {
+            if (idLocalidad < 1 || idProvincia < 1)
+            {
+                throw new Exception();
+            }
+
+            return localidadDao.ExisteLocalidad(idLocalidad, idProvincia);
+        }
     }
 }

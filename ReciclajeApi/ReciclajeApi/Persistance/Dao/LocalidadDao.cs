@@ -22,5 +22,14 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.QueryFirstOrDefault<Localidad>(query, new { IdLocalidad = idLocalidad, IdProvincia = idProvincia });
         }
+
+        public bool ExisteLocalidad(int idLocalidad, int idProvincia)
+        {
+            string query = @"SELECT 1
+                            FROM localidades 
+                            WHERE IdLocalidad = @IdLocalidad AND IdProvincia = @IdProvincia";
+
+            return _cnn.QueryFirstOrDefault<bool>(query, new { IdLocalidad = idLocalidad, IdProvincia = idProvincia });
+        }
     }
 }

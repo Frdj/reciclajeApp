@@ -33,5 +33,21 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.Query<Direccion>(query, new { IdUsuario = idUsuario }).ToList();
         }
+
+        public int CrearDireccion(Direccion direccion)
+        {
+            var query = @"INSERT INTO direcciones(idUsuario, nuDireccion, idProvincia, idLocalidad, domicilio, barrio)
+                            VALUES (@IdUsuario, @NuDireccion, @IdProvincia, @IdLocalidad, @Domicilio, @Barrio); select last_insert_id()";
+
+            return _cnn.QueryFirst<int>(query, new
+            {
+                IdUsuario = direccion.IdUsuario,
+                NuDireccion = direccion.NuDireccion,
+                IdProvincia = direccion.IdProvincia,
+                IdLocalidad = direccion.IdLocalidad,
+                Domicilio = direccion.Domicilio,
+                Barrio = direccion.Barrio
+            });
+        }
     }
 }

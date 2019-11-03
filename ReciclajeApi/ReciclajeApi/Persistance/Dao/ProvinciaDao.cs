@@ -22,5 +22,14 @@ namespace ReciclajeApi.Persistance.Dao
 
             return _cnn.QueryFirstOrDefault<Provincia>(query, new { IdProvincia = idProvincia });
         }
+
+        public bool ExisteProvincia(int idProvincia)
+        {
+            string query = @"SELECT 1
+                            FROM provincias 
+                            WHERE IdProvincia = @IdProvincia";
+
+            return _cnn.QueryFirstOrDefault<bool>(query, new { IdProvincia = idProvincia });
+        }
     }
 }

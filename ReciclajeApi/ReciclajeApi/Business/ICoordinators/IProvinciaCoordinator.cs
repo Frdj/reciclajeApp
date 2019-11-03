@@ -5,5 +5,7 @@ namespace ReciclajeApi.Business.ICoordinators
     public interface IProvinciaCoordinator
     {
         ProvinciaApiModel ObtenerProvincia(int idProvincia);
+
+        bool ExisteProvincia(int idProvincia);
     }
 }

@@ -31,5 +31,20 @@ namespace ReciclajeApi.Controllers
                 return StatusCode(500);
             }
         }
+
+        [HttpPost("direcciones/{IdUsuario}")]
+        public ActionResult<int> CrearDireccion([FromBody] DireccionRequest direccionRequest, int idUsuario)
+        {
+            try
+            {
+                var result = direccionCoordinator.CrearDireccion(direccionRequest, idUsuario);
+
+                return StatusCode(200, result);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }

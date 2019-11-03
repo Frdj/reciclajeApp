@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AutoMapper;
 using ReciclajeApi.Business.ICoordinators;
 using ReciclajeApi.Business.Models.ApiModels;
+using ReciclajeApi.Business.Models.Domain;
 using ReciclajeApi.Persistance.IDao;
 
 namespace ReciclajeApi.Business.Coordinators
@@ -73,6 +74,32 @@ namespace ReciclajeApi.Business.Coordinators
             }
 
             return direcciones;
+        }
+
+        public int CrearDireccion(DireccionRequest direccionRequest, int idUsuario)
+        {
+            if (idUsuario < 1)
+            {
+                throw new Exception();
+            }
+
+            var existeProvincia = provinciaCoordinator.ExisteProvincia(direccionRequest.IdProvincia);
+            var existeLocalidad = localidadCoordinator.ExisteLocalidad(direccionRequest.IdLocalidad, direccionRequest.IdProvincia);
+
+            if (!existeProvincia)
+            {
+                throw new Exception();
+            }
+
+            if (!existeLocalidad)
+            {
+                throw new Exception();
+            }
+
+            var direccion = mapper.Map<Direccion>(direccionRequest);
+            direccion.IdUsuario = idUsuario;
+
+            return direccionDao.CrearDireccion(direccion);
         }
     }
 }

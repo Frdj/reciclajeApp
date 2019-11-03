@@ -33,5 +33,15 @@ namespace ReciclajeApi.Business.Coordinators
 
             return mapper.Map<ProvinciaApiModel>(result);
         }
+
+        public bool ExisteProvincia(int idProvincia)
+        {
+            if (idProvincia < 1)
+            {
+                throw new Exception();
+            }
+
+            return provinciaDao.ExisteProvincia(idProvincia);
+        }
     }
 }
