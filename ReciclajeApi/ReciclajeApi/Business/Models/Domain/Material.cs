@@ -2,6 +2,8 @@
 {
     public class Material
     {
+        public int IdMaterial { get; set; }
+
         public string NombreMaterial { get; set; }
 
         public string Residuo { get; set; }

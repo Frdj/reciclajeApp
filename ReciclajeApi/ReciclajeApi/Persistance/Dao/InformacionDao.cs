@@ -18,7 +18,9 @@ namespace ReciclajeApi.Persistance.Dao
 
         public List<Material> ObtenerMateriales()
         {
-            string query = @"SELECT ts.descripcion as NombreMaterial, cr.descripcion as Residuo, cr.reciclable as EsReciclable, cr.imagen as Imagen, cr.Detalle 
+            string query = @"SELECT ts.idTipo as IdMaterial, ts.descripcion as NombreMaterial,
+                                cr.descripcion as Residuo, cr.reciclable as EsReciclable,
+                                cr.imagen as Imagen, cr.Detalle 
                             FROM categoria_residuos cr 
                             INNER JOIN tipo_residuos ts ON ts.idTipo = cr.idTipoResiduo";
 
