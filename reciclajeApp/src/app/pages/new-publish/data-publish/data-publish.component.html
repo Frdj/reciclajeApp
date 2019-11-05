@@ -13,7 +13,7 @@
               </div>
             </form>
           </mat-step>
-          <mat-step [stepControl]="secondFormGroup">
+          <mat-step >
                 <form >
                   <ng-template matStepLabel>¿En que lugar entregás?</ng-template>
                   <mat-form-field class="example-full-width p-1">
@@ -30,7 +30,7 @@
                   </div>
                 </form>
               </mat-step>
-              <mat-step [stepControl]="secondFormGroup">
+              <mat-step >
                     <form >
                       <ng-template matStepLabel>¿Qué días podes realizar la entrega?</ng-template>
                         <mat-checkbox (change)="agregaDia(dia.dia)" class="mr-2" *ngFor="let dia of semana" [value]="dia.dia">{{dia.nombre}}</mat-checkbox>
@@ -40,7 +40,7 @@
                       </div>
                     </form>
                   </mat-step>
-              <mat-step [stepControl]="secondFormGroup">
+              <mat-step >
                     <form >
                       <ng-template matStepLabel>¿En que horario estás disponible?</ng-template>
                       <div *ngFor="let horario of franjas; let i = index" class="fadeIn">

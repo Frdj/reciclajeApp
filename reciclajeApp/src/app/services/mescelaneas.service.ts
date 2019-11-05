@@ -28,4 +28,12 @@ export class MescelaneasService {
     }
   }
 
+  getFechaActual(){
+    let dia, mes, anio, date;
+    dia = new Date().getUTCDate();
+    mes = new Date().getUTCMonth();
+    anio = new Date().getUTCFullYear();
+    return dia + '/'+ mes + '/' + anio;
+  }
+
 }

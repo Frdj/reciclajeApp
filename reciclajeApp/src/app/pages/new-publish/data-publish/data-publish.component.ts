@@ -40,10 +40,15 @@ export class DataPublishComponent implements OnInit {
     private _user: UserService,
     private publicacionService: PublicationService
   ) {
+    this.publicacion = new Publicacion();
     // Se recibe la publicación de la pantalla anterior
     // TRABAJAR SOBRE ESTE OBJETO PUBLICACION, QUE VA SER EL QUE SE VA A ENVIAR AL BACKEND
-    this.publicacionService.publicacionAnnounced$.subscribe(publicacion => {
-      console.log(publicacion);
+    this.publicacionService.publicacionAnnounced$.subscribe(residuos => {
+      console.log(residuos);
+      this.publicacion.residuos = residuos.residuos;
+      this.publicacion.fechaPublicacion = residuos.fechaPublicacion;
+      this.publicacion.usuarioP = residuos.usuarioP;
+
     });
   }
 
@@ -52,7 +57,6 @@ export class DataPublishComponent implements OnInit {
 
   finalizar() {
     //   this.loading = true;
-    this.publicacion = new Publicacion();
     this.publicacion.direccion = 1;
     this.publicacion.idDetalle = this.retiro;
     this.publicacion.horarioDisponible = '';

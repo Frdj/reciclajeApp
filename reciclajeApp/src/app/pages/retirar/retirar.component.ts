@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Material } from 'src/app/models/Material';
 import { MaterialDetailComponent } from '../information/material-detail/material-detail.component';
 import { RetiroDetailComponent } from './retiro-detail/retiro-detail.component';
+import { PublicationService } from 'src/app/services/publication.service';
 
 @Component({
   selector: 'app-retirar',
@@ -231,11 +232,13 @@ export class RetirarComponent implements OnInit {
     ]
   },]
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private _publication: PublicationService
   ) {
     // this.publicaciones = this.publicaciones.sort((a, b) => (a.localidad > b.localidad) ? 1 : -1);
     this.aux = this.publicaciones;
     this.loading = false;
+    _publication.getPublicaciones().subscribe((publicaciones: any[] )=> { console.log(publicaciones); publicaciones.forEach(publicacion => this.publicaciones.push(publicacion))}, error => {alert('Error al cargar las publicaciones'); console.error(error)})
   }
 
 
@@ -292,9 +295,11 @@ export class RetirarComponent implements OnInit {
 
   openModal(publicacion, index: number): void {
     this.indexConfirm = index;
+    let publication = this.publicaciones.find(publi => publi.id == this.indexConfirm);
+    publicacion.publicationId = publicacion.id;
     const dialogRef = this.dialog.open(RetiroDetailComponent, {
       width: '350px',
-      data: publicacion
+      data: publicacion,
     });
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
