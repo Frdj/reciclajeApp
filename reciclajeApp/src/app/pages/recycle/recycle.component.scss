@@ -19,7 +19,29 @@
   transition: 0.5s;
   border-radius: 5%;
 }
+.miBtn
+{
+  width: 170px;
+  margin-top: 75px;
+  background-color: white ;
+  border: 2px solid beige;
+  border-radius: 10%;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  border-bottom: 5px solid  #00c853 ;
+}
+.miBtn:hover{
+  background-color: #00c853 ;
+  color:white;
+}
 
+.centered{
+  align-self: center;
+  justify-self: center;
+  text-justify: center;
+  justify-content: center;
+  margin-left: 15px;
+}
 .seccion div img:hover {
   transform: scale(1.07, 1.07);
 }
