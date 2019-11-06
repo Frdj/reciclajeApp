@@ -55,7 +55,6 @@ export class InformationComponent implements OnInit {
     }
   }
 
-
   buscar(valor: string) {
     if (valor.length === 0) {
       this.aux = this.informacion;
@@ -66,8 +65,30 @@ export class InformationComponent implements OnInit {
     }
   }
 
-  filtrar(event) {
-    console.log(event.target.textContent);
+  filtrar(material) {
+    switch (material) {
+      case 'Vidrio':
+        this.filtrarResiduosPorMaterial(1);
+        break;
+      case 'Cartón':
+        this.filtrarResiduosPorMaterial(2);
+        break;
+      case 'Metal':
+        this.filtrarResiduosPorMaterial(3);
+        break;
+      case 'Papel':
+        this.filtrarResiduosPorMaterial(4);
+        break;
+      case 'Plástico':
+        this.filtrarResiduosPorMaterial(5);
+        break;
+      default:
+        break;
+    }
+  }
+
+  filtrarResiduosPorMaterial(idMaterial: number) {
+    this.aux = this.informacion.filter((material: Material) => material.idMaterial === idMaterial);
   }
 
   cambiarCantidad(cantidad: number, material: Material) {

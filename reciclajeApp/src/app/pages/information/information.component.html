@@ -1,15 +1,15 @@
 <form [ngClass]="{'margen-b': !publicar}">
     <div class="fadeIn" *ngIf="!loading">
         <mat-form-field class="container">
-            <input matInput (keyup)="buscar(buscador.value)" #buscador placeholder="Buscar material...">
+            <input matInput (keyup)="buscar(buscador.value)" #buscador placeholder="Buscar residuo...">
         </mat-form-field>
 
         <mat-chip-list>
-            <mat-chip color="primary" selected (click)="filtrar($event)">Plástico</mat-chip>
-            <mat-chip color="primary" selected (click)="filtrar($event)">Vidrio</mat-chip>
-            <mat-chip color="primary" selected (click)="filtrar($event)">Papel</mat-chip>
-            <mat-chip color="primary" selected (click)="filtrar($event)">Cartón</mat-chip>
-            <mat-chip color="primary" selected (click)="filtrar($event)">Metal</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar('Plástico')">Plástico</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar('Vidrio')">Vidrio</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar('Papel')">Papel</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar('Cartón')">Cartón</mat-chip>
+            <mat-chip color="primary" selected (click)="filtrar('Metal')">Metal</mat-chip>
         </mat-chip-list>
 
         <!-- Para pantalla 'Informate' -->
