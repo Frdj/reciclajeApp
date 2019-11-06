@@ -74,7 +74,7 @@ export class InformationComponent implements OnInit {
     if (!material.cantidad) {
       material.cantidad = 0;
     }
-    if (material.cantidad < 0 && cantidad < 0) {
+    if (material.cantidad <= 0 && cantidad < 0) {
       material.cantidad = 0;
       return;
     }

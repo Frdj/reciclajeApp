@@ -43,7 +43,8 @@
 
                             <!-- Botones -->
                             <div class="d-flex justify-content-center">
-                                <button mat-mini-fab (click)="cambiarCantidad(-1, item)">
+                                <button mat-mini-fab (click)="cambiarCantidad(-1, item)"
+                                    [disabled]="item.cantidad <= 0">
                                     <mat-icon>remove</mat-icon>
                                 </button>
                                 <button mat-mini-fab (click)="cambiarCantidad(1, item)">

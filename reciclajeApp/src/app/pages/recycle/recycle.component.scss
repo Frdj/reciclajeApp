@@ -19,25 +19,25 @@
   transition: 0.5s;
   border-radius: 5%;
 }
-.miBtn
-{
+.miBtn {
+  display: flex;
+  align-items: center;
   width: 40%;
   font-size: 13px;
   margin-top: 75px;
-  background-color: white ;
+  background-color: white;
   border: 2px solid beige;
   border-radius: 10%;
   border-bottom-left-radius: 0%;
   border-bottom-right-radius: 0%;
-  border-bottom: 5px solid  #00c853 ;
+  border-bottom: 5px solid #00c853;
 }
-.miBtn:hover{
-  background-color: #00c853 ;
-  color:white;
+.miBtn:hover {
+  background-color: #00c853;
+  color: white;
 }
 
-.centered{
-
+.centered {
 }
 .seccion div img:hover {
   transform: scale(1.07, 1.07);
