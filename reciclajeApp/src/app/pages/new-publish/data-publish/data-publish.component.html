@@ -19,7 +19,7 @@
                   <mat-form-field class="example-full-width p-1">
                           <input type="text" placeholder="Av. Corrientes 4512" name="adress" [(ngModel)]="address" aria-label="Text" matInput [matAutocomplete]="auto">
                           <mat-autocomplete #auto="matAutocomplete">
-                              <mat-option *ngFor="let address of addresess" [value]="option">
+                              <mat-option *ngFor="let address of addresess" [value]="address">
                                   {{address}}
                               </mat-option>
                           </mat-autocomplete>
@@ -59,7 +59,7 @@
                       <div>
                         <button mat-button matStepperPrevious>¡Quiero cambiar los días!</button>
                         <button mat-flat-button matStepperNext>Listo!</button>
-                        <button mat-mini-fab style="margin-left: 15px;" (click)="addFranja(i)" color="accent" class="btn-sm">
+                        <button mat-mini-fab style="margin-left: 15px;" (click)="addFranja()" color="accent" class="btn-sm">
                             <i class="material-icons m-a-sm">
                             add
                         </i>
