@@ -47,6 +47,8 @@ import { RetiroDetailComponent } from './pages/retirar/retiro-detail/retiro-deta
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { DataPublishComponent } from './pages/new-publish/data-publish/data-publish.component';
+import { AwardsComponent } from './pages/awards/awards.component';
+import { AwardsCardsComponent } from './components/awards-cards/awards-cards.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { DataPublishComponent } from './pages/new-publish/data-publish/data-publ
     MaterialDetailComponent,
     ImagenPipe,
     RetiroDetailComponent,
-    DataPublishComponent
+    DataPublishComponent,
+    AwardsComponent,
+    AwardsCardsComponent
   ],
   imports: [
     HttpClientModule,

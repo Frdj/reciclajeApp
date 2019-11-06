@@ -9,6 +9,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DataPublishComponent } from './pages/new-publish/data-publish/data-publish.component';
+import { AwardsComponent } from './pages/awards/awards.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'information', component: InformationComponent, canActivate: [AuthGuard] },
   { path: 'recycle', component: RecycleComponent, canActivate: [AuthGuard] },
   { path: 'ofrecer', component: NewPublishComponent, canActivate: [AuthGuard] },
+  { path: 'awards', component: AwardsComponent, canActivate: [AuthGuard] },
   {
     path: 'dataPublish', component: DataPublishComponent, canActivate: [AuthGuard]
   },

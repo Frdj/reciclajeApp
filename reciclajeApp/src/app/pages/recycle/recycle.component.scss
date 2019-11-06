@@ -21,7 +21,8 @@
 }
 .miBtn
 {
-  width: 170px;
+  width: 40%;
+  font-size: 13px;
   margin-top: 75px;
   background-color: white ;
   border: 2px solid beige;
@@ -36,11 +37,7 @@
 }
 
 .centered{
-  align-self: center;
-  justify-self: center;
-  text-justify: center;
-  justify-content: center;
-  margin-left: 15px;
+
 }
 .seccion div img:hover {
   transform: scale(1.07, 1.07);
