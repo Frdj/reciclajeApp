@@ -144,9 +144,9 @@ namespace ReciclajeApi.Business.Coordinators
 
             //var publicacion = mapper.Map<Publicacion>(publicacionRequestApiModel);
 
-            
+            var publicacion = FormatearPublicacionRequest(publicacionRequestApiModel);
 
-            ValidarPublicacion(publicacion);
+            //ValidarPublicacion(publicacion);
 
             return publicacionDao.CrearPublicacion(publicacion);
         }
@@ -201,6 +201,23 @@ namespace ReciclajeApi.Business.Coordinators
             }
 
             return publiApiModel;
+        }
+
+        private Publicacion FormatearPublicacionRequest(PublicacionRequestApiModel publicacionRequestApi){
+            
+            var publicacion = new Publicacion();
+
+            publicacion.IdPublicacion = publicacionRequestApi.IdPublicacion;
+            publicacion.IdUsuarioP = publicacionRequestApi.IdUsuarioP;
+            publicacion.NuDireccion = publicacionRequestApi.NuDireccion;
+            publicacion.FechaPublicacion = publicacionRequestApi.FechaPublicacion;
+            publicacion.Estado.IdEstado = publicacionRequestApi.Estado.IdEstado;
+            publicacion.Estado.Descripcion = publicacionRequestApi.Estado.Descripcion;
+            publicacion.DiasDisponibles = publicacionRequestApi.DiasDisponibles;
+            publicacion.HorarioDisponible = publicacionRequestApi.HorarioDisponible;
+            publicacion.IdMetodo = publicacionRequestApi.IdDetalle;
+
+            return publicacion;            
         }
     }
 }

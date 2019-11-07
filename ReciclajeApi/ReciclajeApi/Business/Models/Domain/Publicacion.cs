@@ -12,7 +12,7 @@ namespace ReciclajeApi.Business.Models.Domain
 
         public DateTime FechaPublicacion { get; set; }
 
-        public int Estado { get; set; }
+        public Estado Estado { get; set; }
 
         public string DiasDisponibles { get; set; }
 

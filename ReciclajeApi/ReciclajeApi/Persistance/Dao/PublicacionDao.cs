@@ -71,7 +71,7 @@ namespace ReciclajeApi.Persistance.Dao
                 IdUsuarioP = publicacion.IdUsuarioP,
                 NuDireccion = publicacion.NuDireccion,
                 FechaPublicacion = publicacion.FechaPublicacion,
-                Estado = publicacion.Estado,
+                Estado = publicacion.Estado.IdEstado,
                 DiasDisponibles = publicacion.DiasDisponibles,
                 HorarioDisponible = publicacion.HorarioDisponible,
                 IdMetodo = publicacion.IdMetodo

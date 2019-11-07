@@ -16,7 +16,7 @@ namespace ReciclajeApi.Business.Models.ApiModels{
 
         public DateTime FechaPublicacion {get; set;}
 
-        public string Estado {get; set;}
+        public EstadoApiModel Estado {get; set;}
 
         public string DiasDisponibles {get; set;}
 
