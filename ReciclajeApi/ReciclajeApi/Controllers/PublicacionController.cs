@@ -85,11 +85,11 @@ namespace ReciclajeApi.Controllers
         }
 
         [HttpPost("publicaciones")]
-        public ActionResult<bool> CrearPublicacion(PublicacionApiModel publicacionApiModel)
+        public ActionResult<bool> CrearPublicacion(PublicacionRequestApiModel publicacionRequestApiModel)
         {
             try
             {
-                var result = publicacionCoordinator.CrearPublicacion(publicacionApiModel);
+                var result = publicacionCoordinator.CrearPublicacion(publicacionRequestApiModel);
                 return StatusCode(200, result);
             }
             catch (Exception e)

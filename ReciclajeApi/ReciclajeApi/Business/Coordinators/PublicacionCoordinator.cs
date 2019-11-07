@@ -135,14 +135,14 @@ namespace ReciclajeApi.Business.Coordinators
             return emailService.EnviarMail("ReciclajeAPP - Te reservaron tu publicación", usuario.Email, "Estimado/a,<br>Reservaron tu publicación");
         }
 
-        public bool CrearPublicacion(PublicacionApiModel publicacionApiModel)
+        public bool CrearPublicacion(PublicacionRequestApiModel publicacionRequestApiModel)
         {
-            if (publicacionApiModel != null)
+            if (publicacionRequestApiModel != null)
             {
                 throw new Exception();
             }
 
-            var publicacion = mapper.Map<Publicacion>(publicacionApiModel);
+            var publicacion = mapper.Map<Publicacion>(publicacionRequestApiModel);
 
             ValidarPublicacion(publicacion);
 
