@@ -61,25 +61,20 @@ namespace ReciclajeApi.Persistance.Dao
 
         public bool CrearPublicacion(Publicacion publicacion)
         {
-            var query = @"INSERT INTO publicaciones 
-                        VALUES (IdUsuarioP = @IdUsuarioP, NuDireccion = @NuDireccion, IdTipoResiduo = @IdTipoResiduo, 
-                            IdCategoriaResiduo = @IdCategoriaResiduo, Cantidad = @Cantidad, Medida = @Medida, FechaPublicacion = @FechaPublicacion,
-                            Estado = @Estado, DiasDisponibles = @DiasDisponibles, HorarioDisponible = @HorarioDisponible, IdUsuarioR = @IdUsuarioR, FechaRetiro = @FechaRetiro)";
+            var query = @"INSERT INTO publicaciones
+                            VALUES (IdUsuarioP = @IdUsuario, NuDireccion = @NuDireccion, FechaPublicacion = @FechaPublicacion
+                            , Estado = @Estado, DiasDisponibles = @DiasDisponibles, HorarioDisponible = @HorarioDisponible
+                            , IdUsuarioR = @IdUsuarioR, FechaRetiro = @FechaRetiro, IdMetodo = @IdMetodo";
 
             return _cnn.Execute(query, new
             {
                 IdUsuarioP = publicacion.IdUsuarioP,
                 NuDireccion = publicacion.NuDireccion,
-                IdTipoResiduo = publicacion.IdTipoResiduo,
-                IdCategoriaResiduo = publicacion.IdCategoriaResiduo,
-                Cantidad = publicacion.Cantidad,
-                Medida = publicacion.Medida,
                 FechaPublicacion = publicacion.FechaPublicacion,
                 Estado = publicacion.Estado,
                 DiasDisponibles = publicacion.DiasDisponibles,
                 HorarioDisponible = publicacion.HorarioDisponible,
-                IdUsuarioR = "null",
-                FechaRetiro = "null"
+                IdMetodo = publicacion.IdMetodo
             }) > 0;
         }
     }
