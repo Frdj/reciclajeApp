@@ -10,14 +10,6 @@ namespace ReciclajeApi.Business.Models.Domain
 
         public int NuDireccion { get; set; }
 
-        public int IdTipoResiduo { get; set; }
-
-        public int IdCategoriaResiduo { get; set; }
-
-        public int Cantidad { get; set; }
-
-        public string Medida { get; set; }
-
         public DateTime FechaPublicacion { get; set; }
 
         public int Estado { get; set; }
@@ -26,8 +18,10 @@ namespace ReciclajeApi.Business.Models.Domain
 
         public string HorarioDisponible { get; set; }
 
-        public int? IdUruarioR { get; set; }
+        public int? IdUsuarioR { get; set; }
 
         public DateTime? FechaRetiro { get; set; }
+
+        public int? IdMetodo {get; set;}
     }
 }

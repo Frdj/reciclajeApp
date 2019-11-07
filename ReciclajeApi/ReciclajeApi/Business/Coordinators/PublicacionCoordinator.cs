@@ -137,12 +137,14 @@ namespace ReciclajeApi.Business.Coordinators
 
         public bool CrearPublicacion(PublicacionRequestApiModel publicacionRequestApiModel)
         {
-            if (publicacionRequestApiModel != null)
+            if (publicacionRequestApiModel == null)
             {
                 throw new Exception();
             }
 
-            var publicacion = mapper.Map<Publicacion>(publicacionRequestApiModel);
+            //var publicacion = mapper.Map<Publicacion>(publicacionRequestApiModel);
+
+            
 
             ValidarPublicacion(publicacion);
 
