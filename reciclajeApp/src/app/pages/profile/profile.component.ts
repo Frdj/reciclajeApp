@@ -4,7 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Usuario } from 'src/app/models/Usuario';
 import { MescelaneasService } from '../../services/mescelaneas.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DirecComponent } from './direc/direc.component';
+//import { DirecComponent } from './direc/direc.component';
 
 @Component({
   selector: 'app-profile',

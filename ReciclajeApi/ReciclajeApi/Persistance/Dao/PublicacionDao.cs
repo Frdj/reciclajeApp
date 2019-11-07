@@ -38,6 +38,13 @@ namespace ReciclajeApi.Persistance.Dao
             return _cnn.Query<Publicacion>(query, new { IdUsuario = idUsuario }).ToList();
         }
 
+        public IEnumerable<PublicacionDetalle> ObtenerPublicacionDetalle(int IdPublicacion)
+        {
+            var query = "SELECT * FROM publicacion_detalle WHERE idPublicacion = @IdPublicacion";
+
+            return _cnn.Query<PublicacionDetalle>(query, new { @IdPublicacion = IdPublicacion }).ToList();
+        }
+
         public bool AceptarOferta(int idPublicacion, int idUsuario)
         {
             var query = "UPDATE publicaciones SET IdUsuarioR = @IdUsuarioR, Estado = @Estado, FechaRetiro = @FechaRetiro WHERE IdPublicacion = @IdPublicacion";

@@ -49,6 +49,7 @@ namespace ReciclajeApi
             services.AddTransient<ISecureService, SecureService>();
             services.AddTransient<ISecureDao, SecureDao>();
             services.AddTransient<IEmailService, EmailService>();
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
