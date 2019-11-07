@@ -29,6 +29,6 @@ export class NavbarComponent implements OnInit {
  
 
   rutaPermitida(): boolean {
-    return this.currentUrl.includes('/recycle') || this.currentUrl.includes('/retirar') || this.currentUrl.includes('/ofrecer');
+    return this.currentUrl.includes('/recycle') || this.currentUrl.includes('/retirar') || this.currentUrl.includes('/ofrecer') || this.currentUrl.includes('/dataPublish');
   }
 }

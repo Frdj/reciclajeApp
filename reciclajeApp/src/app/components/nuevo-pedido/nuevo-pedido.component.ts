@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { RouterLink, Router, NavigationStart } from '@angular/router';
 import { MescelaneasService } from '../../services/mescelaneas.service';
 
 @Component({
@@ -8,9 +8,18 @@ import { MescelaneasService } from '../../services/mescelaneas.service';
   styleUrls: ['./nuevo-pedido.component.scss']
 })
 export class NuevoPedidoComponent implements OnInit {
+  currentUrl: string;
+  constructor(
+    private misce: MescelaneasService,
+    public router: Router
+  ) {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationStart) {
+        this.currentUrl = event.url;
+      }
+    });
 
-  constructor(private misce: MescelaneasService) { }
-
+  }
   ngOnInit() {
   }
 redirigir(page: string){

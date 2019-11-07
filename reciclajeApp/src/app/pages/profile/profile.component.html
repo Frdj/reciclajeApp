@@ -1,4 +1,5 @@
-<div class="bloque">
+<form class="mb-nav">
+    <div class="bloque">
     <div class="avatar">
         <img [src]="usuario | imagen | safeHtml">
     </div>
@@ -13,9 +14,14 @@
         <input matInput readonly="true" readonly="true" placeholder="Email" [value]="usuario.email">
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-        <input matInput readonly="true" placeholder="Dirección" value="Lima 775">
+    
+    <mat-form-field >
+        <div class=" ml-1 row p-0">
+        <input matInput class="c-70" readonly="true" placeholder="Dirección" value="Lima 775">
+        <button mat-button class="c-30" (click)="openModal()">  <mat-icon>add</mat-icon></button>
+    </div>
     </mat-form-field>
+
 
     <mat-form-field class="example-full-width">
         <input matInput readonly="true" placeholder="Localidad" value="CABA">
@@ -34,4 +40,6 @@
 
 
 </form>
+
 <app-loading *ngIf="loading"></app-loading>
+</form>

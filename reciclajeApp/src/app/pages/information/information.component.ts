@@ -105,7 +105,7 @@ export class InformationComponent implements OnInit {
       // Se construye la clase Publicación con algunas propiedades, el resto de las propiedades
       // se van a agregar en la pantalla data-publish
       this.publicacion.residuos.push(material);
-      this.publicacion.usuarioP = parseInt(localStorage.getItem('idUsuario'), 10);
+      this.publicacion.idUsuarioP = parseInt(localStorage.getItem('idUsuario'), 10);
       this.publicacion.fechaPublicacion = new Date();
     }
   }

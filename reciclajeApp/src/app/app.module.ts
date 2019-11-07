@@ -46,6 +46,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
 import { RetiroDetailComponent } from './pages/retirar/retiro-detail/retiro-detail.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
 import { DataPublishComponent } from './pages/new-publish/data-publish/data-publish.component';
 import { AwardsComponent } from './pages/awards/awards.component';
 import { AwardsCardsComponent } from './components/awards-cards/awards-cards.component';
@@ -71,7 +72,7 @@ import { AwardsCardsComponent } from './components/awards-cards/awards-cards.com
     RetiroDetailComponent,
     DataPublishComponent,
     AwardsComponent,
-    AwardsCardsComponent
+    AwardsCardsComponent,
   ],
   imports: [
     HttpClientModule,

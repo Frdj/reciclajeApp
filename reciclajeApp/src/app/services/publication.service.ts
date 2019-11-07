@@ -26,6 +26,14 @@ export class PublicationService {
     this.publicacionAnnouncedSource.next(publicacion);
   }
 
+  createPublication(publicacion: Publicacion){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      });
+    let body = JSON.stringify(publicacion);
+    return this.httpClient.post(`${this.miscelaneas.getURL()}/api/publicaciones`, body, {headers})
+  }
+  
   reserve(idUser: number, idPublic: number){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',

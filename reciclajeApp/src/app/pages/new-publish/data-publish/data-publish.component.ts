@@ -47,7 +47,7 @@ export class DataPublishComponent implements OnInit {
       console.log(residuos);
       this.publicacion.residuos = residuos.residuos;
       this.publicacion.fechaPublicacion = residuos.fechaPublicacion;
-      this.publicacion.usuarioP = residuos.usuarioP;
+      this.publicacion.idUsuarioP = residuos.idUsuarioP;
 
     });
   }
@@ -57,14 +57,16 @@ export class DataPublishComponent implements OnInit {
 
   finalizar() {
     //   this.loading = true;
-    this.publicacion.direccion = 1;
+    this.publicacion.NuDireccion = 1;
     this.publicacion.idDetalle = this.retiro;
     this.publicacion.horarioDisponible = '';
     this.franjas.forEach(horario => { let horas = horario.dsd + ' - ' + horario.hst + ' | '; this.publicacion.horarioDisponible += horas })
     //this.publicacion.fotos = ['foto','foto','foto','foto','foto',]
-    this.publicacion.diasDisponibles = this.diasDisponible;
+    this.publicacion.DiasDisponibles = 'lunes - sabado - domingo'//this.diasDisponible;
 
     console.log(this.publicacion)
+    this.publicacionService.createPublication(this.publicacion).subscribe(res => console.log(res));
+
   }
 
   agregaDia(dia: number) {

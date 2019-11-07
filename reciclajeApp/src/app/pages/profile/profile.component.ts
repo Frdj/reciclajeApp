@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { Usuario } from 'src/app/models/Usuario';
 import { MescelaneasService } from '../../services/mescelaneas.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DirecComponent } from './direc/direc.component';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +18,9 @@ export class ProfileComponent implements OnInit {
   constructor(
     private userService: UserService,
     private misce: MescelaneasService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog,
+
   ) {
     this.userService.getPerfil(+localStorage.getItem('idUsuario'))
       .subscribe((usuario: Usuario) => {
@@ -33,6 +37,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
   logout() {
     this.userService.logout();
